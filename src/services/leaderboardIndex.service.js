@@ -4,40 +4,82 @@ const path = require("path");
 const {
   normalizedTournamentResultsDirPath,
   normalizedTournamentResultsPath,
-  normalizedTournamentResultsPlayerIndexPath
+  normalizedTournamentResultsPlayerIndexPath,
+  normalizedTournamentResultsTrackedPlayerIndexPath
 } = require("../storage/paths.js");
 const {
   loadNormalizedData,
   saveNormalizedData
 } = require("../storage/normalizedStore.js");
+const { loadConfigData } = require("../storage/configStore.js");
 const { logDebug } = require("../utils/logger.js");
+
+const TEAM_CONFIG_PATH = "config/team.json";
 
 async function findPlayerResultInLocation(resolvedLocation, playerId) {
   if (!resolvedLocation || !playerId) {
     return null;
   }
 
-  const indexPath = normalizedTournamentResultsPlayerIndexPath(resolvedLocation);
+  const indexPath = normalizedTournamentResultsTrackedPlayerIndexPath(resolvedLocation);
   const indexAbsolutePath = toDataAbsolutePath(indexPath);
-  const cachedIndex = (await fs.pathExists(indexAbsolutePath))
-    ? await loadNormalizedData(indexPath)
-    : null;
 
-  if (isObject(cachedIndex?.players)) {
-    return cachedIndex.players[playerId] || null;
+  if (!(await fs.pathExists(indexAbsolutePath))) {
+    return null;
   }
 
-  const rebuiltIndex = await rebuildLeaderboardPlayerIndex(resolvedLocation);
-  return rebuiltIndex?.players?.[playerId] || null;
+  const cachedIndex = await loadNormalizedData(indexPath);
+
+  if (!isObject(cachedIndex?.players)) {
+    return null;
+  }
+
+  return cachedIndex.players[playerId] || null;
 }
 
-async function rebuildLeaderboardPlayerIndex(resolvedLocation) {
-  const pageNumbers = await resolveLeaderboardPageNumbers(resolvedLocation);
+async function rebuildLeaderboardPlayerIndex(resolvedLocation, options = {}) {
+  const pageNumbers = normalizePageNumbers(options.pageNumbers);
+
+  return buildTrackedLeaderboardPlayerIndex(
+    resolvedLocation,
+    pageNumbers.length > 0 ? pageNumbers : null
+  );
+}
+
+async function invalidateLeaderboardPlayerIndex(resolvedLocation) {
+  const candidatePaths = [
+    normalizedTournamentResultsTrackedPlayerIndexPath(resolvedLocation),
+    normalizedTournamentResultsPlayerIndexPath(resolvedLocation)
+  ];
+
+  for (const candidatePath of candidatePaths) {
+    const absolutePath = toDataAbsolutePath(candidatePath);
+
+    if (await fs.pathExists(absolutePath)) {
+      await fs.remove(absolutePath);
+    }
+  }
+}
+
+async function loadTrackedPlayerIds() {
+  const playerConfig = await loadConfigData(TEAM_CONFIG_PATH);
+
+  return [...new Set(
+    (playerConfig?.players || [])
+      .map((player) => player?.accountId)
+      .filter(Boolean)
+  )];
+}
+
+async function buildTrackedLeaderboardPlayerIndex(resolvedLocation, providedPageNumbers = null) {
+  const pageNumbers = providedPageNumbers || await resolveLeaderboardPageNumbers(resolvedLocation);
 
   if (pageNumbers.length === 0) {
     return null;
   }
 
+  const trackedPlayerIds = await loadTrackedPlayerIds();
+  const trackedPlayerIdSet = new Set(trackedPlayerIds);
   const players = {};
   let pagesLoaded = 0;
 
@@ -53,46 +95,44 @@ async function rebuildLeaderboardPlayerIndex(resolvedLocation) {
     pagesLoaded += 1;
 
     for (const entry of results.results) {
-      for (const accountId of entry.accountIds || []) {
-        if (accountId && !players[accountId]) {
-          players[accountId] = entry;
+      const entryAccountIds = Array.isArray(entry.accountIds) ? entry.accountIds : [];
+      const matchingAccountIds = entryAccountIds.filter((accountId) => {
+        return accountId && trackedPlayerIdSet.has(accountId);
+      });
+
+      if (matchingAccountIds.length === 0) {
+        continue;
+      }
+
+      const summary = summarizeTrackedPlayerEntry(entry);
+
+      for (const accountId of matchingAccountIds) {
+        if (!players[accountId]) {
+          players[accountId] = summary;
         }
       }
     }
   }
 
-  if (pagesLoaded === 0) {
-    return null;
-  }
-
   const payload = {
     resolvedLocation,
     pagesLoaded,
-    totalPlayers: Object.keys(players).length,
+    trackedPlayersCount: trackedPlayerIds.length,
+    trackedPlayersFound: Object.keys(players).length,
     players
   };
 
   await saveNormalizedData(
     payload,
-    normalizedTournamentResultsPlayerIndexPath(resolvedLocation)
+    normalizedTournamentResultsTrackedPlayerIndexPath(resolvedLocation)
   );
 
   logDebug(
-    `Index joueurs reconstruit ${resolvedLocation} pages=${pagesLoaded} players=${payload.totalPlayers}`,
+    `Index tracked reconstruit ${resolvedLocation} pages=${pagesLoaded} tracked=${payload.trackedPlayersFound}/${payload.trackedPlayersCount}`,
     "LeaderboardIndex"
   );
 
   return payload;
-}
-
-async function invalidateLeaderboardPlayerIndex(resolvedLocation) {
-  const absolutePath = toDataAbsolutePath(
-    normalizedTournamentResultsPlayerIndexPath(resolvedLocation)
-  );
-
-  if (await fs.pathExists(absolutePath)) {
-    await fs.remove(absolutePath);
-  }
 }
 
 async function resolveLeaderboardPageNumbers(resolvedLocation) {
@@ -104,11 +144,13 @@ async function resolveLeaderboardPageNumbers(resolvedLocation) {
     return [];
   }
 
-  const firstPage = await loadNormalizedData(
-    firstPagePath
-  );
+  const firstPage = await loadNormalizedData(firstPagePath);
 
-  if (isObject(firstPage) && typeof firstPage.totalPages === "number" && firstPage.totalPages > 0) {
+  if (
+    isObject(firstPage) &&
+    typeof firstPage.totalPages === "number" &&
+    firstPage.totalPages > 0
+  ) {
     for (let page = 0; page < firstPage.totalPages; page += 1) {
       const pagePath = toDataAbsolutePath(
         normalizedTournamentResultsPath(resolvedLocation, page)
@@ -139,6 +181,33 @@ async function resolveLeaderboardPageNumbers(resolvedLocation) {
   return [...pageNumbers].sort((left, right) => left - right);
 }
 
+function summarizeTrackedPlayerEntry(entry) {
+  return {
+    rank: entry?.rank ?? null,
+    points: entry?.points ?? 0,
+    kills: entry?.kills ?? 0,
+    top15s: entry?.top15s ?? 0,
+    top5s: entry?.top5s ?? 0,
+    wins: entry?.wins ?? 0,
+    nbGamesPlayed: entry?.nbGamesPlayed ?? 0,
+    teamAccountId: entry?.teamAccountId || null,
+    accountIds: Array.isArray(entry?.accountIds) ? entry.accountIds : [],
+    names: Array.isArray(entry?.names) ? entry.names : []
+  };
+}
+
+function normalizePageNumbers(pageNumbers) {
+  if (!Array.isArray(pageNumbers)) {
+    return [];
+  }
+
+  return [...new Set(
+    pageNumbers
+      .map((pageNumber) => Number(pageNumber))
+      .filter((pageNumber) => Number.isInteger(pageNumber) && pageNumber >= 0)
+  )].sort((left, right) => left - right);
+}
+
 function toDataAbsolutePath(relativePath) {
   return path.join(__dirname, "../../data", relativePath);
 }
@@ -150,5 +219,6 @@ function isObject(value) {
 module.exports = {
   findPlayerResultInLocation,
   rebuildLeaderboardPlayerIndex,
-  invalidateLeaderboardPlayerIndex
+  invalidateLeaderboardPlayerIndex,
+  loadTrackedPlayerIds
 };

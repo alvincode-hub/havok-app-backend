@@ -96,6 +96,8 @@ async function getPlayerTop(resolvedLocation, page = 0) {
     const client = await login();
     const [appId, ...segments] = resolvedLocation.split(":");
     const scoreId = segments.join("/");
+    const cache = await loadPlayerNamesCache();
+
     const url = `https://events-public-service-live.ol.epicgames.com/api/v1/leaderboards/${appId}/${scoreId}/${client.user.self.id}?page=${page}&rank=0&teamAccountIds=&appId=Fortnite&showLiveSessions=false`;
 
     const leaderboard = await client.http.epicgamesRequest({ method: "GET", url }, "fortnite");

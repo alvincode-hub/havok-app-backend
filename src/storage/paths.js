@@ -58,6 +58,13 @@ function normalizedTournamentResultsPlayerIndexPath(resolvedLocation) {
   );
 }
 
+function normalizedTournamentResultsTrackedPlayerIndexPath(resolvedLocation) {
+  return path.join(
+    normalizedTournamentResultsDirPath(resolvedLocation),
+    "_tracked-player-index.json"
+  );
+}
+
 function rawPlayerPath(playerNameOrId) {
   return path.join("raw", "players", `${safeName(playerNameOrId)}.json`);
 }
@@ -125,6 +132,7 @@ module.exports = {
   normalizedTournamentResultsDirPath,
   normalizedTournamentResultsPath,
   normalizedTournamentResultsPlayerIndexPath,
+  normalizedTournamentResultsTrackedPlayerIndexPath,
   rawPlayerPath,
   normalizedPlayerPath,
   rawTournamentScoreRulesPath,

@@ -11,7 +11,8 @@ const {
 const { normalizeTournamentsResults } = require("../normalizers/normalize.tournaments.results.js");
 const {
   rebuildLeaderboardPlayerIndex,
-  invalidateLeaderboardPlayerIndex
+  invalidateLeaderboardPlayerIndex,
+  loadTrackedPlayerIds
 } = require("../services/leaderboardIndex.service.js");
 const {
   getRequestDecision,
@@ -83,16 +84,41 @@ async function updateLeaderboardWindow(resolvedLocation, source, options = {}) {
     };
   }
 
+  const trackedPlayerIds = await loadTrackedPlayerIds();
+  const pageNumbersSaved = [0];
+  const totalPages = getTotalPagesFromLeaderboard(firstPage);
+  const foundTrackedPlayers = collectTrackedPlayerIds(firstPage.cleanResults, trackedPlayerIds);
+
+  for (
+    let page = 1;
+    page < totalPages && foundTrackedPlayers.size < trackedPlayerIds.length;
+    page += 1
+  ) {
+    const nextPage = await saveLeaderboardPageSafely(resolvedLocation, page, source, startedAt);
+
+    if (nextPage.status !== "ok") {
+      break;
+    }
+
+    pageNumbersSaved.push(page);
+
+    for (const accountId of collectTrackedPlayerIds(nextPage.cleanResults, trackedPlayerIds)) {
+      foundTrackedPlayers.add(accountId);
+    }
+  }
+
   await markRequestSuccess(resolvedLocation, {
     source,
     freshnessTtlMs: options.freshnessTtlMs
   });
   await invalidateLeaderboardPlayerIndex(resolvedLocation);
-  await rebuildLeaderboardPlayerIndex(resolvedLocation);
+  await rebuildLeaderboardPlayerIndex(resolvedLocation, {
+    pageNumbers: pageNumbersSaved
+  });
 
   return {
     status: "ok",
-    pagesSaved: 1,
+    pagesSaved: pageNumbersSaved.length,
     cacheUsed: false,
     reason: null
   };
@@ -126,7 +152,8 @@ async function saveLeaderboardPageSafely(resolvedLocation, page, source, started
 
     return {
       status: "ok",
-      rawResults
+      rawResults,
+      cleanResults
     };
   } catch (error) {
     if (isHttpStatus(error, 403)) {
@@ -172,6 +199,40 @@ async function saveLeaderboardPageSafely(resolvedLocation, page, source, started
       error
     };
   }
+}
+
+function getTotalPagesFromLeaderboard(savedPage) {
+  const rawTotalPages = Number(savedPage?.rawResults?.totalPages);
+  const normalizedTotalPages = Number(savedPage?.cleanResults?.totalPages);
+
+  if (Number.isInteger(rawTotalPages) && rawTotalPages > 0) {
+    return rawTotalPages;
+  }
+
+  if (Number.isInteger(normalizedTotalPages) && normalizedTotalPages > 0) {
+    return normalizedTotalPages;
+  }
+
+  return 1;
+}
+
+function collectTrackedPlayerIds(resultsPage, trackedPlayerIds) {
+  if (!Array.isArray(resultsPage?.results) || trackedPlayerIds.length === 0) {
+    return new Set();
+  }
+
+  const trackedPlayerIdSet = new Set(trackedPlayerIds);
+  const foundTrackedPlayers = new Set();
+
+  for (const entry of resultsPage.results) {
+    for (const accountId of entry?.accountIds || []) {
+      if (trackedPlayerIdSet.has(accountId)) {
+        foundTrackedPlayers.add(accountId);
+      }
+    }
+  }
+
+  return foundTrackedPlayers;
 }
 
 function maybeLogForbiddenWindow(resolvedLocation, page, source) {
