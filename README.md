@@ -143,3 +143,4 @@ Then copy the `authorizationCode` and use it in the server.
 - The `.env` file must never be pushed to GitHub.
 - The `deviceAuth.json` file must never be pushed to GitHub.
 - Final endpoints can be changed depending on the mobile app needs.
+- More documentation on /docs/.

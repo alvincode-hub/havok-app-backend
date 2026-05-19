@@ -1,5 +1,10 @@
 const {
   getDashboardPayload,
+  getDashboardOverview,
+  getDashboardEvents,
+  getDashboardEventDetail,
+  getDashboardContent,
+  getDashboardConfig,
   getDashboardStatus,
   getDashboardTeamConfig,
   updateDashboardTeamConfig,
@@ -13,135 +18,134 @@ const {
 } = require("../services/dashboard.service.js");
 const { logError } = require("../utils/logger.js");
 
-async function getDashboardController(req, res) {
-  try {
-    const payload = await getDashboardPayload();
-    res.json(payload);
-  } catch (error) {
-    logError("Construction du payload dashboard impossible", "DashboardController", error);
-    res.status(500).json({ error: "Erreur lors de la construction du dashboard." });
-  }
+function createReadController(action, errorMessage, options = {}) {
+  const { notFoundMessage = "" } = options;
+
+  return async function dashboardReadController(req, res) {
+    try {
+      const payload = await action(req);
+
+      if (payload === null && notFoundMessage) {
+        return res.status(404).json({ error: notFoundMessage });
+      }
+
+      return res.json(payload);
+    } catch (error) {
+      logError(errorMessage, "DashboardController", error);
+      return res.status(500).json({ error: `Erreur lors de ${errorMessage.toLowerCase()}.` });
+    }
+  };
 }
 
-async function getDashboardStatusController(req, res) {
-  try {
-    const payload = await getDashboardStatus();
-    res.json(payload);
-  } catch (error) {
-    logError("Lecture du status dashboard impossible", "DashboardController", error);
-    res.status(500).json({ error: "Erreur lors de la lecture du status dashboard." });
-  }
+function createUpdateController(action, successMessage, errorMessage) {
+  return async function dashboardUpdateController(req, res) {
+    try {
+      const config = await action(req.body);
+
+      return res.json({
+        ok: true,
+        message: successMessage,
+        config
+      });
+    } catch (error) {
+      logError(errorMessage, "DashboardController", error);
+      return res.status(400).json({ error: error.message || `Erreur lors de ${errorMessage.toLowerCase()}.` });
+    }
+  };
 }
 
-async function getDashboardTeamConfigController(req, res) {
-  try {
-    const config = await getDashboardTeamConfig();
-    res.json(config);
-  } catch (error) {
-    logError("Lecture de la config team impossible", "DashboardController", error);
-    res.status(500).json({ error: "Erreur lors de la lecture de la config team." });
-  }
-}
+const getDashboardController = createReadController(
+  () => getDashboardPayload(),
+  "la construction du dashboard"
+);
 
-async function updateDashboardTeamConfigController(req, res) {
-  try {
-    const config = await updateDashboardTeamConfig(req.body);
-    res.json({
-      ok: true,
-      message: "Config team sauvegardee.",
-      config
-    });
-  } catch (error) {
-    logError("Sauvegarde de la config team impossible", "DashboardController", error);
-    res.status(400).json({ error: error.message || "Erreur lors de la sauvegarde de la config team." });
-  }
-}
+const getDashboardOverviewController = createReadController(
+  () => getDashboardOverview(),
+  "la lecture de l'overview dashboard"
+);
 
-async function getDashboardTournamentFilterController(req, res) {
-  try {
-    const config = await getDashboardTournamentFilter();
-    res.json(config);
-  } catch (error) {
-    logError("Lecture du tournament filter impossible", "DashboardController", error);
-    res.status(500).json({ error: "Erreur lors de la lecture du tournament filter." });
-  }
-}
+const getDashboardEventsController = createReadController(
+  () => getDashboardEvents(),
+  "la lecture des events dashboard"
+);
 
-async function updateDashboardTournamentFilterController(req, res) {
-  try {
-    const config = await updateDashboardTournamentFilter(req.body);
-    res.json({
-      ok: true,
-      message: "Tournament filter sauvegarde.",
-      config
-    });
-  } catch (error) {
-    logError("Sauvegarde du tournament filter impossible", "DashboardController", error);
-    res.status(400).json({ error: error.message || "Erreur lors de la sauvegarde du tournament filter." });
-  }
-}
+const getDashboardEventDetailController = createReadController(
+  (req) => getDashboardEventDetail(req.params.eventId),
+  "la lecture du detail d'event dashboard",
+  { notFoundMessage: "Event introuvable." }
+);
 
-async function getDashboardActuConfigController(req, res) {
-  try {
-    const config = await getDashboardActuConfig();
-    res.json(config);
-  } catch (error) {
-    logError("Lecture de la config actu impossible", "DashboardController", error);
-    res.status(500).json({ error: "Erreur lors de la lecture de la config actu." });
-  }
-}
+const getDashboardContentController = createReadController(
+  () => getDashboardContent(),
+  "la lecture du contenu dashboard"
+);
 
-async function updateDashboardActuConfigController(req, res) {
-  try {
-    const config = await updateDashboardActuConfig(req.body);
-    res.json({
-      ok: true,
-      message: "Actu sauvegardee.",
-      config
-    });
-  } catch (error) {
-    logError("Sauvegarde de la config actu impossible", "DashboardController", error);
-    res.status(400).json({ error: error.message || "Erreur lors de la sauvegarde de la config actu." });
-  }
-}
+const getDashboardConfigController = createReadController(
+  () => getDashboardConfig(),
+  "la lecture de la configuration dashboard"
+);
 
-async function getDashboardCastConfigController(req, res) {
-  try {
-    const config = await getDashboardCastConfig();
-    res.json(config);
-  } catch (error) {
-    logError("Lecture de la config cast impossible", "DashboardController", error);
-    res.status(500).json({ error: "Erreur lors de la lecture de la config cast." });
-  }
-}
+const getDashboardStatusController = createReadController(
+  () => getDashboardStatus(),
+  "la lecture du status dashboard"
+);
 
-async function updateDashboardCastConfigController(req, res) {
-  try {
-    const config = await updateDashboardCastConfig(req.body);
-    res.json({
-      ok: true,
-      message: "Config cast sauvegardee.",
-      config
-    });
-  } catch (error) {
-    logError("Sauvegarde de la config cast impossible", "DashboardController", error);
-    res.status(400).json({ error: error.message || "Erreur lors de la sauvegarde de la config cast." });
-  }
-}
+const getDashboardTeamConfigController = createReadController(
+  () => getDashboardTeamConfig(),
+  "la lecture de la config team"
+);
 
-async function updateCronDashboardController(req, res) {
-  try {
-    const result = await updateAllCron();
-    res.json(result);
-  } catch (error) {
-    logError("Lancement des Cron impossible", "DashboardController", error);
-    res.status(400).json({ error: error.message || "Erreur lors du lancement des Cron." });
-  }
-}
+const updateDashboardTeamConfigController = createUpdateController(
+  updateDashboardTeamConfig,
+  "Config team sauvegardee.",
+  "la sauvegarde de la config team"
+);
 
+const getDashboardTournamentFilterController = createReadController(
+  () => getDashboardTournamentFilter(),
+  "la lecture du tournament filter"
+);
+
+const updateDashboardTournamentFilterController = createUpdateController(
+  updateDashboardTournamentFilter,
+  "Tournament filter sauvegarde.",
+  "la sauvegarde du tournament filter"
+);
+
+const getDashboardActuConfigController = createReadController(
+  () => getDashboardActuConfig(),
+  "la lecture de la config actu"
+);
+
+const updateDashboardActuConfigController = createUpdateController(
+  updateDashboardActuConfig,
+  "Actu sauvegardee.",
+  "la sauvegarde de la config actu"
+);
+
+const getDashboardCastConfigController = createReadController(
+  () => getDashboardCastConfig(),
+  "la lecture de la config cast"
+);
+
+const updateDashboardCastConfigController = createUpdateController(
+  updateDashboardCastConfig,
+  "Config cast sauvegardee.",
+  "la sauvegarde de la config cast"
+);
+
+const updateCronDashboardController = createReadController(
+  () => updateAllCron(),
+  "le lancement des cron"
+);
 
 module.exports = {
   getDashboardController,
+  getDashboardOverviewController,
+  getDashboardEventsController,
+  getDashboardEventDetailController,
+  getDashboardContentController,
+  getDashboardConfigController,
   getDashboardStatusController,
   getDashboardTeamConfigController,
   updateDashboardTeamConfigController,
