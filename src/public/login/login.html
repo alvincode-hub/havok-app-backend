@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Connexion Dashboard</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: #ffffff;
+      color: rgb(0, 0, 0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .login-card {
+      width: 100%;
+      max-width: 380px;
+      background: #ffd8a8;
+      border: 1px solid #000000;
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 24px;
+      text-align: center;
+    }
+
+    .subtitle {
+      margin: 0 0 24px;
+      color: #5a5c5f;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 14px;
+      color: #000000;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 16px;
+      border: 1px solid #000000;
+      border-radius: 10px;
+      background: #ffffff;
+      color: rgb(0, 0, 0);
+      font-size: 15px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #ffffff;
+      color: #000000;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      background: #000000;
+      color: white;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #ffffff;
+      color: #000000;
+    }
+
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .error {
+      display: none;
+      margin-top: 16px;
+      padding: 10px;
+      border-radius: 10px;
+      background: #7f1d1d;
+      color: #fecaca;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .success {
+      display: none;
+      margin-top: 16px;
+      padding: 10px;
+      border-radius: 10px;
+      background: #064e3b;
+      color: #bbf7d0;
+      font-size: 14px;
+      text-align: center;
+    }
+  </style>
+  <script src="/dashboard/login/login.js" defer></script>
+</head>
+
+<body>
+  <div class="login-card">
+    <h1>Dashboard</h1>
+    <p class="subtitle">Connexion administrateur</p>
+
+    <form id="loginForm">
+      <label for="username">Utilisateur</label>
+      <input
+        id="username"
+        name="username"
+        type="text"
+        autocomplete="username"
+        required
+      />
+
+      <label for="password">Mot de passe</label>
+      <input
+        id="password"
+        name="password"
+        type="password"
+        autocomplete="current-password"
+        required
+      />
+
+      <button id="loginButton" type="submit">
+        Connexion
+      </button>
+    </form>
+
+    <div id="errorMessage" class="error"></div>
+    <div id="successMessage" class="success">Connexion reussie</div>
+  </div>
+</body>
+</html>

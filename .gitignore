@@ -1,0 +1,20 @@
+# Secrets et fichiers sensibles
+.env
+deviceAuth.json
+
+# Dependencies
+node_modules/
+
+# Donnees generees / cache
+data/raw/
+data/normalized/
+data/enriched/
+
+# Logs
+logs/
+*.log
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/

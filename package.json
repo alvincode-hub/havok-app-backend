@@ -1,0 +1,25 @@
+{
+  "name": "havok-tracker-server",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.5.1",
+    "express-session": "^1.19.0",
+    "fnbr": "^4.2.0",
+    "fs-extra": "^11.3.5",
+    "helmet": "^8.1.0",
+    "node-cron": "^3.0.3",
+    "nodemon": "^3.1.14"
+  },
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

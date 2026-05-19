@@ -1,0 +1,21 @@
+{
+  "description": "Liste des tournois acceptes par eventId.",
+  "acceptedEventIds": [
+    "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+    "epicgames_S40_FNCSMajor1_Final_EU",
+    "epicgames_S40_FNCSMajor1_HeatsStage_EU",
+    "epicgames_S40_FNCSMajor1_LastChanceQualifier_EU",
+    "epicgames_S40_FNCSMajor1_PlayInStage_EU",
+    "epicgames_S40_FNCSMajor1_SecondChance_EU",
+    "epicgames_S40_PerformanceEvaluation_EU",
+    "epicgames_S40_PerformanceEvaluationReload_EU",
+    "epicgames_S40_ReloadEliteSeries3Final_EU",
+    "epicgames_S40_ReloadEliteSeries3Heat1_EU",
+    "epicgames_S40_ReloadEliteSeries3Heat2_EU",
+    "epicgames_S40_ReloadEliteSeries3Heat3_EU",
+    "epicgames_S40_ReloadEliteSeries3Heat4_EU",
+    "epicgames_S40_ReloadEliteSeries3Opens_EU",
+    "epicgames_S40_ReloadEliteSeries3PlayIn_EU",
+    "epicgames_S40_SoloVictoryCup_EU"
+  ]
+}

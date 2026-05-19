@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Havok Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="topbar-copy">
+          <p class="eyebrow">Dashboard local</p>
+          <h1 id="pageTitle">Havok Dashboard</h1>
+          <p id="pageSubtitle" class="subtitle">Chargement des donnees depuis server/data...</p>
+        </div>
+
+        <div class="topbar-actions">
+          <div class="mode-switch" role="tablist" aria-label="Mode dashboard">
+            <button class="mode-button is-active" type="button" data-mode="info">Infos</button>
+            <button class="mode-button" type="button" data-mode="config">Config</button>
+          </div>
+          <span class="chip chip-static">EU only</span>
+          <button id="refreshButton" class="button" type="button">Rafraichir</button>
+          <button id="cronButton" class="button" type="button">Lancer Cron</button>
+          <button id="logoutButton" class="buttonRed" type="button">Se déconnecter</button>
+        </div>
+      </header>
+
+      <p id="statusMessage" class="status-message" aria-live="polite"></p>
+
+      <main class="page-content">
+        <section id="infoView" class="view-section">
+          <div class="dashboard-layout">
+            <section class="card">
+              <div class="section-head">
+                <div>
+                  <p class="eyebrow">Selection</p>
+                  <h3>Choix de l'event</h3>
+                </div>
+              </div>
+
+              <label class="stacked-field">
+                <span class="field-label">Event a afficher</span>
+                <select id="eventSelect"></select>
+              </label>
+            </section>
+
+            <section class="card hero-card span-2">
+              <div class="hero-copy">
+                <p class="eyebrow">Focus event</p>
+                <div class="hero-head">
+                  <h2 id="featuredName">Aucun event</h2>
+                  <span id="featuredStatus" class="chip chip-review">Archive</span>
+                </div>
+                <p id="featuredMeta" class="muted-text">Le dashboard attend un payload.</p>
+                <p id="featuredSummary" class="hero-summary">Le prochain event ou le dernier snapshot local apparaitra ici.</p>
+
+                <div class="hero-stats">
+                  <article class="mini-card">
+                    <span class="mini-label">Mode</span>
+                    <strong id="featuredMode">--</strong>
+                  </article>
+                  <article class="mini-card">
+                    <span class="mini-label">Tracked</span>
+                    <strong id="featuredTracked">0</strong>
+                  </article>
+                  <article class="mini-card">
+                    <span class="mini-label">Best rank</span>
+                    <strong id="featuredBestRank">--</strong>
+                  </article>
+                  <article class="mini-card">
+                    <span class="mini-label">Timing</span>
+                    <strong id="featuredCountdown">--</strong>
+                  </article>
+                </div>
+              </div>
+
+              <div class="hero-media">
+                <img id="featuredImage" alt="" />
+              </div>
+            </section>
+
+            <section class="card span-2">
+              <div class="section-head">
+                <div>
+                  <p class="eyebrow">Window</p>
+                  <h3>Connexion results + details</h3>
+                </div>
+              </div>
+
+              <div class="window-detail-layout">
+                <div class="window-detail-copy">
+                  <p id="windowDetailMeta" class="muted-text">Aucune fenetre selectionnee.</p>
+                  <p id="windowDetailDescription" class="hero-summary">Les snapshots enrichis de results et de window details apparaitront ici pour l'event choisi.</p>
+                  <div id="windowInsightPills" class="detail-pill-list"></div>
+                </div>
+
+                <div class="detail-stack">
+                  <div>
+                    <p class="eyebrow">Statut joueurs</p>
+                    <div id="windowPlayerStatuses" class="detail-list"></div>
+                  </div>
+
+                  <div>
+                    <p class="eyebrow">Prizes</p>
+                    <div id="windowPrizeHighlights" class="detail-list"></div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="summaryGrid" class="summary-grid span-2"></section>
+
+            <section class="card">
+              <div class="section-head">
+                <div>
+                  <p class="eyebrow">Planning</p>
+                  <h3>Events disponibles</h3>
+                </div>
+              </div>
+              <div id="eventsList" class="event-list"></div>
+            </section>
+
+            <section class="card">
+              <div class="section-head">
+                <div>
+                  <p class="eyebrow">Contexte</p>
+                  <h3>Notes locales</h3>
+                </div>
+              </div>
+              <div id="notesList" class="note-list"></div>
+
+              <div class="section-head section-gap">
+                <div>
+                  <p class="eyebrow">Cast</p>
+                  <h3>Canaux configures</h3>
+                </div>
+              </div>
+              <div id="castList" class="cast-list"></div>
+            </section>
+
+            <section class="card span-2">
+              <div class="section-head">
+                <div>
+                  <p class="eyebrow">Roster</p>
+                  <h3>Joueurs suivis</h3>
+                </div>
+              </div>
+              <div id="playersGrid" class="players-grid"></div>
+            </section>
+
+            <section class="card span-2">
+              <div class="section-head">
+                <div>
+                  <p class="eyebrow">Performance</p>
+                  <h3>Derniers resultats</h3>
+                </div>
+              </div>
+              <div class="table-wrap">
+                <table class="results-table">
+                  <thead>
+                    <tr>
+                      <th>Joueur</th>
+                      <th>Event</th>
+                      <th>Rank</th>
+                      <th>Points</th>
+                      <th>Elims</th>
+                      <th>Date</th>
+                    </tr>
+                  </thead>
+                  <tbody id="resultsBody"></tbody>
+                </table>
+              </div>
+            </section>
+
+            <section class="card">
+              <div class="section-head">
+                <div>
+                  <p class="eyebrow">Actu</p>
+                  <h3>Cartes locales</h3>
+                </div>
+              </div>
+              <div id="actuList" class="actu-list"></div>
+            </section>
+
+            <section class="card">
+              <div class="section-head">
+                <div>
+                  <p class="eyebrow">Sources</p>
+                  <h3>Fichiers data</h3>
+                </div>
+              </div>
+              <div id="sourcesList" class="source-list"></div>
+            </section>
+          </div>
+        </section>
+
+        <section id="configView" class="view-section is-hidden">
+          <div class="dashboard-layout">
+            <section class="card span-2">
+              <div class="section-head">
+                <div>
+                  <p class="eyebrow">Settings</p>
+                  <h3>Refresh manuel et configuration</h3>
+                </div>
+              </div>
+
+              <p class="muted-text">
+                Les URLs d'image distantes sont converties en assets locaux sous <code>/dashboard-assets/...</code> au moment de la sauvegarde.
+              </p>
+
+              <div class="config-actions config-actions-top">
+                <button id="configRefreshButton" class="button" type="button">Rafraichir le dashboard</button>
+                <button id="configResetDraftsButton" class="button button-secondary" type="button">Recharger les brouillons</button>
+              </div>
+            </section>
+
+            <section class="card">
+              <div class="config-head">
+                <div>
+                  <p class="eyebrow">Joueurs</p>
+                  <h3>Team config</h3>
+                </div>
+                <span id="teamConfigStatus" class="muted-text">Synced</span>
+              </div>
+
+              <label class="stacked-field">
+                <span class="field-label">Description</span>
+                <input id="teamDescriptionInput" type="text" />
+              </label>
+
+              <div class="config-toolbar">
+                <p class="eyebrow">Roster suivi</p>
+                <button id="teamAddPlayerButton" class="button button-secondary compact-button" type="button">Ajouter un joueur</button>
+              </div>
+
+              <div id="teamPlayerList" class="config-stack"></div>
+
+              <div class="config-actions">
+                <button id="teamConfigResetButton" class="button button-secondary" type="button">Reset</button>
+                <button id="teamConfigSaveButton" class="button" type="button">Sauver team</button>
+              </div>
+            </section>
+
+            <section class="card">
+              <div class="config-head">
+                <div>
+                  <p class="eyebrow">Filtre</p>
+                  <h3>Tournament filter</h3>
+                </div>
+                <span id="tournamentFilterStatus" class="muted-text">Synced</span>
+              </div>
+
+              <label class="stacked-field">
+                <span class="field-label">Description</span>
+                <input id="tournamentFilterDescriptionInput" type="text" />
+              </label>
+
+              <div class="config-toolbar">
+                <p class="eyebrow">EventId disponibles</p>
+                <span id="tournamentFilterCount" class="muted-text">0 selectionne</span>
+              </div>
+
+              <label class="stacked-field">
+                <span class="field-label">Recherche tournoi</span>
+                <input id="tournamentFilterSearchInput" type="text" placeholder="Rechercher par nom, eventId ou mode" />
+              </label>
+
+              <div id="tournamentFilterHints" class="filter-option-list"></div>
+
+              <div class="config-actions">
+                <button id="tournamentFilterResetButton" class="button button-secondary" type="button">Reset</button>
+                <button id="tournamentFilterSaveButton" class="button" type="button">Sauver filtre</button>
+              </div>
+            </section>
+
+            <section class="card span-2">
+              <div class="config-head">
+                <div>
+                  <p class="eyebrow">Actu</p>
+                  <h3>Actu locale</h3>
+                </div>
+                <span id="actuConfigStatus" class="muted-text">Synced</span>
+              </div>
+
+              <div class="config-toolbar">
+                <p class="muted-text">Nom, date, image, lien et description.</p>
+                <button id="actuAddButton" class="button button-secondary compact-button" type="button">Ajouter une actu</button>
+              </div>
+
+              <div id="actuConfigList" class="config-stack"></div>
+
+              <div class="config-actions">
+                <button id="actuConfigResetButton" class="button button-secondary" type="button">Reset</button>
+                <button id="actuConfigSaveButton" class="button" type="button">Sauver actu</button>
+              </div>
+            </section>
+
+            <section class="card span-2">
+              <div class="config-head">
+                <div>
+                  <p class="eyebrow">Cast</p>
+                  <h3>Cast par windowId</h3>
+                </div>
+                <span id="castConfigStatus" class="muted-text">Synced</span>
+              </div>
+
+              <div class="config-toolbar">
+                <label class="stacked-field field-span-full">
+                  <span class="field-label">WindowId</span>
+                  <select id="castWindowSelect"></select>
+                </label>
+                <p id="castWindowMeta" class="muted-text">Selectionne un windowId pour configurer le cast.</p>
+              </div>
+
+              <div id="castEditor" class="cast-grid">
+                <section class="cast-card">
+                  <p class="eyebrow">YouTube</p>
+                  <label class="stacked-field">
+                    <span class="field-label">Nom de chaine</span>
+                    <input id="castYoutubeChannelName" data-cast-platform="youtube" data-cast-field="channelName" type="text" />
+                  </label>
+                  <label class="stacked-field">
+                    <span class="field-label">Lien</span>
+                    <input id="castYoutubeLink" data-cast-platform="youtube" data-cast-field="link" type="url" />
+                  </label>
+                </section>
+
+                <section class="cast-card">
+                  <p class="eyebrow">Twitch</p>
+                  <label class="stacked-field">
+                    <span class="field-label">Nom de chaine</span>
+                    <input id="castTwitchChannelName" data-cast-platform="twitch" data-cast-field="channelName" type="text" />
+                  </label>
+                  <label class="stacked-field">
+                    <span class="field-label">Lien</span>
+                    <input id="castTwitchLink" data-cast-platform="twitch" data-cast-field="link" type="url" />
+                  </label>
+                </section>
+              </div>
+
+              <div class="config-actions">
+                <button id="castConfigResetButton" class="button button-secondary" type="button">Reset</button>
+                <button id="castConfigSaveButton" class="button" type="button">Sauver cast</button>
+              </div>
+            </section>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
