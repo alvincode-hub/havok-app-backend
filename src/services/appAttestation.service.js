@@ -4,6 +4,7 @@ const {
 } = require("../config/env.js");
 
 const SUPPORTED_PLATFORMS = new Set(["ios", "android", "web"]);
+const SUPPORTED_ATTESTATION_MODES = new Set(["development", "web"]);
 
 function normalizeString(value) {
   return typeof value === "string" ? value.trim() : "";
@@ -44,6 +45,16 @@ async function verifyAppAttestation({
     });
   }
 
+  if (app_attestation_mode === "web") {
+    return verifyWebAttestation({
+      attestation,
+      challengeRecord,
+      installationId: normalizedInstallationId,
+      platform: normalizedPlatform,
+      appVersion: normalizedAppVersion
+    });
+  }
+
   return {
     ok: false,
     error:
@@ -51,6 +62,46 @@ async function verifyAppAttestation({
         ? "Attestation native non configuree cote serveur."
         : `Mode d'attestation non supporte: ${app_attestation_mode}`
   };
+}
+
+function verifyWebAttestation({
+  attestation,
+  challengeRecord,
+  installationId,
+  platform,
+  appVersion
+}) {
+  if (platform !== "web") {
+    return {
+      ok: false,
+      error: "attestation web reservee au client web"
+    };
+  }
+
+  if (!attestation || typeof attestation !== "object") {
+    return {
+      ok: false,
+      error: "attestation manquante"
+    };
+  }
+
+  if (attestation.provider !== "web") {
+    return {
+      ok: false,
+      error: "provider d'attestation invalide"
+    };
+  }
+
+  return verifyExpectedPayload({
+    attestationPayload: attestation.payload,
+    challengeRecord,
+    installationId,
+    platform,
+    appVersion,
+    mode: "web",
+    attested: true,
+    provider: "web"
+  });
 }
 
 function verifyDevelopmentAttestation({
@@ -74,7 +125,29 @@ function verifyDevelopmentAttestation({
     };
   }
 
-  const payload = attestation.payload;
+  return verifyExpectedPayload({
+    attestationPayload: attestation.payload,
+    challengeRecord,
+    installationId,
+    platform,
+    appVersion,
+    mode: "development",
+    attested: false,
+    provider: "development"
+  });
+}
+
+function verifyExpectedPayload({
+  attestationPayload,
+  challengeRecord,
+  installationId,
+  platform,
+  appVersion,
+  mode,
+  attested,
+  provider
+}) {
+  const payload = attestationPayload;
 
   if (!payload || typeof payload !== "object") {
     return {
@@ -113,9 +186,9 @@ function verifyDevelopmentAttestation({
 
   return {
     ok: true,
-    attested: false,
-    mode: "development",
-    provider: "development",
+    attested,
+    mode,
+    provider,
     claims: {
       platform,
       installationId,
@@ -125,6 +198,7 @@ function verifyDevelopmentAttestation({
 }
 
 module.exports = {
+  SUPPORTED_ATTESTATION_MODES,
   assertSupportedPlatform,
   normalizePlatform,
   normalizeString,

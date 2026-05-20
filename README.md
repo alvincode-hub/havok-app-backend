@@ -158,6 +158,8 @@ For local development:
 npm run dev
 ```
 
+For a production web deployment, start from [server/.env.production.example](./.env.production.example) and keep `APP_ATTESTATION_MODE=web`.
+
 ## Verification status
 
 Checked against source and local runtime on 2026-05-20:
@@ -169,6 +171,7 @@ Checked against source and local runtime on 2026-05-20:
 
 ## Known limitations
 
+- Production web deployment is supported with `APP_ATTESTATION_MODE=web`.
 - Native production attestation for App Store / Play Store builds is not implemented in this repo yet.
 - In development, mobile bearer-session checks are intentionally bypassed server-side.
 - Dashboard auth is session-cookie based and intended for same-origin use.

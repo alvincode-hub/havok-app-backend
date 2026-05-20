@@ -3,9 +3,24 @@ const os = require("os");
 const { login } = require("./fnbr/client");
 const { logError, logInfo } = require("./utils/logger");
 const { port } = require("./config/env.js");
+const { validateEnv } = require("./config/validateEnv.js");
 
 const PORT = port;
 const HOST = "0.0.0.0";
+const envValidation = validateEnv();
+
+envValidation.warnings.forEach((warning) => {
+  logInfo(`Configuration: ${warning}`, "ServerConfig");
+});
+
+if (envValidation.errors.length > 0) {
+  envValidation.errors.forEach((errorMessage) => {
+    logError(`Configuration invalide: ${errorMessage}`, "ServerConfig");
+  });
+
+  process.exitCode = 1;
+  throw new Error("Configuration d environnement invalide");
+}
 
 logInfo(`Initialisation du serveur pid=${process.pid} port=${PORT}`, "Server");
 
