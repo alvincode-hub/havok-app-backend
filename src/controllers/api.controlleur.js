@@ -4,7 +4,8 @@ const {
   getTournamentCalendar,
   getHome,
   getAllPlayers,
-  getPlayer } = require("../services/api.service.js");
+  getPlayer,
+  getAllWindow } = require("../services/api.service.js");
 const { logError, logWarning } = require("../utils/logger");
 
 async function getTournamentResultsController(req, res) {
@@ -21,6 +22,23 @@ async function getTournamentResultsController(req, res) {
   } catch (error) {
     logError("Recuperation des resultats de tournoi impossible", "TournamentResultsController", error);
     res.status(500).json({ error: "Erreur lors de la recuperation des resultats de tournoi" });
+  }
+}
+
+async function getTournamentWindowListController(req, res) {
+  const { windowId, eventId } = req.query;
+
+  if (!windowId && !eventId) {
+    logWarning("Requete results rejetee: windowId ou eventId manquant", "TournamentWindowListController");
+    return res.status(400).json({ error: "windowId ou eventId est requis" });
+  }
+
+  try {
+    const results = await getAllWindow(windowId,eventId);
+    res.json(results);
+  } catch (error) {
+    logError("Recuperation des resultats de tournoi impossible", "TournamentWindowListController", error);
+    res.status(500).json({ error: "Erreur lors de la recuperation des windows d'un tournoi" });
   }
 }
 
@@ -95,5 +113,6 @@ module.exports = {
   getAllPlayersController,
   getTournamentCalendarController,
   getTournamentWindowController,
-  getHomeController
+  getHomeController,
+  getTournamentWindowListController
 };

@@ -7,7 +7,8 @@ const {
   getAllPlayersController,
   getTournamentCalendarController,
   getTournamentWindowController,
-  getHomeController
+  getHomeController,
+  getTournamentWindowListController
 } = require("../controllers/api.controlleur.js");
 
 const router = express.Router();
@@ -22,6 +23,12 @@ router.get(
   "/api/tournaments/results",
   requireAppKey,
   getTournamentResultsController
+);
+
+router.get(
+  "/api/tournaments/allWindow",
+  requireAppKey,
+  getTournamentWindowListController
 );
 
 router.get(

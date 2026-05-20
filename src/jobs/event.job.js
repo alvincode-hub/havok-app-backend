@@ -1,5 +1,6 @@
 const { getTournament } = require("../services/tournaments.service.js");
 const { logError, logInfo, logWarning } = require("../utils/logger");
+const { syncEventEnriched } = require("../services/enriched.service.js");
 
 let isRunning = false;
 
@@ -14,6 +15,7 @@ async function runEventsJob() {
   try {
     logInfo("Job start", "EventsJob");
     await getTournament();
+    await syncEventEnriched();
     logInfo("Job termine", "EventsJob");
     return true;
   } catch (error) {

@@ -1,5 +1,6 @@
 const { enrichHome } = require("../enriched/enriched.home.js");
 const { enrichedCalendrier } = require("../enriched/enriched.calendrier.js");
+const { enrichedWindowList } = require("../enriched/enriched.eventList.js");
 const { enrichedPlayers } = require("../enriched/enriched.players.js");
 const { enrichedResults } = require("../enriched/enriched.results.js");
 const { enrichedWindowDetail } = require("../enriched/enriched.windowDetail.js");
@@ -9,7 +10,8 @@ const {
   enrichedCalendrierPath,
   enrichedPlayersPath,
   enrichedResultsPath,
-  enrichedWindowDetailsPath
+  enrichedWindowDetailsPath,
+  enrichedEventListPath
 } = require("../storage/paths.js");
 const {
   invalidateDashboardPayloadCache
@@ -25,6 +27,19 @@ async function syncHomeEnriched() {
     return data;
   } catch (error) {
     logError("Generation de home enrichi impossible", "EnrichedService", error);
+    return null;
+  }
+}
+
+async function syncEventListEnriched() {
+  try {
+    const data = await enrichedWindowList();
+    await saveEnrichedData(data, enrichedEventListPath());
+    invalidateDashboardPayloadCache();
+    logDebug(`Snapshot enrichi ${enrichedEventListPath()}`, "c");
+    return data;
+  } catch (error) {
+    logError("Generation de la list d'events enrichi impossible", "EnrichedService", error);
     return null;
   }
 }
@@ -85,6 +100,7 @@ async function syncTournamentEnriched() {
   await syncCalendrierEnriched();
   await syncHomeEnriched();
   await syncWindowDetailEnriched();
+  await syncEventListEnriched();
 }
 
 async function syncResultsEnriched() {
@@ -97,10 +113,15 @@ async function syncResultsEnriched() {
 async function syncWindowEnriched() {
   await syncWindowResultEnriched();
   await syncWindowDetailEnriched();
+   await syncEventListEnriched();
 }
 
 async function syncProfileEnriched() {
   await syncPlayersEnriched();
+}
+
+async function syncEventEnriched() {
+  await syncEventListEnriched();
 }
 
 async function syncAllEnriched() {
@@ -109,6 +130,7 @@ async function syncAllEnriched() {
   await syncPlayersEnriched();
   await syncWindowResultEnriched();
   await syncWindowDetailEnriched();
+  await syncEventListEnriched();
 }
 
 module.exports = {
@@ -121,5 +143,6 @@ module.exports = {
   syncResultsEnriched,
   syncProfileEnriched,
   syncAllEnriched,
-  syncWindowEnriched
+  syncWindowEnriched,
+  syncEventEnriched
 };

@@ -76,6 +76,31 @@ function getLeaderboardPageResults(leaderboardType, isCumulative, requestedPage)
   };
 }
 
+async function getAllWindow(windowId, eventId) {
+  const tournamentsList = await loadEnrichedData("/enriched/eventList.json");
+
+  if (!windowId && !eventId) {
+    return null;
+  }
+
+  if (eventId) {
+    return tournamentsList.find(event => event.id === eventId) || null;
+  }
+
+  if (windowId) {
+    for (const event of tournamentsList) {
+      const foundWindow = event.windows.find(
+        window => window.windowId === windowId
+      );
+
+      if (foundWindow) {
+        return event;
+      }
+    }
+  }
+
+  return null;
+}
 async function getTournamentWindow(windowId) {
   const tournaments = await loadEnrichedData("/enriched/window-details.json");
 
@@ -129,5 +154,6 @@ module.exports = {
   getTournamentCalendar,
   getHome,
   getAllPlayers,
-  getPlayer
+  getPlayer,
+  getAllWindow
 };

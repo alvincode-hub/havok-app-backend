@@ -89,6 +89,10 @@ function enrichedCalendrierPath() {
   return path.join("enriched", "calendrier.json");
 }
 
+function enrichedEventListPath() {
+  return path.join("enriched", "eventList.json");
+}
+
 function enrichedPlayersPath() {
   return path.join("enriched", "players.json");
 }
@@ -145,5 +149,6 @@ module.exports = {
   normalizedTournamentResultsNamesPath,
   normalizedCacheDirPath,
   normalizedPlayerNamesCachePath,
-  normalizedRequestStatePath
+  normalizedRequestStatePath,
+  enrichedEventListPath
 };
