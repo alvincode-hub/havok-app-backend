@@ -1,5 +1,10 @@
+const DASHBOARD_API_BASE = "/dashboard/api";
+
 async function requestJson(url, options = {}) {
-  const response = await fetch(url, options);
+  const response = await fetch(url, {
+    credentials: "same-origin",
+    ...options
+  });
   const payload = await readJsonSafe(response);
 
   if (!response.ok) {
@@ -11,10 +16,10 @@ async function requestJson(url, options = {}) {
 
 export async function loadDashboardResources() {
   const [overview, events, content, config] = await Promise.all([
-    requestJson("/api/dashboard/overview"),
-    requestJson("/api/dashboard/events"),
-    requestJson("/api/dashboard/content"),
-    requestJson("/api/dashboard/config")
+    requestJson(`${DASHBOARD_API_BASE}/overview`),
+    requestJson(`${DASHBOARD_API_BASE}/events`),
+    requestJson(`${DASHBOARD_API_BASE}/content`),
+    requestJson(`${DASHBOARD_API_BASE}/config`)
   ]);
 
   return {
@@ -34,7 +39,7 @@ export async function saveDashboardConfig(endpoint, payload) {
 }
 
 export async function runDashboardCron() {
-  return requestJson("/api/dashboard/updateCron", {
+  return requestJson(`${DASHBOARD_API_BASE}/updateCron`, {
     method: "POST",
     headers: { "Content-Type": "application/json" }
   });

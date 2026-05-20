@@ -67,32 +67,28 @@ async function enrichedResults() {
         qualStatus: leaderboardQualStatus
       });
 
-      if (cumulatifIndex === -1) {
-        continue
+      let leaderboardCumul = null;
+
+      if (cumulatifIndex !== -1) {
+        const cumulatifLocation = window.resolvedLocations?.[cumulatifIndex];
+
+        if (cumulatifLocation) {
+          const payloadCumul = await loadNormalizedResultPageIfExists(cumulatifLocation);
+
+          if (payloadCumul?.results) {
+            const leaderboardCumulQualStatus = await buildLeaderboardQualStatus(
+              cumulatifLocation,
+              players,
+              window
+            );
+            leaderboardCumul = buildLeaderboardPages(payloadCumul, window, {
+              totalPagesKey: "totalPagesCumul",
+              pagesKey: "pagesCumul",
+              qualStatus: leaderboardCumulQualStatus
+            });
+          }
+        }
       }
-
-      const cumulatifLocation = window.resolvedLocations?.[cumulatifIndex]
-
-      if (!cumulatifLocation) {
-        continue
-      }
-
-      const payloadCumul = await loadNormalizedResultPageIfExists(cumulatifLocation);
-
-      if (!payloadCumul?.results) {
-        continue;
-      }
-
-      const leaderboardCumulQualStatus = await buildLeaderboardQualStatus(
-        cumulatifLocation,
-        players,
-        window
-      );
-      const leaderboardCumul = buildLeaderboardPages(payloadCumul, window, {
-        totalPagesKey: "totalPagesCumul",
-        pagesKey: "pagesCumul",
-        qualStatus: leaderboardCumulQualStatus
-      });
 
       results.push({
         tournamentId: tournament.id || null,

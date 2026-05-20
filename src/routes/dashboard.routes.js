@@ -21,34 +21,54 @@ const {
 
 const router = express.Router();
 
-router.get("/api/dashboard", requireAdminAuth, getDashboardController);
-router.get("/api/dashboard/overview", requireAdminAuth, getDashboardOverviewController);
-router.get("/api/dashboard/events", requireAdminAuth, getDashboardEventsController);
-router.get("/api/dashboard/events/:eventId", requireAdminAuth, getDashboardEventDetailController);
-router.get("/api/dashboard/content", requireAdminAuth, getDashboardContentController);
-router.get("/api/dashboard/config", requireAdminAuth, getDashboardConfigController);
-router.get("/api/dashboard/status", requireAdminAuth, getDashboardStatusController);
+const dashboardPrefixes = ["/api/dashboard", "/dashboard/api"];
 
-router
-  .route("/api/dashboard/config/team")
-  .get(requireAdminAuth, getDashboardTeamConfigController)
-  .put(requireAdminAuth, updateDashboardTeamConfigController);
+registerGet("", getDashboardController);
+registerGet("/overview", getDashboardOverviewController);
+registerGet("/events", getDashboardEventsController);
+registerGet("/events/:eventId", getDashboardEventDetailController);
+registerGet("/content", getDashboardContentController);
+registerGet("/config", getDashboardConfigController);
+registerGet("/status", getDashboardStatusController);
 
-router
-  .route("/api/dashboard/config/tournament-filter")
-  .get(requireAdminAuth, getDashboardTournamentFilterController)
-  .put(requireAdminAuth, updateDashboardTournamentFilterController);
+registerGetPut(
+  "/config/team",
+  getDashboardTeamConfigController,
+  updateDashboardTeamConfigController
+);
+registerGetPut(
+  "/config/tournament-filter",
+  getDashboardTournamentFilterController,
+  updateDashboardTournamentFilterController
+);
+registerGetPut(
+  "/config/actu",
+  getDashboardActuConfigController,
+  updateDashboardActuConfigController
+);
+registerGetPut(
+  "/config/cast",
+  getDashboardCastConfigController,
+  updateDashboardCastConfigController
+);
 
-router
-  .route("/api/dashboard/config/actu")
-  .get(requireAdminAuth, getDashboardActuConfigController)
-  .put(requireAdminAuth, updateDashboardActuConfigController);
+dashboardPrefixes.forEach((prefix) => {
+  router.post(`${prefix}/updateCron`, requireAdminAuth, updateCronDashboardController);
+});
 
-router
-  .route("/api/dashboard/config/cast")
-  .get(requireAdminAuth, getDashboardCastConfigController)
-  .put(requireAdminAuth, updateDashboardCastConfigController);
+function registerGet(suffix, handler) {
+  dashboardPrefixes.forEach((prefix) => {
+    router.get(`${prefix}${suffix}`, requireAdminAuth, handler);
+  });
+}
 
-router.post("/api/dashboard/updateCron", requireAdminAuth, updateCronDashboardController);
+function registerGetPut(suffix, getHandler, putHandler) {
+  dashboardPrefixes.forEach((prefix) => {
+    router
+      .route(`${prefix}${suffix}`)
+      .get(requireAdminAuth, getHandler)
+      .put(requireAdminAuth, putHandler);
+  });
+}
 
 module.exports = router;

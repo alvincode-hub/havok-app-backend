@@ -15,6 +15,7 @@ const admin_password = process.env.ADMIN_PASSWORD_HASH || "";
 const session_secret = process.env.SESSION_SECRET || "";
 
 const dashboard_origin = process.env.DASHBOARD_ORIGIN || "";
+const trust_proxy = parseTrustProxy(process.env.TRUST_PROXY, node_env === "production" ? 1 : false);
 const app_auth_jwt_secret =
   process.env.APP_AUTH_JWT_SECRET || session_secret || app_api_key || "";
 const app_auth_jwt_issuer = process.env.APP_AUTH_JWT_ISSUER || "havok-api";
@@ -37,6 +38,7 @@ module.exports = {
   admin_password,
   session_secret,
   dashboard_origin,
+  trust_proxy,
   app_auth_jwt_secret,
   app_auth_jwt_issuer,
   app_auth_jwt_audience,
@@ -44,3 +46,27 @@ module.exports = {
   app_session_ttl_seconds,
   app_challenge_ttl_seconds
 };
+
+function parseTrustProxy(value, fallback) {
+  if (value === undefined || value === null || value === "") {
+    return fallback;
+  }
+
+  const normalizedValue = String(value).trim().toLowerCase();
+
+  if (normalizedValue === "true") {
+    return true;
+  }
+
+  if (normalizedValue === "false") {
+    return false;
+  }
+
+  const numericValue = Number(normalizedValue);
+
+  if (Number.isInteger(numericValue) && numericValue >= 0) {
+    return numericValue;
+  }
+
+  return value;
+}

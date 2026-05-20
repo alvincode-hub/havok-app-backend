@@ -1,30 +1,32 @@
+const DASHBOARD_API_BASE = "/dashboard/api";
+
 export const CONFIG_SECTIONS = {
   team: {
     draft: "teamDraft",
     dirty: "teamDirty",
     dataKey: "teamConfig",
-    endpoint: "/api/dashboard/config/team",
+    endpoint: `${DASHBOARD_API_BASE}/config/team`,
     success: "Config team sauvegardee."
   },
   tournamentFilter: {
     draft: "tournamentFilterDraft",
     dirty: "tournamentFilterDirty",
     dataKey: "tournamentFilter",
-    endpoint: "/api/dashboard/config/tournament-filter",
+    endpoint: `${DASHBOARD_API_BASE}/config/tournament-filter`,
     success: "Tournament filter sauvegarde."
   },
   actu: {
     draft: "actuDraft",
     dirty: "actuDirty",
     dataKey: "actuConfig",
-    endpoint: "/api/dashboard/config/actu",
+    endpoint: `${DASHBOARD_API_BASE}/config/actu`,
     success: "Actu sauvegardee."
   },
   cast: {
     draft: "castDraft",
     dirty: "castDirty",
     dataKey: "castConfig",
-    endpoint: "/api/dashboard/config/cast",
+    endpoint: `${DASHBOARD_API_BASE}/config/cast`,
     success: "Config cast sauvegardee."
   }
 };

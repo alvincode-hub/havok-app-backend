@@ -17,7 +17,7 @@ const { runScoreRulesJob } = require("../jobs/eventScoreRules.job.js");
 const { runLiveEventsResultJob } = require("../jobs/liveEventResults.job.js");
 const { runProfileJob } = require("../jobs/profile.job.js");
 const {
-  runWithOrchestrationLock,
+  startWithOrchestrationLock,
   getOrchestrationLockState
 } = require("../jobs/orchestration.shared.js");
 
@@ -99,7 +99,7 @@ async function getDashboardStatus() {
 }
 
 async function updateAllCron() {
-  const orchestrationResult = await runWithOrchestrationLock(
+  const orchestrationResult = startWithOrchestrationLock(
     "dashboard:updateAllCron",
     async () => {
       await runEventsJob();
@@ -109,7 +109,8 @@ async function updateAllCron() {
       await runCleanupResultsJob();
       await runProfileJob();
       invalidateDashboardPayloadCache();
-    }
+    },
+    "DashboardService"
   );
 
   if (!orchestrationResult.executed) {
@@ -122,7 +123,8 @@ async function updateAllCron() {
 
   return {
     ok: true,
-    message: "Cron lances."
+    message: "Cron lance en arriere-plan.",
+    lockState: getOrchestrationLockState()
   };
 }
 

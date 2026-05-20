@@ -10,7 +10,8 @@ const {
   admin_username,
   dashboard_origin,
   node_env,
-  session_secret
+  session_secret,
+  trust_proxy
 } = require("./config/env.js");
 
 require("./jobs/cron");
@@ -23,6 +24,11 @@ const { logDebug, logInfo, logWarning } = require("./utils/logger.js");
 const app = express();
 
 const publicDir = path.join(__dirname, "public");
+const useSecureCookies = node_env === "production";
+
+if (trust_proxy !== false) {
+  app.set("trust proxy", trust_proxy);
+}
 
 const apiLimiter = rateLimit({
   windowMs: 60 * 1000,
@@ -101,11 +107,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(
   session({
     secret: session_secret,
+    proxy: useSecureCookies,
     resave: false,
     saveUninitialized: false,
     cookie: {
       httpOnly: true,
-      secure: node_env === "production",
+      secure: useSecureCookies ? "auto" : false,
       sameSite: "lax",
       maxAge: 1000 * 60 * 60 * 2
     }
@@ -140,12 +147,17 @@ app.get("/", (req, res) => {
 /* Dashboard login page + login assets */
 
 app.get("/dashboard/login", (req, res) => {
+  res.set("Cache-Control", "no-store");
   res.sendFile(path.join(publicDir, "login/login.html"));
 });
 
 app.use(
   "/dashboard/login",
-  express.static(path.join(publicDir, "login"))
+  express.static(path.join(publicDir, "login"), {
+    setHeaders(res) {
+      res.set("Cache-Control", "no-store");
+    }
+  })
 );
 
 /* Dashboard auth */
@@ -212,7 +224,11 @@ app.use(
 
 app.use(
   "/dashboard",
-  express.static(path.join(publicDir, "dashboard"))
+  express.static(path.join(publicDir, "dashboard"), {
+    setHeaders(res) {
+      res.set("Cache-Control", "no-store");
+    }
+  })
 );
 
 /* API */

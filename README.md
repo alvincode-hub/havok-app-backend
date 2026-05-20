@@ -145,6 +145,12 @@ APP_SESSION_TTL_SECONDS=600
 APP_CHALLENGE_TTL_SECONDS=180
 ```
 
+For a production dashboard behind HTTPS termination or a reverse proxy, also set:
+
+```bash
+TRUST_PROXY=1
+```
+
 ### 4. Start the server
 
 ```bash

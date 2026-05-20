@@ -43,7 +43,7 @@ function isInDelay(beginTime) {
 function isOlderThan15Days(dateToCheck) {
   const now = getCurrentDate();
   const checkDate = new Date(dateToCheck);
-  const fifteenDaysAgo = addDays(now, -15);
+  const fifteenDaysAgo = addDays(now, -30);
 
   return checkDate < fifteenDaysAgo;
 }

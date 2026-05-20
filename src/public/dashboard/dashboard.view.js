@@ -6,6 +6,7 @@ const $$ = (selector) => Array.from(document.querySelectorAll(selector));
 let state = null;
 
 export function renderDashboard(nextState) {
+  const focusSnapshot = captureFocusSnapshot();
   state = nextState;
   renderHeader();
   renderMode();
@@ -13,6 +14,7 @@ export function renderDashboard(nextState) {
   renderConfig();
   renderStatus();
   renderActionState();
+  restoreFocusSnapshot(focusSnapshot);
 }
 
 function renderHeader() {
@@ -714,6 +716,88 @@ function setImage(image, media, src, alt) {
 function renderInputValue(id, value) {
   const input = $(id);
   if (input && input.value !== value) input.value = value;
+}
+
+function captureFocusSnapshot() {
+  const activeElement = document.activeElement;
+
+  if (!(activeElement instanceof HTMLElement) || !activeElement.matches("input, textarea, select")) {
+    return null;
+  }
+
+  const selector = buildElementSelector(activeElement);
+
+  if (!selector) {
+    return null;
+  }
+
+  const supportsSelection =
+    typeof activeElement.selectionStart === "number" &&
+    typeof activeElement.selectionEnd === "number";
+
+  return {
+    selector,
+    selectionStart: supportsSelection ? activeElement.selectionStart : null,
+    selectionEnd: supportsSelection ? activeElement.selectionEnd : null,
+    selectionDirection: supportsSelection ? activeElement.selectionDirection : null
+  };
+}
+
+function restoreFocusSnapshot(snapshot) {
+  if (!snapshot) {
+    return;
+  }
+
+  const nextElement = document.querySelector(snapshot.selector);
+
+  if (!(nextElement instanceof HTMLElement) || nextElement === document.activeElement || nextElement.disabled) {
+    return;
+  }
+
+  nextElement.focus({ preventScroll: true });
+
+  if (
+    typeof nextElement.setSelectionRange === "function" &&
+    snapshot.selectionStart !== null &&
+    snapshot.selectionEnd !== null
+  ) {
+    nextElement.setSelectionRange(
+      snapshot.selectionStart,
+      snapshot.selectionEnd,
+      snapshot.selectionDirection || "none"
+    );
+  }
+}
+
+function buildElementSelector(element) {
+  if (element.id) {
+    return `#${escapeSelector(element.id)}`;
+  }
+
+  const datasetEntries = Object.entries(element.dataset);
+
+  if (datasetEntries.length === 0) {
+    return null;
+  }
+
+  const tagName = element.tagName.toLowerCase();
+  const dataSelector = datasetEntries
+    .sort(([leftKey], [rightKey]) => leftKey.localeCompare(rightKey))
+    .map(([key, value]) => {
+      const attributeName = key.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`);
+      return `[data-${attributeName}="${escapeSelector(value)}"]`;
+    })
+    .join("");
+
+  return `${tagName}${dataSelector}`;
+}
+
+function escapeSelector(value) {
+  if (typeof CSS !== "undefined" && typeof CSS.escape === "function") {
+    return CSS.escape(String(value));
+  }
+
+  return String(value).replace(/["\\]/g, "\\$&");
 }
 
 function toggleClass(id, className, force) {
