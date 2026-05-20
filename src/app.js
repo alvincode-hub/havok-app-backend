@@ -5,6 +5,13 @@ const path = require("path");
 const rateLimit = require("express-rate-limit");
 const session = require("express-session");
 const bcrypt = require("bcrypt");
+const {
+  admin_password,
+  admin_username,
+  dashboard_origin,
+  node_env,
+  session_secret
+} = require("./config/env.js");
 
 require("./jobs/cron");
 
@@ -38,7 +45,7 @@ const allowedOrigins = [
   "http://localhost:3000",
   "http://localhost:8081",
   "http://localhost:19006",
-  process.env.DASHBOARD_ORIGIN
+  dashboard_origin
 ].filter(Boolean);
 
 app.use(
@@ -74,12 +81,12 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use(
   session({
-    secret: process.env.SESSION_SECRET,
+    secret: session_secret,
     resave: false,
     saveUninitialized: false,
     cookie: {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
+      secure: node_env === "production",
       sameSite: "lax",
       maxAge: 1000 * 60 * 60 * 2
     }
@@ -135,7 +142,7 @@ app.post("/dashboard/login", loginLimiter, async (req, res) => {
       });
     }
 
-    if (username !== process.env.ADMIN_USERNAME) {
+    if (username !== admin_username) {
       return res.status(401).json({
         success: false,
         error: "Identifiants invalides"
@@ -144,7 +151,7 @@ app.post("/dashboard/login", loginLimiter, async (req, res) => {
 
     const valid = await bcrypt.compare(
       password,
-      process.env.ADMIN_PASSWORD_HASH || ""
+      admin_password
     );
 
     if (!valid) {

@@ -1,9 +1,9 @@
-require("dotenv").config();
 const app = require("./app");
 const { login } = require("./fnbr/client");
 const { logError, logInfo } = require("./utils/logger");
+const { port } = require("./config/env.js");
 
-const PORT = process.env.PORT || 3000;
+const PORT = port;
 
 logInfo("Initialisation du serveur", "Server");
 
