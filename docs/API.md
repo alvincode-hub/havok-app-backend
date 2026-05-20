@@ -12,6 +12,8 @@ The port can be changed with the `PORT` environment variable.
 
 ## Authentication
 
+### 1. App key
+
 All `/api` routes require `x-app-key`, except:
 
 ```txt
@@ -33,11 +35,51 @@ If the key is missing or invalid, the server returns:
 }
 ```
 
+### 2. Mobile app session
+
+All data routes also require a short mobile session token in production:
+
+```http
+Authorization: Bearer <accessToken>
+```
+
+This session token is created in two steps:
+
+1. `POST /api/app/challenge`
+2. `POST /api/app/session`
+
+In non-production environments, the session check is currently bypassed by the server. The `x-app-key` is still required.
+
+If the bearer token is missing in production, the server returns:
+
+```json
+{
+  "success": false,
+  "error": "Session mobile manquante"
+}
+```
+
+If the bearer token is invalid in production, the server returns:
+
+```json
+{
+  "success": false,
+  "error": "Session mobile invalide"
+}
+```
+
 ## Rate limit
 
-Protected `/api` routes are limited to **60 requests per minute**.
+Global `/api` rate limit:
 
-If the limit is exceeded, the server returns:
+- `60` requests per minute
+
+Additional limits for the mobile session bootstrap:
+
+- `POST /api/app/challenge`: `20` requests per minute
+- `POST /api/app/session`: `10` requests per minute
+
+If the global `/api` limit is exceeded, the server returns:
 
 ```json
 {
@@ -56,13 +98,15 @@ Query parameters are listed separately for each endpoint.
 | Method | Route | Auth | Description |
 |---|---|---|---|
 | GET | `/api/health` | No | Checks if the server is running |
-| GET | `/api/home` | Yes | Returns home screen data |
-| GET | `/api/tournaments/calendrier` | Yes | Returns the tournament calendar |
-| GET | `/api/tournaments/allWindow` | Yes | Returns an event and its windows from `eventId` or `windowId` |
-| GET | `/api/tournaments/window` | Yes | Returns details for one tournament window |
-| GET | `/api/tournaments/results` | Yes | Returns one page of results for one tournament window |
-| GET | `/api/players` | Yes | Returns all tracked players, simplified |
-| GET | `/api/player` | Yes | Returns full data for one tracked player |
+| POST | `/api/app/challenge` | App key | Creates a one-time challenge for the mobile session bootstrap |
+| POST | `/api/app/session` | App key | Exchanges a challenge and attestation payload for a short bearer session |
+| GET | `/api/home` | App key + session | Returns home screen data |
+| GET | `/api/tournaments/calendrier` | App key + session | Returns the tournament calendar |
+| GET | `/api/tournaments/allWindow` | App key + session | Returns an event and its windows from `eventId` or `windowId` |
+| GET | `/api/tournaments/window` | App key + session | Returns details for one tournament window |
+| GET | `/api/tournaments/results` | App key + session | Returns one page of results for one tournament window |
+| GET | `/api/players` | App key + session | Returns all tracked players, simplified |
+| GET | `/api/player` | App key + session | Returns full data for one tracked player |
 
 ---
 
@@ -91,13 +135,182 @@ curl http://localhost:3000/api/health
 
 ---
 
+## POST /api/app/challenge
+
+Creates a one-time challenge used to bootstrap a short mobile app session.
+
+### Authentication
+
+Requires `x-app-key`.
+
+### Rate limit
+
+`20` requests per minute, plus the global `/api` limit.
+
+### Request body
+
+| Name | Type | Required | Description |
+|---|---|---|---|
+| `installationId` | string | Yes | Stable installation identifier |
+| `platform` | string | Yes | Supported values: `ios`, `android`, `web` |
+| `appVersion` | string | Yes | App version sent by the client |
+
+### Example request
+
+```bash
+curl -X POST http://localhost:3000/api/app/challenge \
+  -H "Content-Type: application/json" \
+  -H "x-app-key: <APP_API_KEY>" \
+  -d '{
+    "installationId": "expo-dev-device-001",
+    "platform": "web",
+    "appVersion": "1.0.0"
+  }'
+```
+
+### Response `201`
+
+```json
+{
+  "success": true,
+  "challenge": "base64url-random-value",
+  "expiresAt": "2026-05-20T10:45:00.000Z",
+  "ttlSeconds": 180
+}
+```
+
+### Possible errors
+
+```json
+{
+  "success": false,
+  "error": "installationId est requis"
+}
+```
+
+```json
+{
+  "success": false,
+  "error": "platform invalide"
+}
+```
+
+```json
+{
+  "success": false,
+  "error": "Trop de demandes de challenge"
+}
+```
+
+---
+
+## POST /api/app/session
+
+Exchanges a previously issued challenge and an attestation payload for a short JWT bearer session.
+
+### Authentication
+
+Requires `x-app-key`.
+
+### Rate limit
+
+`10` requests per minute, plus the global `/api` limit.
+
+### Request body
+
+| Name | Type | Required | Description |
+|---|---|---|---|
+| `challenge` | string | Yes | Challenge returned by `/api/app/challenge` |
+| `installationId` | string | Yes | Must match the challenge payload |
+| `platform` | string | Yes | Must match the challenge payload |
+| `appVersion` | string | Yes | Must match the challenge payload |
+| `attestation` | object | Yes | Attestation payload validated by the server |
+
+### Development attestation payload
+
+When `APP_ATTESTATION_MODE=development`, the current server expects:
+
+```json
+{
+  "provider": "development",
+  "payload": {
+    "challenge": "base64url-random-value",
+    "installationId": "expo-dev-device-001",
+    "platform": "web",
+    "appVersion": "1.0.0"
+  }
+}
+```
+
+### Example request
+
+```bash
+curl -X POST http://localhost:3000/api/app/session \
+  -H "Content-Type: application/json" \
+  -H "x-app-key: <APP_API_KEY>" \
+  -d '{
+    "challenge": "base64url-random-value",
+    "installationId": "expo-dev-device-001",
+    "platform": "web",
+    "appVersion": "1.0.0",
+    "attestation": {
+      "provider": "development",
+      "payload": {
+        "challenge": "base64url-random-value",
+        "installationId": "expo-dev-device-001",
+        "platform": "web",
+        "appVersion": "1.0.0"
+      }
+    }
+  }'
+```
+
+### Response `201`
+
+```json
+{
+  "success": true,
+  "accessToken": "<JWT>",
+  "tokenType": "Bearer",
+  "expiresAt": "2026-05-20T10:52:00.000Z",
+  "expiresInSeconds": 600
+}
+```
+
+### Possible errors
+
+```json
+{
+  "success": false,
+  "error": "challenge introuvable"
+}
+```
+
+```json
+{
+  "success": false,
+  "error": "payload d'attestation incoherent"
+}
+```
+
+```json
+{
+  "success": false,
+  "error": "Trop de creations de session"
+}
+```
+
+---
+
 ## GET /api/home
 
 Returns the main data used for the app home screen.
 
 ### Authentication
 
-Required.
+Requires `x-app-key`.
+
+In production, also requires `Authorization: Bearer <accessToken>`.
 
 ### Source file
 
@@ -160,7 +373,8 @@ Returns an object.
 
 ```bash
 curl http://localhost:3000/api/home \
-  -H "x-app-key: <APP_API_KEY>"
+  -H "x-app-key: <APP_API_KEY>" \
+  -H "Authorization: Bearer <accessToken>"
 ```
 
 ### Possible errors
@@ -179,7 +393,9 @@ Returns the tournament calendar.
 
 ### Authentication
 
-Required.
+Requires `x-app-key`.
+
+In production, also requires `Authorization: Bearer <accessToken>`.
 
 ### Source file
 
@@ -214,7 +430,8 @@ Returns an array.
 
 ```bash
 curl http://localhost:3000/api/tournaments/calendrier \
-  -H "x-app-key: <APP_API_KEY>"
+  -H "x-app-key: <APP_API_KEY>" \
+  -H "Authorization: Bearer <accessToken>"
 ```
 
 ### Possible errors
@@ -233,7 +450,9 @@ Returns an event with all its known windows.
 
 ### Authentication
 
-Required.
+Requires `x-app-key`.
+
+In production, also requires `Authorization: Bearer <accessToken>`.
 
 ### Source file
 
@@ -288,12 +507,14 @@ Returns one event object, or `null` if no matching event is found.
 
 ```bash
 curl "http://localhost:3000/api/tournaments/allWindow?eventId=epicgames_S40_FNCSDivisionalCup_Division1_EU" \
-  -H "x-app-key: <APP_API_KEY>"
+  -H "x-app-key: <APP_API_KEY>" \
+  -H "Authorization: Bearer <accessToken>"
 ```
 
 ```bash
 curl "http://localhost:3000/api/tournaments/allWindow?windowId=S40_FNCSDivisionalCup_Division1_Week5Day2_EU" \
-  -H "x-app-key: <APP_API_KEY>"
+  -H "x-app-key: <APP_API_KEY>" \
+  -H "Authorization: Bearer <accessToken>"
 ```
 
 ### Possible errors
@@ -312,7 +533,9 @@ Returns details for one tournament window.
 
 ### Authentication
 
-Required.
+Requires `x-app-key`.
+
+In production, also requires `Authorization: Bearer <accessToken>`.
 
 ### Source file
 
@@ -405,7 +628,8 @@ Returns one tournament window object, or `null` if no window matches the given `
 
 ```bash
 curl "http://localhost:3000/api/tournaments/window?windowId=S40_FNCSDivisionalCup_Division1_Week5Day2_EU" \
-  -H "x-app-key: <APP_API_KEY>"
+  -H "x-app-key: <APP_API_KEY>" \
+  -H "Authorization: Bearer <accessToken>"
 ```
 
 ### Possible errors
@@ -424,7 +648,9 @@ Returns results for one tournament window.
 
 ### Authentication
 
-Required.
+Requires `x-app-key`.
+
+In production, also requires `Authorization: Bearer <accessToken>`.
 
 ### Source file
 
@@ -521,17 +747,20 @@ The `leaderboard` field is now a single object for the requested page, not an ar
 
 ```bash
 curl "http://localhost:3000/api/tournaments/results?windowId=S40_FNCSDivisionalCup_Division1_Week5Day2_EU" \
-  -H "x-app-key: <APP_API_KEY>"
+  -H "x-app-key: <APP_API_KEY>" \
+  -H "Authorization: Bearer <accessToken>"
 ```
 
 ```bash
 curl "http://localhost:3000/api/tournaments/results?windowId=S40_FNCSDivisionalCup_Division1_Week5Day2_EU&page=1" \
-  -H "x-app-key: <APP_API_KEY>"
+  -H "x-app-key: <APP_API_KEY>" \
+  -H "Authorization: Bearer <accessToken>"
 ```
 
 ```bash
 curl "http://localhost:3000/api/tournaments/results?windowId=S40_FNCSDivisionalCup_Division1_Week5Day2_EU&cumulatif=true" \
-  -H "x-app-key: <APP_API_KEY>"
+  -H "x-app-key: <APP_API_KEY>" \
+  -H "Authorization: Bearer <accessToken>"
 ```
 
 ### Possible errors
@@ -550,7 +779,9 @@ Returns all tracked players with simplified data.
 
 ### Authentication
 
-Required.
+Requires `x-app-key`.
+
+In production, also requires `Authorization: Bearer <accessToken>`.
 
 ### Source file
 
@@ -592,7 +823,8 @@ The server currently returns only these fields for this endpoint:
 
 ```bash
 curl http://localhost:3000/api/players \
-  -H "x-app-key: <APP_API_KEY>"
+  -H "x-app-key: <APP_API_KEY>" \
+  -H "Authorization: Bearer <accessToken>"
 ```
 
 ### Possible errors
@@ -611,7 +843,9 @@ Returns full data for one tracked player.
 
 ### Authentication
 
-Required.
+Requires `x-app-key`.
+
+In production, also requires `Authorization: Bearer <accessToken>`.
 
 ### Source file
 
@@ -686,7 +920,8 @@ Returns one player object, or `null` if no player matches the given `playerId`.
 
 ```bash
 curl "http://localhost:3000/api/player?playerId=b39cded93b0f4aa59ffdadf0db18e853" \
-  -H "x-app-key: <APP_API_KEY>"
+  -H "x-app-key: <APP_API_KEY>" \
+  -H "Authorization: Bearer <accessToken>"
 ```
 
 ### Possible errors
@@ -702,6 +937,7 @@ curl "http://localhost:3000/api/player?playerId=b39cded93b0f4aa59ffdadf0db18e853
 ## Notes
 
 - Successful API responses do not use a global `success: true` wrapper, except `/api/health`.
+- `POST /api/app/challenge` and `POST /api/app/session` return a `success` wrapper because they are part of the security bootstrap flow.
 - `/api/tournaments/allWindow`, `/api/tournaments/window`, `/api/tournaments/results`, and `/api/player` return `null` with status `200` when nothing matches.
 - The route name is `/api/tournaments/calendrier`, not `/api/tournaments/calendar`.
 - Query parameters are read from `req.query`, not from the request body.

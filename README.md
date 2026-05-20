@@ -83,6 +83,28 @@ service
 | GET | `/api/players` | Returns tracked players |
 | GET | `/api/player` | Returns player information |
 
+## Security
+
+### API authentication
+
+- `GET /api/health` is public.
+- `POST /api/app/challenge` and `POST /api/app/session` require `x-app-key`.
+- All data routes also require `x-app-key`.
+- In production, data routes additionally require `Authorization: Bearer <accessToken>`.
+- In non-production, the mobile session check is currently bypassed by the server.
+
+### Mobile session bootstrap
+
+1. Call `POST /api/app/challenge` with `installationId`, `platform`, and `appVersion`.
+2. Call `POST /api/app/session` with the returned `challenge` plus an `attestation` payload.
+3. Reuse the returned JWT as `Authorization: Bearer <accessToken>` on data routes.
+
+### Rate limits
+
+- Global `/api` limit: `60` requests/minute
+- `POST /api/app/challenge`: `20` requests/minute
+- `POST /api/app/session`: `10` requests/minute
+
 ### Dashboard
 
 | Method | Route | Description |
@@ -153,7 +175,7 @@ Then copy the `authorizationCode` and use it in the server.
 
 - The mobile app must never call `fnbr.js` directly.
 - All Fortnite data must go through this server.
-- Mobile routes now require both `x-app-key` and a short bearer session created from `/api/app/challenge` then `/api/app/session`.
+- Data API routes now require `x-app-key`, and in production also require a short bearer session created from `/api/app/challenge` then `/api/app/session`.
 - The current `development` attestation mode is intended for local Expo Go / dev builds. Native production attestation still needs Apple/Google verification setup.
 - The `.env` file must never be pushed to GitHub.
 - The `deviceAuth.json` file must never be pushed to GitHub.
