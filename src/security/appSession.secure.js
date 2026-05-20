@@ -2,9 +2,16 @@ const {
   extractBearerToken,
   verifyAppSessionToken
 } = require("../services/appSession.service.js");
+const { node_env } = require("../config/env.js");
 const { logWarning } = require("../utils/logger.js");
 
 function requireAppSession(req, res, next) {
+  const isDevMode = node_env !== "production";
+
+  if (isDevMode) {
+    return next();
+  }
+
   const bearerToken = extractBearerToken(req.headers.authorization);
 
   if (!bearerToken) {
