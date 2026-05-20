@@ -15,6 +15,7 @@ const admin_password = process.env.ADMIN_PASSWORD_HASH || "";
 const session_secret = process.env.SESSION_SECRET || "";
 
 const dashboard_origin = process.env.DASHBOARD_ORIGIN || "";
+const allowed_origins = parseList(process.env.ALLOWED_ORIGINS);
 const trust_proxy = parseTrustProxy(process.env.TRUST_PROXY, node_env === "production" ? 1 : false);
 const app_auth_jwt_secret =
   process.env.APP_AUTH_JWT_SECRET || session_secret || app_api_key || "";
@@ -38,6 +39,7 @@ module.exports = {
   admin_password,
   session_secret,
   dashboard_origin,
+  allowed_origins,
   trust_proxy,
   app_auth_jwt_secret,
   app_auth_jwt_issuer,
@@ -69,4 +71,15 @@ function parseTrustProxy(value, fallback) {
   }
 
   return value;
+}
+
+function parseList(value) {
+  if (!value) {
+    return [];
+  }
+
+  return String(value)
+    .split(",")
+    .map((entry) => entry.trim())
+    .filter(Boolean);
 }

@@ -100,10 +100,9 @@ function logError(message, source, error) {
 }
 
 function logDebug(message, source) {
-  if(node_env !== "production"){
-    const entry = buildEntry("DEBUG", message, source);
-    printLog("DEBUG", source, message);
-  }
+  if(node_env === "production"){return}
+  const entry = buildEntry("DEBUG", message, source);
+  printLog("DEBUG", source, message);
 }
 
 function logWarning(message, source) {

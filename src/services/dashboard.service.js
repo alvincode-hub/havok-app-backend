@@ -20,6 +20,8 @@ const {
   startWithOrchestrationLock,
   getOrchestrationLockState
 } = require("../jobs/orchestration.shared.js");
+const { syncAllEnriched } = require("./enriched.service.js");
+const { logInfo } = require("../utils/logger.js");
 
 let dashboardDataPromise = null;
 
@@ -103,11 +105,16 @@ async function updateAllCron() {
     "dashboard:updateAllCron",
     async () => {
       await runEventsJob();
-      await runLiveEventsResultJob();
+      await runLiveEventsResultJob({ force: true });
       await runScoreRulesJob();
-      await runEventsResultJob();
+      await runEventsResultJob({ force: true });
       await runCleanupResultsJob();
       await runProfileJob();
+      logInfo("Force rebuild enrichi complet lance", "DashboardService");
+      await syncAllEnriched({
+        force: true,
+        reason: "dashboard-force-refresh"
+      });
       invalidateDashboardPayloadCache();
     },
     "DashboardService"
@@ -123,7 +130,7 @@ async function updateAllCron() {
 
   return {
     ok: true,
-    message: "Cron lance en arriere-plan.",
+    message: "Force refresh lance en arriere-plan.",
     lockState: getOrchestrationLockState()
   };
 }

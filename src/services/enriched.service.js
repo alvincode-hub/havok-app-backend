@@ -16,14 +16,14 @@ const {
 const {
   invalidateDashboardPayloadCache
 } = require("./dashboardPayloadCache.service.js");
-const { logDebug, logError } = require("../utils/logger");
+const { logDebug, logError, logInfo } = require("../utils/logger");
 
-async function syncHomeEnriched() {
+async function syncHomeEnriched(options = {}) {
   try {
     const data = await enrichHome();
     await saveEnrichedData(data, enrichedHomePath());
     invalidateDashboardPayloadCache();
-    logDebug(`Snapshot enrichi ${enrichedHomePath()}`, "EnrichedService");
+    logEnrichedSnapshot("syncHomeEnriched", enrichedHomePath(), data, options);
     return data;
   } catch (error) {
     logError("Generation de home enrichi impossible", "EnrichedService", error);
@@ -31,12 +31,12 @@ async function syncHomeEnriched() {
   }
 }
 
-async function syncEventListEnriched() {
+async function syncEventListEnriched(options = {}) {
   try {
     const data = await enrichedWindowList();
     await saveEnrichedData(data, enrichedEventListPath());
     invalidateDashboardPayloadCache();
-    logDebug(`Snapshot enrichi ${enrichedEventListPath()}`, "c");
+    logEnrichedSnapshot("syncEventListEnriched", enrichedEventListPath(), data, options);
     return data;
   } catch (error) {
     logError("Generation de la list d'events enrichi impossible", "EnrichedService", error);
@@ -44,12 +44,12 @@ async function syncEventListEnriched() {
   }
 }
 
-async function syncCalendrierEnriched() {
+async function syncCalendrierEnriched(options = {}) {
   try {
     const data = await enrichedCalendrier();
     await saveEnrichedData(data, enrichedCalendrierPath());
     invalidateDashboardPayloadCache();
-    logDebug(`Snapshot enrichi ${enrichedCalendrierPath()}`, "EnrichedService");
+    logEnrichedSnapshot("syncCalendrierEnriched", enrichedCalendrierPath(), data, options);
     return data;
   } catch (error) {
     logError("Generation du calendrier enrichi impossible", "EnrichedService", error);
@@ -57,12 +57,12 @@ async function syncCalendrierEnriched() {
   }
 }
 
-async function syncWindowDetailEnriched() {
+async function syncWindowDetailEnriched(options = {}) {
   try {
     const data = await enrichedWindowDetail();
     await saveEnrichedData(data, enrichedWindowDetailsPath());
     invalidateDashboardPayloadCache();
-    logDebug(`Snapshot enrichi ${enrichedWindowDetailsPath()}`, "EnrichedService");
+    logEnrichedSnapshot("syncWindowDetailEnriched", enrichedWindowDetailsPath(), data, options);
     return data;
   } catch (error) {
     logError("Generation des details de window enrichis impossible", "EnrichedService", error);
@@ -70,12 +70,12 @@ async function syncWindowDetailEnriched() {
   }
 }
 
-async function syncWindowResultEnriched() {
+async function syncWindowResultEnriched(options = {}) {
   try {
     const data = await enrichedResults();
     await saveEnrichedData(data, enrichedResultsPath());
     invalidateDashboardPayloadCache();
-    logDebug(`Snapshot enrichi ${enrichedResultsPath()}`, "EnrichedService");
+    logEnrichedSnapshot("syncWindowResultEnriched", enrichedResultsPath(), data, options);
     return data;
   } catch (error) {
     logError("Generation des resultats enrichis impossible", "EnrichedService", error);
@@ -83,12 +83,12 @@ async function syncWindowResultEnriched() {
   }
 }
 
-async function syncPlayersEnriched() {
+async function syncPlayersEnriched(options = {}) {
   try {
     const data = await enrichedPlayers();
     await saveEnrichedData(data, enrichedPlayersPath());
     invalidateDashboardPayloadCache();
-    logDebug(`Snapshot enrichi ${enrichedPlayersPath()}`, "EnrichedService");
+    logEnrichedSnapshot("syncPlayersEnriched", enrichedPlayersPath(), data, options);
     return data;
   } catch (error) {
     logError("Generation des joueurs enrichis impossible", "EnrichedService", error);
@@ -96,41 +96,82 @@ async function syncPlayersEnriched() {
   }
 }
 
-async function syncTournamentEnriched() {
-  await syncCalendrierEnriched();
-  await syncHomeEnriched();
-  await syncWindowDetailEnriched();
-  await syncEventListEnriched();
+async function syncTournamentEnriched(options = {}) {
+  await syncCalendrierEnriched(options);
+  await syncHomeEnriched(options);
+  await syncWindowDetailEnriched(options);
+  await syncEventListEnriched(options);
 }
 
-async function syncResultsEnriched() {
-  await syncHomeEnriched();
-  await syncPlayersEnriched();
-  await syncWindowResultEnriched();
-  await syncWindowDetailEnriched();
+async function syncResultsEnriched(options = {}) {
+  await syncHomeEnriched(options);
+  await syncPlayersEnriched(options);
+  await syncWindowResultEnriched(options);
+  await syncWindowDetailEnriched(options);
 }
 
-async function syncWindowEnriched() {
-  await syncWindowResultEnriched();
-  await syncWindowDetailEnriched();
-   await syncEventListEnriched();
+async function syncWindowEnriched(options = {}) {
+  await syncWindowResultEnriched(options);
+  await syncWindowDetailEnriched(options);
+  await syncEventListEnriched(options);
 }
 
-async function syncProfileEnriched() {
-  await syncPlayersEnriched();
+async function syncProfileEnriched(options = {}) {
+  await syncPlayersEnriched(options);
 }
 
-async function syncEventEnriched() {
-  await syncEventListEnriched();
+async function syncEventEnriched(options = {}) {
+  await syncEventListEnriched(options);
 }
 
-async function syncAllEnriched() {
-  await syncCalendrierEnriched();
-  await syncHomeEnriched();
-  await syncPlayersEnriched();
-  await syncWindowResultEnriched();
-  await syncWindowDetailEnriched();
-  await syncEventListEnriched();
+async function syncAllEnriched(options = {}) {
+  if (options.force) {
+    logInfo(
+      `Force rebuild enrichi complet reason=${options.reason || "manual"}`,
+      "EnrichedService"
+    );
+  }
+
+  await syncCalendrierEnriched(options);
+  await syncHomeEnriched(options);
+  await syncPlayersEnriched(options);
+  await syncWindowResultEnriched(options);
+  await syncWindowDetailEnriched(options);
+  await syncEventListEnriched(options);
+}
+
+function logEnrichedSnapshot(syncName, filePath, data, options = {}) {
+  const context = buildLogContext(options);
+  logDebug(
+    `${syncName} -> ${filePath} count=${countSnapshotEntries(data)}${context}`,
+    "EnrichedService"
+  );
+}
+
+function countSnapshotEntries(data) {
+  if (Array.isArray(data)) {
+    return data.length;
+  }
+
+  if (data && typeof data === "object") {
+    return Object.keys(data).length;
+  }
+
+  return data === null || data === undefined ? 0 : 1;
+}
+
+function buildLogContext(options = {}) {
+  const parts = [];
+
+  if (options.reason) {
+    parts.push(`reason=${options.reason}`);
+  }
+
+  if (options.force) {
+    parts.push("force=true");
+  }
+
+  return parts.length > 0 ? ` ${parts.join(" ")}` : "";
 }
 
 module.exports = {

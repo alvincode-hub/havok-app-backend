@@ -79,8 +79,9 @@ async function markRequestForbidden(key, metadata = {}) {
   return state.entries[key];
 }
 
-function getBlockedReason(entry, freshnessTtlMs) {
+function getBlockedReason(entry, freshnessTtlMs, options = {}) {
   const now = Date.now();
+  const forceRefresh = Boolean(options?.forceRefresh);
 
   if (entry?.cooldownUntil) {
     const cooldownUntilTime = new Date(entry.cooldownUntil).getTime();
@@ -94,7 +95,7 @@ function getBlockedReason(entry, freshnessTtlMs) {
     }
   }
 
-  if (entry?.lastSuccessAt && freshnessTtlMs > 0) {
+  if (!forceRefresh && entry?.lastSuccessAt && freshnessTtlMs > 0) {
     const lastSuccessTime = new Date(entry.lastSuccessAt).getTime();
 
     if (!Number.isNaN(lastSuccessTime) && now - lastSuccessTime < freshnessTtlMs) {
@@ -118,7 +119,7 @@ async function getRequestDecision(key, options = {}) {
   const freshnessTtlMs = Number(options.freshnessTtlMs) || 0;
   return {
     entry,
-    ...getBlockedReason(entry, freshnessTtlMs)
+    ...getBlockedReason(entry, freshnessTtlMs, options)
   };
 }
 

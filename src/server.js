@@ -7,9 +7,12 @@ const { port } = require("./config/env.js");
 const PORT = port;
 const HOST = "0.0.0.0";
 
-logInfo("Initialisation du serveur", "Server");
+logInfo(`Initialisation du serveur pid=${process.pid} port=${PORT}`, "Server");
 
-app.listen(PORT, HOST, () => {
+const server = app.listen(PORT, HOST);
+
+server.on("listening", () => {
+  logInfo(`Server pid=${process.pid} port=${PORT}`, "Server");
   logInfo(`Serveur en ecoute sur http://localhost:${PORT}`, "Server");
   getLanUrls(PORT).forEach((url) => {
     logInfo(`Serveur joignable sur ${url}`, "Server");
@@ -22,6 +25,21 @@ app.listen(PORT, HOST, () => {
     .catch((error) => {
       logError("Connexion Fortnite impossible au demarrage", "Server", error);
     });
+});
+
+server.on("error", (error) => {
+  if (error?.code === "EADDRINUSE") {
+    logError(
+      `Demarrage impossible: port ${PORT} deja utilise. Un autre process serveur repond probablement deja. pid=${process.pid}`,
+      "Server",
+      error
+    );
+  } else {
+    logError(`Demarrage impossible pid=${process.pid}`, "Server", error);
+  }
+
+  process.exitCode = 1;
+  setTimeout(() => process.exit(1), 50);
 });
 
 function getLanUrls(port) {

@@ -12,7 +12,7 @@ const {
 
 let isRunning = false;
 
-async function runLiveEventsResultJob() {
+async function runLiveEventsResultJob(options = {}) {
   if (isRunning) {
     logWarning("Job deja en cours d'execution", "LiveEventsResultJob");
     return false;
@@ -21,6 +21,7 @@ async function runLiveEventsResultJob() {
   isRunning = true;
 
   try {
+    const jobOptions = normalizeJobOptions(options);
     const liveEvents = await getLiveEvents();
 
     if (liveEvents.length === 0) {
@@ -42,14 +43,27 @@ async function runLiveEventsResultJob() {
       return true;
     }
 
-    const summary = await updateLiveEventsResults(acceptedLiveEvents);
+    const summary = await updateLiveEventsResults(acceptedLiveEvents, jobOptions);
 
-    if (summary.updatedWindows > 0 || summary.skippedCooldownWindows > 0) {
-      await syncResultsEnriched();
+    if (summary.shouldRebuildEnriched) {
+      const rebuildReason = jobOptions.forceRebuildEnriched
+        ? "live-events-force-rebuild"
+        : "live-events-refresh";
+
+      logDebug(
+        `Rebuild enrichi lance refreshedWindows=${summary.refreshedWindows} force=${jobOptions.forceRebuildEnriched}`,
+        "LiveEventsResultJob"
+      );
+      await syncResultsEnriched({
+        force: jobOptions.forceRebuildEnriched,
+        reason: rebuildReason
+      });
+    } else {
+      logDebug("Rebuild enrichi saute: aucune fenetre live rafraichie", "LiveEventsResultJob");
     }
 
     logInfo(
-      `Job termine: ${summary.updatedWindows} fenetre(s), ${summary.updatedPages} page(s), ${summary.skippedForbiddenWindows} refusee(s), ${summary.skippedCooldownWindows} en cooldown, ${summary.failedWindows} en erreur`,
+      `Job termine: ${summary.refreshedWindows} fenetre(s) rafraichie(s), ${summary.updatedPages} page(s), ${summary.dataChangedWindows} fenetre(s) avec donnees changees, ${summary.skippedForbiddenWindows} refusee(s), ${summary.cooldownWindows} en cooldown, ${summary.failedWindows} en erreur, rebuildEnriched=${summary.shouldRebuildEnriched}`,
       "LiveEventsResultJob"
     );
     return true;
@@ -90,19 +104,24 @@ async function getLiveEvents() {
   return liveEvents.filter((event) => getUniqueResolvedLocations(event.window).length > 0);
 }
 
-async function updateLiveEventsResults(liveEvents) {
+async function updateLiveEventsResults(liveEvents, options = {}) {
   const processedLocations = new Set();
   const summary = {
-    updatedWindows: 0,
+    refreshedWindows: 0,
     updatedPages: 0,
+    dataChangedWindows: 0,
     skippedForbiddenWindows: 0,
-    skippedCooldownWindows: 0,
-    failedWindows: 0
+    cooldownWindows: 0,
+    failedWindows: 0,
+    shouldRebuildEnriched: false
   };
 
   for (const liveEvent of liveEvents) {
     const leaderboards = getUniqueResolvedLocations(liveEvent.window);
-    const requestOptions = buildLeaderboardRequestOptions(liveEvent.window, "live");
+    const requestOptions = {
+      ...buildLeaderboardRequestOptions(liveEvent.window, "live"),
+      forceRefresh: options.forceRefresh
+    };
 
     for (const leaderboard of leaderboards) {
       if (processedLocations.has(leaderboard)) {
@@ -122,7 +141,7 @@ async function updateLiveEventsResults(liveEvents) {
       }
 
       if (result.status === "cooldown") {
-        summary.skippedCooldownWindows += 1;
+        summary.cooldownWindows += 1;
         continue;
       }
 
@@ -131,12 +150,26 @@ async function updateLiveEventsResults(liveEvents) {
         continue;
       }
 
-      summary.updatedWindows += 1;
+      summary.refreshedWindows += 1;
       summary.updatedPages += result.pagesSaved;
+
+      if (result.dataChanged) {
+        summary.dataChangedWindows += 1;
+      }
     }
   }
 
+  summary.shouldRebuildEnriched =
+    Boolean(options.forceRebuildEnriched) || summary.refreshedWindows > 0;
+
   return summary;
+}
+
+function normalizeJobOptions(options = {}) {
+  return {
+    forceRefresh: Boolean(options.force),
+    forceRebuildEnriched: Boolean(options.forceRebuildEnriched)
+  };
 }
 
 module.exports = { runLiveEventsResultJob };

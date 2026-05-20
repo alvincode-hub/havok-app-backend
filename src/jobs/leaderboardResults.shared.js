@@ -1,3 +1,5 @@
+const fs = require("fs-extra");
+const path = require("path");
 const { getLeaderboard } = require("../fnbr/tournaments.js");
 const {
   loadNormalizedData,
@@ -31,6 +33,7 @@ async function updateLeaderboardWindow(resolvedLocation, source, options = {}) {
     normalizedTournamentResultsPath(resolvedLocation, 0)
   );
   const requestDecision = await getRequestDecision(resolvedLocation, options);
+  const usedFreshCache = requestDecision.reason === "fresh_cache";
 
   if (requestDecision.blocked && (cachedPage || requestDecision.reason === "forbidden_cooldown")) {
     logInfo(
@@ -42,6 +45,7 @@ async function updateLeaderboardWindow(resolvedLocation, source, options = {}) {
         status: "cooldown",
         cacheHit: Boolean(cachedPage),
         cooldownApplied: true,
+        usedFreshCache,
         durationMs: Date.now() - startedAt,
         reason: requestDecision.reason,
         cooldownUntil: requestDecision.cooldownUntil
@@ -52,6 +56,8 @@ async function updateLeaderboardWindow(resolvedLocation, source, options = {}) {
     return {
       status: "cooldown",
       pagesSaved: 0,
+      usedFreshCache,
+      dataChanged: false,
       cacheUsed: Boolean(cachedPage),
       reason: requestDecision.reason
     };
@@ -70,6 +76,8 @@ async function updateLeaderboardWindow(resolvedLocation, source, options = {}) {
     return {
       status: "forbidden",
       pagesSaved: 0,
+      usedFreshCache: false,
+      dataChanged: false,
       cacheUsed: Boolean(cachedPage),
       reason: firstPage.reason || "forbidden"
     };
@@ -79,6 +87,8 @@ async function updateLeaderboardWindow(resolvedLocation, source, options = {}) {
     return {
       status: "failed",
       pagesSaved: 0,
+      usedFreshCache: false,
+      dataChanged: false,
       cacheUsed: Boolean(cachedPage),
       reason: firstPage.error?.message || "failed"
     };
@@ -88,6 +98,7 @@ async function updateLeaderboardWindow(resolvedLocation, source, options = {}) {
   const pageNumbersSaved = [0];
   const totalPages = getTotalPagesFromLeaderboard(firstPage);
   const foundTrackedPlayers = collectTrackedPlayerIds(firstPage.cleanResults, trackedPlayerIds);
+  let dataChanged = Boolean(firstPage.dataChanged);
 
   for (
     let page = 1;
@@ -101,6 +112,7 @@ async function updateLeaderboardWindow(resolvedLocation, source, options = {}) {
     }
 
     pageNumbersSaved.push(page);
+    dataChanged = dataChanged || Boolean(nextPage.dataChanged);
 
     for (const accountId of collectTrackedPlayerIds(nextPage.cleanResults, trackedPlayerIds)) {
       foundTrackedPlayers.add(accountId);
@@ -119,6 +131,8 @@ async function updateLeaderboardWindow(resolvedLocation, source, options = {}) {
   return {
     status: "ok",
     pagesSaved: pageNumbersSaved.length,
+    usedFreshCache: false,
+    dataChanged,
     cacheUsed: false,
     reason: null
   };
@@ -129,10 +143,12 @@ async function saveLeaderboardPageSafely(resolvedLocation, page, source, started
     const rawResults = await getLeaderboard(resolvedLocation, page);
     const rawPath = rawTournamentResultsPath(resolvedLocation, page);
     const normalizedPath = normalizedTournamentResultsPath(resolvedLocation, page);
+    const previousResults = await loadStoredNormalizedPage(resolvedLocation, page);
 
     await saveRawData(rawResults, rawPath);
 
     const cleanResults = await normalizeTournamentsResults(rawResults, rawResults);
+    const dataChanged = hasSerializedDataChanged(previousResults, cleanResults);
     await saveNormalizedData(cleanResults, normalizedPath);
 
     logDebug(`Resultats normalises ${normalizedPath}`, source);
@@ -145,6 +161,7 @@ async function saveLeaderboardPageSafely(resolvedLocation, page, source, started
         status: "ok",
         cacheHit: false,
         cooldownApplied: false,
+        dataChanged,
         durationMs: Date.now() - startedAt
       }),
       source
@@ -153,7 +170,8 @@ async function saveLeaderboardPageSafely(resolvedLocation, page, source, started
     return {
       status: "ok",
       rawResults,
-      cleanResults
+      cleanResults,
+      dataChanged
     };
   } catch (error) {
     if (isHttpStatus(error, 403)) {
@@ -250,6 +268,26 @@ function maybeLogForbiddenWindow(resolvedLocation, page, source) {
 
 function isHttpStatus(error, statusCode) {
   return Number(error?.response?.status) === statusCode;
+}
+
+function hasSerializedDataChanged(previousValue, nextValue) {
+  return JSON.stringify(previousValue ?? null) !== JSON.stringify(nextValue ?? null);
+}
+
+async function loadStoredNormalizedPage(resolvedLocation, page) {
+  const absoluteFilePath = toDataAbsolutePath(
+    normalizedTournamentResultsPath(resolvedLocation, page)
+  );
+
+  if (!(await fs.pathExists(absoluteFilePath))) {
+    return null;
+  }
+
+  return loadNormalizedData(normalizedTournamentResultsPath(resolvedLocation, page));
+}
+
+function toDataAbsolutePath(relativePath) {
+  return path.join(__dirname, "../../data", relativePath);
 }
 
 module.exports = {

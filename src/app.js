@@ -4,10 +4,12 @@ const cors = require("cors");
 const path = require("path");
 const rateLimit = require("express-rate-limit");
 const session = require("express-session");
+const createMemoryStore = require("memorystore");
 const bcrypt = require("bcrypt");
 const {
   admin_password,
   admin_username,
+  allowed_origins,
   dashboard_origin,
   node_env,
   session_secret,
@@ -22,9 +24,15 @@ const dashboardRoutes = require("./routes/dashboard.routes.js");
 const { logDebug, logInfo, logWarning } = require("./utils/logger.js");
 
 const app = express();
+const MemoryStore = createMemoryStore(session);
 
 const publicDir = path.join(__dirname, "public");
 const useSecureCookies = node_env === "production";
+const sessionStore = useSecureCookies
+  ? new MemoryStore({
+      checkPeriod: 24 * 60 * 60 * 1000
+    })
+  : undefined;
 
 if (trust_proxy !== false) {
   app.set("trust proxy", trust_proxy);
@@ -70,7 +78,8 @@ const allowedOrigins = [
   "http://localhost:3000",
   "http://localhost:8081",
   "http://localhost:19006",
-  dashboard_origin
+  dashboard_origin,
+  ...allowed_origins
 ].filter(Boolean);
 
 app.use(
@@ -107,6 +116,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(
   session({
     secret: session_secret,
+    store: sessionStore,
     proxy: useSecureCookies,
     resave: false,
     saveUninitialized: false,

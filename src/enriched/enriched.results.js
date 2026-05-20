@@ -33,10 +33,6 @@ async function enrichedResults() {
         continue;
       }
 
-      if (isOlderThan15Days(window.end)) {
-        continue;
-      }
-
       const leaderboardIndex = getMainLeaderboard(window.scoreLocations);
 
       if (leaderboardIndex === -1) {

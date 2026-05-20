@@ -34,28 +34,42 @@ async function enrichedWindowDetail() {
 
     for (const window of tournament.windows || []) {
       const prizes = (window.prizes || []).map((prize) => {
-        const rewardType = prize.rewardType || null;
-        const value = prize.value || null;
+      const rawRewardType = prize.rewardType || null;
+      const value = prize.value || null;
 
-        const qualificationTarget =
-          rewardType === "Qualification" && value
-            ? qualificationTargets.get(String(value)) || null
-            : null;
+      const rewardType =
+        rawRewardType === "ecomm"
+          ? "cash"
+          : rawRewardType === "token"
+            ? "qualif"
+            : rawRewardType;
 
-        const qualificationWindowName =
-          rewardType === "Qualification" && value
-            ? qualificationTarget?.windowName || buildWindowName(tournament.name, value)
-            : null;
+      const rewardTypeDisplayName =
+        rewardType === "cash"
+          ? "Cash"
+          : rewardType === "qualif"
+            ? "Qualification"
+            : prize.rewardTypeDisplayName || null;
 
-        return {
-          scoringType: prize.scoringType || null,
-          threshold: prize.threshold ?? null,
-          rewardType,
-          value,
-          qualificationWindowName,
-          quantity: prize.quantity ?? null,
-        };
-      });
+      const qualificationTarget =
+        rewardType === "qualif" && value
+          ? qualificationTargets.get(String(value)) || null
+          : null;
+
+      const qualificationWindowName =
+        rewardType === "qualif" && value
+          ? qualificationTarget?.windowName || buildWindowName(tournament.name, value)
+          : null;
+
+      return {
+        scoringTypeDisplayName: prize.scoringTypeDisplayName || null,
+        threshold: prize.threshold ?? null,
+        rewardTypeDisplayName,
+        value,
+        qualificationWindowName,
+        quantity: prize.quantity ?? null,
+      };
+    });
 
       const playerQual = [];
 

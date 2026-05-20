@@ -12,7 +12,7 @@ const {
 
 let isRunning = false;
 
-async function runEventsResultJob() {
+async function runEventsResultJob(options = {}) {
   if (isRunning) {
     logWarning("Job deja en cours d'execution", "EventsResultJob");
     return false;
@@ -21,6 +21,7 @@ async function runEventsResultJob() {
   isRunning = true;
 
   try {
+    const jobOptions = normalizeJobOptions(options);
     const events = await loadNormalizedData(normalizedTournamentsPath());
 
     if (!Array.isArray(events) || events.length === 0) {
@@ -28,14 +29,27 @@ async function runEventsResultJob() {
       return true;
     }
 
-    const summary = await updateEventsResults(events);
+    const summary = await updateEventsResults(events, jobOptions);
 
-    if (summary.updatedWindows > 0 || summary.skippedCooldownWindows > 0) {
-      await syncResultsEnriched();
+    if (summary.shouldRebuildEnriched) {
+      const rebuildReason = jobOptions.forceRebuildEnriched
+        ? "events-results-force-rebuild"
+        : "events-results-refresh";
+
+      logDebug(
+        `Rebuild enrichi lance refreshedWindows=${summary.refreshedWindows} force=${jobOptions.forceRebuildEnriched}`,
+        "EventsResultJob"
+      );
+      await syncResultsEnriched({
+        force: jobOptions.forceRebuildEnriched,
+        reason: rebuildReason
+      });
+    } else {
+      logDebug("Rebuild enrichi saute: aucune fenetre rafraichie", "EventsResultJob");
     }
 
     logInfo(
-      `Job termine: ${summary.updatedWindows} fenetre(s), ${summary.updatedPages} page(s), ${summary.skippedForbiddenWindows} refusee(s), ${summary.skippedCooldownWindows} en cooldown, ${summary.failedWindows} en erreur`,
+      `Job termine: ${summary.refreshedWindows} fenetre(s) rafraichie(s), ${summary.updatedPages} page(s), ${summary.dataChangedWindows} fenetre(s) avec donnees changees, ${summary.skippedForbiddenWindows} refusee(s), ${summary.cooldownWindows} en cooldown, ${summary.failedWindows} en erreur, rebuildEnriched=${summary.shouldRebuildEnriched}`,
       "EventsResultJob"
     );
     return true;
@@ -47,15 +61,17 @@ async function runEventsResultJob() {
   }
 }
 
-async function updateEventsResults(events) {
+async function updateEventsResults(events, options = {}) {
   const acceptedEventIds = await loadAcceptedEventIds();
   const processedLocations = new Set();
   const summary = {
-    updatedWindows: 0,
+    refreshedWindows: 0,
     updatedPages: 0,
+    dataChangedWindows: 0,
     skippedForbiddenWindows: 0,
-    skippedCooldownWindows: 0,
-    failedWindows: 0
+    cooldownWindows: 0,
+    failedWindows: 0,
+    shouldRebuildEnriched: false
   };
 
   for (const event of events) {
@@ -77,7 +93,10 @@ async function updateEventsResults(events) {
       }
 
       const leaderboards = getUniqueResolvedLocations(window);
-      const requestOptions = buildLeaderboardRequestOptions(window, "finished");
+      const requestOptions = {
+        ...buildLeaderboardRequestOptions(window, "finished"),
+        forceRefresh: options.forceRefresh
+      };
 
       for (const leaderboard of leaderboards) {
         if (processedLocations.has(leaderboard)) {
@@ -97,7 +116,7 @@ async function updateEventsResults(events) {
         }
 
         if (result.status === "cooldown") {
-          summary.skippedCooldownWindows += 1;
+          summary.cooldownWindows += 1;
           continue;
         }
 
@@ -106,13 +125,27 @@ async function updateEventsResults(events) {
           continue;
         }
 
-        summary.updatedWindows += 1;
+        summary.refreshedWindows += 1;
         summary.updatedPages += result.pagesSaved;
+
+        if (result.dataChanged) {
+          summary.dataChangedWindows += 1;
+        }
       }
     }
   }
 
+  summary.shouldRebuildEnriched =
+    Boolean(options.forceRebuildEnriched) || summary.refreshedWindows > 0;
+
   return summary;
+}
+
+function normalizeJobOptions(options = {}) {
+  return {
+    forceRefresh: Boolean(options.force),
+    forceRebuildEnriched: Boolean(options.forceRebuildEnriched)
+  };
 }
 
 module.exports = { runEventsResultJob };

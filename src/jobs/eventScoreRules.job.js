@@ -13,11 +13,15 @@ async function runScoreRulesJob() {
   isRunning = true;
 
   try {
-    await getTournamentScoreRules()
-    await syncWindowDetailEnriched()
+    logInfo("Job start", "ScoreRulesJob");
+    await getTournamentScoreRules();
+    await syncWindowDetailEnriched({
+      reason: "score-rules-refresh"
+    });
+    logInfo("Job termine", "ScoreRulesJob");
     return true;
   } catch (error) {
-    
+    logError("Erreur lors de l'execution du job", "ScoreRulesJob", error);
     return false;
   } finally {
     isRunning = false;

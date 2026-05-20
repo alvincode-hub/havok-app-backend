@@ -4,7 +4,7 @@ const path = require("path");
 const { loadEnrichedData } = require("../storage/enrichedStore.js");
 const { loadConfigData, saveConfigData } = require("../storage/configStore.js");
 const { loadNormalizedData, saveNormalizedData } = require("../storage/normalizedStore.js");
-const { syncCalendrierEnriched, syncResultsEnriched } = require("./enriched.service.js");
+const { syncAllEnriched, syncCalendrierEnriched, syncResultsEnriched } = require("./enriched.service.js");
 const {
   enrichedHomePath,
   enrichedCalendrierPath,
@@ -188,11 +188,16 @@ async function updateAllCron() {
     "dashboard:updateAllCron",
     async () => {
       await runEventsJob();
-      await runLiveEventsResultJob();
+      await runLiveEventsResultJob({ force: true });
       await runScoreRulesJob();
-      await runEventsResultJob();
+      await runEventsResultJob({ force: true });
       await runCleanupResultsJob();
       await runProfileJob();
+      logDebug("Force rebuild enrichi complet lance", "DashboardDataService");
+      await syncAllEnriched({
+        force: true,
+        reason: "dashboard-force-refresh"
+      });
       invalidateDashboardPayloadCache();
     },
     "DashboardDataService"
@@ -210,7 +215,7 @@ async function updateAllCron() {
 
   return {
     ok: true,
-    message: "Cron lance en arriere-plan.",
+    message: "Force refresh lance en arriere-plan.",
     lockState: getOrchestrationLockState()
   };
 }

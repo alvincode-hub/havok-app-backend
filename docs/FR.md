@@ -1,183 +1,155 @@
 # HavokAPI-v1
 
-Serveur Node.js/Express qui recupere, stocke, normalise, enrichit et expose des donnees Fortnite Competitive pour une app mobile.
+Cette note resume l'etat reel du serveur au 2026-05-20.
 
-## Description
+## Ce que fait le serveur
 
-Ce serveur recupere des donnees Fortnite a partir d'une connexion a un compte Epic Games/Fortnite.
+Le projet expose trois surfaces principales :
 
-Apres la connexion, il permet de :
+- une API mobile publique sous `/api`
+- un dashboard HTML sous `/dashboard`
+- une API JSON protegee de dashboard sous `/dashboard/api` avec alias `/api/dashboard`
 
-- traquer des joueurs par `accountId`
-- filtrer les tournois pris en compte
-- recuperer les tournois a venir
-- recuperer les details des tournois
-- recuperer les resultats de tournois
-- gerer certains joueurs depuis un dashboard
-
-Les endpoints finaux sont prevus pour l'app mobile dediee, mais peuvent evoluer selon les besoins.
-
-## Exemples de donnees
-
-- dates, noms et images des tournois a venir
-- details de tournoi : systeme de points, recompenses, horaires
-- resultats de tournoi avec pagination
-- resultats des joueurs traques
-- informations de joueurs enrichies depuis le dashboard
-
-## Architecture
-
-### Recuperation des donnees
+Les donnees sont lues dans `server/data` a partir des couches :
 
 ```txt
-fnbr.js
-  ->
-raw
-  ->
-normalized
-  ->
-enriched
+fnbr -> raw -> normalized -> enriched
 ```
 
-### Couches de donnees
+Les fichiers JSON de stockage sont enregistres avec une enveloppe :
 
-| Etape | Description |
-|---|---|
-| `fnbr.js` | Recupere les donnees brutes |
-| `raw` | Sauvegarde les donnees sans modification |
-| `normalized` | Nettoie et reformate les donnees |
-| `enriched` | Ajoute des donnees calculees ou complementaires |
-
-### Flux API
-
-```txt
-router
-  ->
-controller
-  ->
-service
+```json
+{
+  "updatedAt": "...",
+  "data": ...
+}
 ```
 
-### Couches API
+Les routes HTTP renvoient uniquement `data`.
 
-| Element | Role |
-|---|---|
-| `router` | Redirige les requetes vers les bons controllers |
-| `controller` | Lit la requete et appelle les services |
-| `service` | Contient la logique principale du serveur |
-
-## Endpoints
-
-### API
+## Endpoints API mobile
 
 | Methode | Route | Description |
 |---|---|---|
-| GET | `/api/health` | Verifie si le serveur fonctionne |
-| POST | `/api/app/challenge` | Cree un challenge temporaire pour initialiser la session mobile |
-| POST | `/api/app/session` | Echange le challenge et l'attestation contre une courte session bearer |
-| GET | `/api/home` | Donnees principales pour l'accueil |
-| GET | `/api/tournaments/calendrier` | Liste des tournois a venir |
-| GET | `/api/tournaments/allWindow` | Retourne un event et ses windows depuis `eventId` ou `windowId` |
-| GET | `/api/tournaments/window` | Details d'une fenetre de tournoi |
-| GET | `/api/tournaments/results` | Resultats d'une fenetre avec `windowId`, `page` et `cumulatif` |
-| GET | `/api/players` | Liste des joueurs traques |
-| GET | `/api/player` | Informations d'un joueur |
+| GET | `/api/health` | Healthcheck public |
+| POST | `/api/app/challenge` | Cree un challenge de session mobile |
+| POST | `/api/app/session` | Cree une session bearer courte |
+| GET | `/api/home` | Payload de l'accueil |
+| GET | `/api/tournaments/calendrier` | Calendrier des windows |
+| GET | `/api/tournaments/allWindow` | Lookup event par `eventId` ou `windowId` |
+| GET | `/api/tournaments/window` | Details d'une window |
+| GET | `/api/tournaments/results` | Une page de leaderboard |
+| GET | `/api/players` | Liste simplifiee des joueurs suivis |
+| GET | `/api/player` | Profil complet d'un joueur suivi |
 
-### Dashboard
+Details complets dans [docs/API.md](./API.md).
 
-| Methode | Route | Description |
-|---|---|---|
-| GET | `/dashboard` | Page principale du dashboard |
-| GET | `/dashboard/login` | Page de connexion |
-| POST | `/dashboard/login` | Connexion au dashboard |
-| POST | `/dashboard/logout` | Deconnexion du dashboard |
-
-## Securite
-
-### Authentification API
+## Authentification API mobile
 
 - `GET /api/health` est public.
 - `POST /api/app/challenge` et `POST /api/app/session` demandent `x-app-key`.
-- Toutes les routes de donnees demandent `x-app-key`.
-- En production, les routes de donnees demandent aussi `Authorization: Bearer <accessToken>`.
-- Hors production, la verification de session mobile est actuellement bypass cote serveur.
+- Les routes metier demandent `x-app-key`.
+- En production, elles demandent aussi `Authorization: Bearer <accessToken>`.
+- Hors production, la verification de session mobile est bypass cote serveur.
 
-### Bootstrap de session mobile
+## Dashboard
 
-1. Appeler `POST /api/app/challenge` avec `installationId`, `platform` et `appVersion`.
-2. Appeler `POST /api/app/session` avec le `challenge` recu et un payload `attestation`.
-3. Reutiliser le JWT recu comme `Authorization: Bearer <accessToken>` sur les routes de donnees.
+### Pages
 
-### Rate limits
+| Methode | Route | Description |
+|---|---|---|
+| GET | `/` | Redirection vers `/dashboard/login` |
+| GET | `/dashboard/login` | Page de connexion |
+| POST | `/dashboard/login` | Ouvre la session admin |
+| POST | `/dashboard/logout` | Ferme la session admin |
+| GET | `/dashboard` | Redirection vers `/dashboard/` |
+| GET | `/dashboard/` | Shell du dashboard |
+| GET | `/dashboard-assets/*` | Assets images du dashboard |
 
-- Limite globale `/api` : `60` requetes/minute
-- `POST /api/app/challenge` : `20` requetes/minute
-- `POST /api/app/session` : `10` requetes/minute
+### API JSON
 
-## Installation
+Le dashboard expose les endpoints suivants sur `/dashboard/api` et `/api/dashboard` :
 
-### 1. Cloner le projet
+| Methode | Route | Description |
+|---|---|---|
+| GET | `/overview` | Resume, cartes, notes, sources |
+| GET | `/events` | Liste d'events |
+| GET | `/events/:eventId` | Detail d'un event |
+| GET | `/content` | Joueurs suivis, resultats, actu, casts |
+| GET | `/config` | Payload combine de configuration |
+| GET | `/status` | Etat des sources locales |
+| GET / PUT | `/config/team` | Configuration des joueurs suivis |
+| GET / PUT | `/config/tournament-filter` | Filtre des eventId retenus |
+| GET / PUT | `/config/actu` | Cartes d'actu |
+| GET / PUT | `/config/cast` | Liens Twitch / YouTube |
+| POST | `/updateCron` | Force refresh en arriere-plan |
 
-```bash
-git clone <url-du-projet>
-cd HavokAPI-v1
-```
+Doc detaillee dans [docs/DASHBOARD.md](./DASHBOARD.md).
 
-### 2. Installer les dependances
+Comportement auth :
+
+- sans session valide, les endpoints JSON renvoient `401`
+- le shell HTML `/dashboard/` reste servi statiquement; la protection est appliquee sur l'API JSON
+
+## Cron
+
+Le scheduler est active au demarrage dans `src/jobs/cron.js`.
+
+| Frequence | Tache |
+|---|---|
+| chaque minute | live results |
+| toutes les 30 min | event results |
+| toutes les 6 h | events |
+| chaque heure | profiles |
+| chaque jour a 00:00 | score rules |
+| chaque jour a 03:00 | cleanup results |
+
+Le dashboard peut aussi lancer un force refresh via `POST /dashboard/api/updateCron`.
+
+## Installation rapide
 
 ```bash
 npm install
 ```
 
-### 3. Configurer le fichier `.env`
-
-Creer un fichier `.env` a la racine du projet.
-
-Tu peux utiliser `.env.example` comme modele.
-
-Variables importantes :
+Puis configurer [server/.env.example](../.env.example) avec au minimum :
 
 ```env
 PORT=3000
-APP_API_KEY=shared-public-app-key
-APP_AUTH_JWT_SECRET=replace-with-a-long-random-secret
+NODE_ENV=development
+APP_API_KEY=replace-with-your-app-api-key
+APP_AUTH_JWT_SECRET=replace-with-your-jwt-secret
 APP_ATTESTATION_MODE=development
-APP_SESSION_TTL_SECONDS=600
-APP_CHALLENGE_TTL_SECONDS=180
+ADMIN_USERNAME=admin
+ADMIN_PASSWORD_HASH=
+SESSION_SECRET=replace-with-your-dashboard-session-secret
 ```
 
-### 4. Lancer le serveur
+Demarrage :
 
 ```bash
 npm start
 ```
 
-## Connexion au compte Fortnite
+Mode dev :
 
-Pour connecter un compte Fortnite, ouvre ce lien :
-
-```txt
-https://www.epicgames.com/id/api/redirect?clientId=3f69e56c7649492c8cc29f1af08a8a12&responseType=code
+```bash
+npm run dev
 ```
 
-Recupere ensuite le `authorizationCode` et utilise-le dans le serveur.
+## Verifications faites
 
-## Utilisation
+Verifie localement le 2026-05-20 :
 
-1. Cloner le projet
-2. Configurer le fichier `.env`
-3. Installer les dependances avec `npm install`
-4. Lancer le serveur avec `npm start`
-5. Connecter le compte Fortnite avec le `authorizationCode`
-6. Aller sur `/dashboard/login`
-7. Se connecter au dashboard
+- `GET /api/health` repond `200`
+- `GET /api/players` repond `401` sans `x-app-key`
+- `GET /api/players` repond `200` avec `x-app-key`
+- `GET /api/tournaments/results?windowId=<knownWindowId>&page=0` repond `200`
+- `npm run lint` passe dans `HavokApp`
+- `npm run typecheck` passe dans `HavokApp`
 
-## Notes importantes
+## Limites connues
 
-- L'app mobile ne doit jamais appeler `fnbr.js` directement.
-- Les donnees doivent toujours passer par le serveur.
-- Les routes de donnees demandent `x-app-key`, et en production aussi une session bearer courte creee via `/api/app/challenge` puis `/api/app/session`.
-- Le mode d'attestation `development` est surtout prevu pour les environnements locaux ou de dev. L'attestation native de production reste a brancher cote Apple/Google.
-- Le fichier `.env` ne doit jamais etre envoye sur GitHub.
-- Le fichier `deviceAuth.json` ne doit jamais etre envoye sur GitHub.
-- Les endpoints peuvent etre modifies selon les besoins de l'app mobile.
+- L'attestation native de production Apple / Google n'est pas encore implemente dans ce repo.
+- Le bypass de session mobile en environnement non production est volontaire.
+- Le dashboard est pense pour un usage same-origin avec cookie de session.
