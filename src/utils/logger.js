@@ -5,6 +5,8 @@ const LOGS_FILE = path.join(__dirname, "../../data/logs.json");
 const MAX_LOG_ENTRIES = 300;
 const NEWLINE = process.platform === "win32" ? "\r\n" : "\n";
 
+const { node_env } = require("../config/env.js");
+
 function getTimestamp() {
   return new Date().toISOString();
 }
@@ -98,8 +100,10 @@ function logError(message, source, error) {
 }
 
 function logDebug(message, source) {
-  const entry = buildEntry("DEBUG", message, source);
-  printLog("DEBUG", source, message);
+  if(node_env !== "production"){
+    const entry = buildEntry("DEBUG", message, source);
+    printLog("DEBUG", source, message);
+  }
 }
 
 function logWarning(message, source) {
