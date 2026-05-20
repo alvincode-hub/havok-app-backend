@@ -4,7 +4,7 @@ const { loadConfigData } = require("../storage/configStore.js");
 const { normalizedTournamentsPath } = require("../storage/paths.js");
 const { loadAcceptedEventIds, isEventAccepted } = require("../services/filterEvents.js");
 const { getWindowSuffix } = require("../utils/windowSuffix.js");
-const { findPlayerTop } = require("../services/findPlayersTop.js");
+const { findPlayersTop } = require("../services/findPlayersTop.js");
 const fs = require("fs");
 const path = require("path");
 
@@ -40,7 +40,6 @@ async function enrichHome() {
           end: tournamentWindow.end,
           teamFormat: tournamentWindow.teamFormat || null,
           gameMode: tournamentWindow.mode || null,
-          resolvedLocation: getMainResolvedLocation(tournamentWindow)
         });
       }
 
@@ -54,7 +53,6 @@ async function enrichHome() {
           end: tournamentWindow.end,
           teamFormat: tournamentWindow.teamFormat || null,
           gameMode: tournamentWindow.mode || null,
-          resolvedLocation: getMainResolvedLocation(tournamentWindow)
         });
       }
     }
@@ -89,24 +87,31 @@ async function findLastPlayedWindow(events, acceptedEventIds, now = new Date()) 
 
       if (endDate <= now) {
         allWindows.push({
-          ...tournamentWindow,
-          tournamentId: event.id || null,
-          tournamentName: `${eventName} ${getWindowSuffix(tournamentWindow.windowId)}`.trim(),
-          image,
-          teamFormat: tournamentWindow.teamFormat || null,
-          gameMode: tournamentWindow.mode || null
+          tournament: {
+            tournamentId: event.id || null,
+            windowId: tournamentWindow.windowId || null,
+            tournamentName: `${eventName} ${getWindowSuffix(tournamentWindow.windowId)}`.trim(),
+            image,
+            start: tournamentWindow.start,
+            end: tournamentWindow.end,
+            teamFormat: tournamentWindow.teamFormat || null,
+            gameMode: tournamentWindow.mode || null
+          },
+          tournamentWindow
         });
       }
     }
   }
 
-  allWindows.sort((a, b) => new Date(b.end) - new Date(a.end));
+  allWindows.sort((a, b) => new Date(b.tournament.end) - new Date(a.tournament.end));
 
-  const lastWindow = allWindows[0] || null;
+  const lastWindowEntry = allWindows[0] || null;
 
-  if (!lastWindow) {
+  if (!lastWindowEntry) {
     return null;
   }
+
+  const { tournament: lastWindow, tournamentWindow } = lastWindowEntry;
 
   const playerConfig = await loadConfigData("config/team.json");
 
@@ -117,41 +122,28 @@ async function findLastPlayedWindow(events, acceptedEventIds, now = new Date()) 
     };
   }
 
-  const places = [];
+  const playerIds = playerConfig.players.map((player) => {
+    return player.accountId;
+  });
+  const playerResults = await findPlayersTop(playerIds, tournamentWindow);
+  const places = playerConfig.players.flatMap((player, index) => {
+    const result = playerResults[index] || null;
 
-  for (const player of playerConfig.players) {
-    const result = await findPlayerTop(player.accountId, lastWindow);
-    if (result) {
-      places.push({
-        accountId: player.accountId,
-        name: player.name,
-        result
-      });
+    if (!result) {
+      return [];
     }
-  }
+
+    return [{
+      accountId: player.accountId,
+      name: player.name,
+      result
+    }];
+  });
 
   return {
     tournament: lastWindow,
     places: places
   };
-}
-
-function getMainResolvedLocation(window) {
-  if (window?.resolvedLocation) {
-    return window.resolvedLocation;
-  }
-
-  const scoreLocations = window?.scoreLocations || [];
-  const resolvedLocations = window?.resolvedLocations || [];
-  const mainLeaderboardIndex = scoreLocations.findIndex((location) => {
-    return location?.isMainWindowLeaderboard === true;
-  });
-
-  if (mainLeaderboardIndex !== -1 && resolvedLocations[mainLeaderboardIndex]) {
-    return resolvedLocations[mainLeaderboardIndex];
-  }
-
-  return resolvedLocations[0] || null;
 }
 
 module.exports = { enrichHome };

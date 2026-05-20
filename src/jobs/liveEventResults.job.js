@@ -44,7 +44,7 @@ async function runLiveEventsResultJob() {
 
     const summary = await updateLiveEventsResults(acceptedLiveEvents);
 
-    if (summary.updatedWindows > 0) {
+    if (summary.updatedWindows > 0 || summary.skippedCooldownWindows > 0) {
       await syncResultsEnriched();
     }
 

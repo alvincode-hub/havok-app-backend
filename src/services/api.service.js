@@ -1,13 +1,79 @@
 const { loadEnrichedData } = require("../storage/enrichedStore.js");
 
-async function getTournamentResults(windowId) {
+async function getTournamentResults(windowId, page, cumulatif) {
   const tournaments = await loadEnrichedData("/enriched/results.json");
+  const requestedPage = Number(page) || 0;
+  const cumulatifToggle = parseBooleanQuery(cumulatif);
+
+  if (!Array.isArray(tournaments)) {
+    return null;
+  }
 
   const tournamentResult = tournaments.find((el) => {
     return el.windowId == windowId;
   });
 
-  return tournamentResult || null;
+  if (!tournamentResult) {
+    return null;
+  }
+
+  const leaderboardType = cumulatifToggle
+    ? tournamentResult.leaderboardCumul
+    : tournamentResult.leaderboard;
+
+  if (!leaderboardType) {
+    return null;
+  }
+
+  const {
+    totalPages,
+    results
+  } = getLeaderboardPageResults(leaderboardType, cumulatifToggle, requestedPage);
+
+  const leaderboard = {
+    id: leaderboardType.id,
+    windowId: leaderboardType.windowId,
+    totalPages,
+    results,
+    qualStatus: leaderboardType.qualStatus || []
+  };
+
+  const response = {
+    tournamentId: tournamentResult.tournamentId,
+    tournamentName: tournamentResult.tournamentName,
+    windowId: tournamentResult.windowId,
+    start: tournamentResult.start,
+    end: tournamentResult.end,
+    leaderboard,
+    players: tournamentResult.players || []
+  };
+
+  return response || null;
+}
+
+function parseBooleanQuery(value) {
+  if (typeof value === "boolean") {
+    return value;
+  }
+
+  if (typeof value !== "string") {
+    return false;
+  }
+
+  const normalizedValue = value.trim().toLowerCase();
+  return normalizedValue === "true" || normalizedValue === "1";
+}
+
+function getLeaderboardPageResults(leaderboardType, isCumulative, requestedPage) {
+  const pages = isCumulative ? leaderboardType.pagesCumul : leaderboardType.pages;
+  const totalPagesValue = isCumulative
+    ? leaderboardType.totalPagesCumul
+    : leaderboardType.totalPages;
+
+  return {
+    totalPages: Number(totalPagesValue) || 1,
+    results: Array.isArray(pages) ? pages[requestedPage] || [] : []
+  };
 }
 
 async function getTournamentWindow(windowId) {
@@ -40,9 +106,7 @@ async function getAllPlayers() {
       image: el.image,
       pseudo: el.pseudo || null,
       country: el.country || null,
-      countryFlag: el.countryFlag || null,
-      top5: el.top5 ?? null,
-      bestTop: el.bestTop ?? null
+      countryFlag: el.countryFlag || null
     };
   });
 

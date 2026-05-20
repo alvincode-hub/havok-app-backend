@@ -59,11 +59,7 @@ async function enrichedWindowDetail() {
         tournamentName: tournamentName || tournament.name || null,
         description: tournament.description || null,
         type: tournament.typeDisplayName || tournament.type || null,
-        images: {
-          square: tournament.images?.square || null,
-          tile: tournament.images?.tile || null,
-          background: tournament.images?.background || null
-        },
+        images: tournament.images?.square || null,
         windowId: window.windowId || null,
         start: window.start || null,
         end: window.end || null,
@@ -71,9 +67,6 @@ async function enrichedWindowDetail() {
         matchCap: window.matchCap || 0,
         mode: window.mode || null,
         teamFormat: window.teamFormat || null,
-        anyRequiredTokens: window.anyRequiredTokens || [],
-        blockedTokens: window.blockedTokens || [],
-        requiredTokens: window.requiredTokens || [],
         requiresQualification: Boolean(window.requiresQualification),
         prizes,
         scoreRules,

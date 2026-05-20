@@ -17,7 +17,41 @@ const { logDebug } = require("../utils/logger.js");
 const TEAM_CONFIG_PATH = "config/team.json";
 
 async function findPlayerResultInLocation(resolvedLocation, playerId) {
-  if (!resolvedLocation || !playerId) {
+  if (!playerId) {
+    return null;
+  }
+
+  const players = await loadTrackedPlayerResultsInLocation(resolvedLocation);
+
+  if (!players) {
+    return null;
+  }
+
+  return players[playerId] || null;
+}
+
+async function findPlayersResultInLocation(resolvedLocation, playerIds) {
+  if (!Array.isArray(playerIds) || playerIds.length === 0) {
+    return [];
+  }
+
+  const players = await loadTrackedPlayerResultsInLocation(resolvedLocation);
+
+  if (!players) {
+    return playerIds.map(() => null);
+  }
+
+  return playerIds.map((playerId) => {
+    if (!playerId) {
+      return null;
+    }
+
+    return players[playerId] || null;
+  });
+}
+
+async function loadTrackedPlayerResultsInLocation(resolvedLocation) {
+  if (!resolvedLocation) {
     return null;
   }
 
@@ -25,16 +59,38 @@ async function findPlayerResultInLocation(resolvedLocation, playerId) {
   const indexAbsolutePath = toDataAbsolutePath(indexPath);
 
   if (!(await fs.pathExists(indexAbsolutePath))) {
-    return null;
+    const rebuiltIndex = await rebuildTrackedPlayerIndexFromCachedResults(resolvedLocation);
+
+    if (!isObject(rebuiltIndex?.players)) {
+      return null;
+    }
+
+    return rebuiltIndex.players;
   }
 
   const cachedIndex = await loadNormalizedData(indexPath);
 
   if (!isObject(cachedIndex?.players)) {
-    return null;
+    const rebuiltIndex = await rebuildTrackedPlayerIndexFromCachedResults(resolvedLocation);
+
+    if (!isObject(rebuiltIndex?.players)) {
+      return null;
+    }
+
+    return rebuiltIndex.players;
   }
 
-  return cachedIndex.players[playerId] || null;
+  return cachedIndex.players;
+}
+
+async function rebuildTrackedPlayerIndexFromCachedResults(resolvedLocation) {
+  const rebuiltIndex = await rebuildLeaderboardPlayerIndex(resolvedLocation);
+
+  if (isObject(rebuiltIndex?.players)) {
+    logDebug(`Index tracked regenere a la demande ${resolvedLocation}`, "LeaderboardIndex");
+  }
+
+  return rebuiltIndex;
 }
 
 async function rebuildLeaderboardPlayerIndex(resolvedLocation, options = {}) {
@@ -218,6 +274,7 @@ function isObject(value) {
 
 module.exports = {
   findPlayerResultInLocation,
+  findPlayersResultInLocation,
   rebuildLeaderboardPlayerIndex,
   invalidateLeaderboardPlayerIndex,
   loadTrackedPlayerIds

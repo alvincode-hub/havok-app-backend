@@ -51,7 +51,7 @@ async function enrichedPlayers() {
       }
     }
 
-    tournamentParticipated.sort((a, b) => new Date(b.start) - new Date(a.start));
+    tournamentParticipated.sort((a, b) => new Date(b.start) - new Date(a.start)).slice(0,5);
 
     playersArr.push({
       id,

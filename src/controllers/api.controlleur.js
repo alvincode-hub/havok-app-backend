@@ -8,7 +8,7 @@ const {
 const { logError, logWarning } = require("../utils/logger");
 
 async function getTournamentResultsController(req, res) {
-  const { windowId } = req.query;
+  const { windowId, page, cumulatif } = req.query;
 
   if (!windowId) {
     logWarning("Requete results rejetee: windowId manquant", "TournamentResultsController");
@@ -16,7 +16,7 @@ async function getTournamentResultsController(req, res) {
   }
 
   try {
-    const results = await getTournamentResults(windowId);
+    const results = await getTournamentResults(windowId,page,cumulatif);
     res.json(results);
   } catch (error) {
     logError("Recuperation des resultats de tournoi impossible", "TournamentResultsController", error);
