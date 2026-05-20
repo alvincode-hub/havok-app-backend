@@ -15,6 +15,17 @@ const admin_password = process.env.ADMIN_PASSWORD_HASH || "";
 const session_secret = process.env.SESSION_SECRET || "";
 
 const dashboard_origin = process.env.DASHBOARD_ORIGIN || "";
+const app_auth_jwt_secret =
+  process.env.APP_AUTH_JWT_SECRET || session_secret || app_api_key || "";
+const app_auth_jwt_issuer = process.env.APP_AUTH_JWT_ISSUER || "havok-api";
+const app_auth_jwt_audience =
+  process.env.APP_AUTH_JWT_AUDIENCE || "havok-mobile-app";
+const app_attestation_mode =
+  process.env.APP_ATTESTATION_MODE || (node_env === "production" ? "production" : "development");
+const app_session_ttl_seconds =
+  Number(process.env.APP_SESSION_TTL_SECONDS) || 10 * 60;
+const app_challenge_ttl_seconds =
+  Number(process.env.APP_CHALLENGE_TTL_SECONDS) || 3 * 60;
 
 module.exports = {
   port,
@@ -25,5 +36,11 @@ module.exports = {
   admin_username,
   admin_password,
   session_secret,
-  dashboard_origin
+  dashboard_origin,
+  app_auth_jwt_secret,
+  app_auth_jwt_issuer,
+  app_auth_jwt_audience,
+  app_attestation_mode,
+  app_session_ttl_seconds,
+  app_challenge_ttl_seconds
 };

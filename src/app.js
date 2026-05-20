@@ -16,6 +16,7 @@ const {
 require("./jobs/cron");
 
 const apiRoutesTournaments = require("./routes/api.tournaments.routes.js");
+const appAuthRoutes = require("./routes/api.auth.routes.js");
 const dashboardRoutes = require("./routes/dashboard.routes.js");
 const { logDebug, logInfo, logWarning } = require("./utils/logger.js");
 
@@ -38,6 +39,24 @@ const loginLimiter = rateLimit({
   message: {
     success: false,
     error: "Trop de tentatives. Reessaie plus tard."
+  }
+});
+
+const appChallengeLimiter = rateLimit({
+  windowMs: 60 * 1000,
+  max: 20,
+  message: {
+    success: false,
+    error: "Trop de demandes de challenge"
+  }
+});
+
+const appSessionLimiter = rateLimit({
+  windowMs: 60 * 1000,
+  max: 10,
+  message: {
+    success: false,
+    error: "Trop de creations de session"
   }
 });
 
@@ -202,8 +221,11 @@ app.get("/api/health", (req, res) => {
   res.json({ status: "ok", success: true });
 });
 
+app.use("/api/app/challenge", appChallengeLimiter);
+app.use("/api/app/session", appSessionLimiter);
 app.use("/api", apiLimiter);
 
+app.use(appAuthRoutes);
 app.use(apiRoutesTournaments);
 
 /* Dashboard dynamic routes AFTER login/static */

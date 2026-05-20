@@ -14,6 +14,7 @@
     "fnbr": "^4.2.0",
     "fs-extra": "^11.3.5",
     "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.3",
     "node-cron": "^3.0.3",
     "nodemon": "^3.1.14"
   },

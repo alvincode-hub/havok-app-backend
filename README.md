@@ -73,6 +73,8 @@ service
 | Method | Route | Description |
 |---|---|---|
 | GET | `/api/health` | Checks if the server is running |
+| POST | `/api/app/challenge` | Creates a one-time challenge for the mobile session bootstrap |
+| POST | `/api/app/session` | Exchanges the challenge + attestation payload for a short JWT session |
 | GET | `/api/home` | Returns main home data |
 | GET | `/api/tournaments/calendrier` | Returns upcoming tournaments |
 | GET | `/api/tournaments/allWindow` | Returns an event and its windows from `eventId` or `windowId` |
@@ -111,6 +113,16 @@ Create a `.env` file at the root of the project.
 
 You can use `.env.example` as a template.
 
+Variables added for the mobile session flow:
+
+```bash
+APP_API_KEY=shared-public-app-key
+APP_AUTH_JWT_SECRET=replace-with-a-long-random-secret
+APP_ATTESTATION_MODE=development
+APP_SESSION_TTL_SECONDS=600
+APP_CHALLENGE_TTL_SECONDS=180
+```
+
 ### 4. Start the server
 
 ```bash
@@ -141,6 +153,8 @@ Then copy the `authorizationCode` and use it in the server.
 
 - The mobile app must never call `fnbr.js` directly.
 - All Fortnite data must go through this server.
+- Mobile routes now require both `x-app-key` and a short bearer session created from `/api/app/challenge` then `/api/app/session`.
+- The current `development` attestation mode is intended for local Expo Go / dev builds. Native production attestation still needs Apple/Google verification setup.
 - The `.env` file must never be pushed to GitHub.
 - The `deviceAuth.json` file must never be pushed to GitHub.
 - Final endpoints can be changed depending on the mobile app needs.
