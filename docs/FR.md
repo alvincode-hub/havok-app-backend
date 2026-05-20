@@ -75,10 +75,11 @@ service
 | GET | `/api/health` | Vérifie si le serveur fonctionne |
 | GET | `/api/home` | Données principales pour l'accueil |
 | GET | `/api/tournaments/calendrier` | Liste des tournois à venir |
-| GET | `/api/tournaments/window?windowId=` | Détails d'une fenêtre de tournoi |
-| GET | `/api/tournaments/results?windowId=` | Résultats d'une fenêtre de tournoi |
+| GET | `/api/tournaments/allWindow` | Retourne un event et ses windows depuis `eventId` ou `windowId` |
+| GET | `/api/tournaments/window` | Détails d'une fenêtre de tournoi |
+| GET | `/api/tournaments/results` | Résultats d'une fenêtre avec `windowId`, `page` et `cumulatif` |
 | GET | `/api/players` | Liste des joueurs traqués |
-| GET | `/api/player?playerId=` | Informations d'un joueur |
+| GET | `/api/player` | Informations d'un joueur |
 
 ### Dashboard
 

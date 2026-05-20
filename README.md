@@ -75,10 +75,11 @@ service
 | GET | `/api/health` | Checks if the server is running |
 | GET | `/api/home` | Returns main home data |
 | GET | `/api/tournaments/calendrier` | Returns upcoming tournaments |
-| GET | `/api/tournaments/window?windowId=` | Returns tournament window details |
-| GET | `/api/tournaments/results?windowId=` | Returns tournament window results |
+| GET | `/api/tournaments/allWindow` | Returns an event and its windows from `eventId` or `windowId` |
+| GET | `/api/tournaments/window` | Returns tournament window details |
+| GET | `/api/tournaments/results` | Returns tournament window results with `windowId`, optional `page`, and optional `cumulatif` |
 | GET | `/api/players` | Returns tracked players |
-| GET | `/api/player?playerId=` | Returns player information |
+| GET | `/api/player` | Returns player information |
 
 ### Dashboard
 
