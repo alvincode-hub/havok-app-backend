@@ -36,6 +36,7 @@ async function normalizeTournamentsResults(tournaments, rawResults) {
       pointsKills: result.pointBreakdown?.["TEAM_ELIMS_STAT_INDEX:1"]?.pointsEarned || 0,
       pointsTop: getPointsTop(result) || 0,
       avrgPlacement: getAvrgPlacement(result) || 0,
+      avrgKill: getAvrgKill(result) || 0,
       sessionHistory: gameArr
     };
   });
@@ -116,6 +117,17 @@ function getAvrgPlacement(result) {
 
   const total = sessions.reduce(
     (sum, session) => sum + (session.trackedStats?.PLACEMENT_STAT_INDEX || 0),
+    0
+  );
+
+  return total / (sessions.length || 1);
+}
+
+function getAvrgKill(result) {
+  const sessions = result.sessionHistory || [];
+
+  const total = sessions.reduce(
+    (sum, session) => sum + (session.trackedStats?.TEAM_ELIMS_STAT_INDEX || 0),
     0
   );
 

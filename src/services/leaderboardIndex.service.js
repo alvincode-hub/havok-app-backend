@@ -15,6 +15,7 @@ const { loadConfigData } = require("../storage/configStore.js");
 const { logDebug } = require("../utils/logger.js");
 
 const TEAM_CONFIG_PATH = "config/team.json";
+const MAX_PAGES_LOADED = 10
 
 async function findPlayerResultInLocation(resolvedLocation, playerId) {
   if (!playerId) {
@@ -207,7 +208,7 @@ async function resolveLeaderboardPageNumbers(resolvedLocation) {
     typeof firstPage.totalPages === "number" &&
     firstPage.totalPages > 0
   ) {
-    for (let page = 0; page < firstPage.totalPages; page += 1) {
+    for (let page = 0; page < Math.min(firstPage.totalPages,MAX_PAGES_LOADED); page += 1) {
       const pagePath = toDataAbsolutePath(
         normalizedTournamentResultsPath(resolvedLocation, page)
       );
