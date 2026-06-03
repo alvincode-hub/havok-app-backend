@@ -6,14 +6,15 @@
     <title>Havok API Demo</title>
     <style>
       :root {
-        --bg: #0f172a;
-        --panel: #111827;
-        --panel-soft: #1f2937;
-        --text: #e5e7eb;
-        --muted: #94a3b8;
-        --accent: #38bdf8;
-        --border: rgba(148, 163, 184, 0.18);
-        --ok: #22c55e;
+        --bg: #f4f7fb;
+        --panel: #ffffff;
+        --panel-soft: #eef4ff;
+        --text: #0f172a;
+        --muted: #64748b;
+        --accent: #0f766e;
+        --accent-soft: #dff7f3;
+        --border: #dbe4f0;
+        --ok: #0f766e;
       }
 
       * {
@@ -25,27 +26,26 @@
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         color: var(--text);
         background:
-          radial-gradient(circle at top, rgba(56, 189, 248, 0.18), transparent 35%),
-          linear-gradient(180deg, #020617 0%, var(--bg) 100%);
+          linear-gradient(180deg, #ffffff 0%, #f4f7fb 100%);
       }
 
       main {
-        width: min(980px, calc(100% - 32px));
+        width: min(920px, calc(100% - 32px));
         margin: 0 auto;
-        padding: 48px 0 64px;
+        padding: 40px 0 56px;
       }
 
       .hero,
       .card {
-        background: rgba(17, 24, 39, 0.88);
+        background: var(--panel);
         border: 1px solid var(--border);
-        border-radius: 20px;
-        backdrop-filter: blur(12px);
+        border-radius: 18px;
+        box-shadow: 0 18px 45px rgba(15, 23, 42, 0.06);
       }
 
       .hero {
-        padding: 28px;
-        margin-bottom: 24px;
+        padding: 26px;
+        margin-bottom: 20px;
       }
 
       h1,
@@ -55,8 +55,8 @@
       }
 
       h1 {
-        font-size: clamp(2rem, 4vw, 3.4rem);
-        margin-bottom: 10px;
+        font-size: clamp(2rem, 4vw, 3rem);
+        margin-bottom: 8px;
       }
 
       .muted {
@@ -82,11 +82,11 @@
       .grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 16px;
+        gap: 14px;
       }
 
       .card {
-        padding: 20px;
+        padding: 18px;
       }
 
       .method {
@@ -97,18 +97,28 @@
         font-size: 0.78rem;
         font-weight: 700;
         letter-spacing: 0.04em;
-        background: rgba(56, 189, 248, 0.14);
+        background: var(--accent-soft);
         color: var(--accent);
       }
 
-      code {
+      .endpoint {
         display: block;
         margin: 12px 0 10px;
-        padding: 10px 12px;
+        padding: 11px 13px;
         border-radius: 12px;
         background: var(--panel-soft);
-        color: #bfdbfe;
+        color: #0f3d39;
         overflow-wrap: anywhere;
+        text-decoration: none;
+        font-family: Consolas, "Courier New", monospace;
+        font-size: 0.95rem;
+        font-weight: 600;
+        transition: background 0.15s ease, transform 0.15s ease;
+      }
+
+      .endpoint:hover {
+        background: #d7f1eb;
+        transform: translateY(-1px);
       }
 
       ul {
@@ -119,6 +129,13 @@
 
       a {
         color: var(--accent);
+      }
+
+      .inline-code {
+        font-family: Consolas, "Courier New", monospace;
+        background: #f1f5f9;
+        border-radius: 8px;
+        padding: 2px 6px;
       }
     </style>
   </head>
@@ -132,73 +149,84 @@
           accessibles directement.
         </p>
         <p class="muted">
-          Healthcheck: <a href="/api/health">/api/health</a>
+          Clique sur un endpoint pour l'ouvrir directement.
         </p>
       </section>
 
       <section class="grid">
         <article class="card">
           <span class="method">GET</span>
-          <code>/api/health</code>
+          <a class="endpoint" href="/api/health">/api/health</a>
           <p>Verifie que le serveur repond.</p>
         </article>
 
         <article class="card">
           <span class="method">GET</span>
-          <code>/api/home</code>
+          <a class="endpoint" href="/api/home">/api/home</a>
           <p>Retourne le payload principal d'accueil.</p>
         </article>
 
         <article class="card">
           <span class="method">GET</span>
-          <code>/api/tournaments/calendrier</code>
+          <a class="endpoint" href="/api/tournaments/calendrier">/api/tournaments/calendrier</a>
           <p>Retourne le calendrier des tournois.</p>
         </article>
 
         <article class="card">
           <span class="method">GET</span>
-          <code>/api/tournaments/allWindow?eventId=... ou ?windowId=...</code>
-          <p>Retourne un groupe d'event via <code>eventId</code> ou <code>windowId</code>.</p>
+          <a class="endpoint" href="/api/tournaments/allWindow?eventId=demo-event-id">
+            /api/tournaments/allWindow?eventId=demo-event-id
+          </a>
+          <p>
+            Retourne un groupe d'event via <span class="inline-code">eventId</span> ou
+            <span class="inline-code">windowId</span>.
+          </p>
         </article>
 
         <article class="card">
           <span class="method">GET</span>
-          <code>/api/tournaments/window?windowId=...</code>
+          <a class="endpoint" href="/api/tournaments/window?windowId=demo-window-id">
+            /api/tournaments/window?windowId=demo-window-id
+          </a>
           <p>Retourne le detail d'une window.</p>
         </article>
 
         <article class="card">
           <span class="method">GET</span>
-          <code>/api/tournaments/results?windowId=...&amp;page=0&amp;cumulatif=false</code>
+          <a class="endpoint" href="/api/tournaments/results?windowId=demo-window-id&amp;page=0&amp;cumulatif=false">
+            /api/tournaments/results?windowId=demo-window-id&amp;page=0&amp;cumulatif=false
+          </a>
           <p>Retourne les resultats pagines d'une window.</p>
           <ul>
-            <li><code>windowId</code> requis</li>
-            <li><code>page</code> optionnel</li>
-            <li><code>cumulatif=true</code> pour le classement cumulatif</li>
+            <li><span class="inline-code">windowId</span> requis</li>
+            <li><span class="inline-code">page</span> optionnel</li>
+            <li><span class="inline-code">cumulatif=true</span> pour le classement cumulatif</li>
           </ul>
         </article>
 
         <article class="card">
           <span class="method">GET</span>
-          <code>/api/players</code>
+          <a class="endpoint" href="/api/players">/api/players</a>
           <p>Retourne la liste simplifiee des joueurs suivis.</p>
         </article>
 
         <article class="card">
           <span class="method">GET</span>
-          <code>/api/player?playerId=...</code>
+          <a class="endpoint" href="/api/player?playerId=demo-player-id">
+            /api/player?playerId=demo-player-id
+          </a>
           <p>Retourne le profil complet d'un joueur.</p>
         </article>
 
         <article class="card">
           <span class="method">POST</span>
-          <code>/api/app/challenge</code>
+          <div class="endpoint">/api/app/challenge</div>
           <p>Endpoint d'auth mobile conserve pour compatibilite API.</p>
         </article>
 
         <article class="card">
           <span class="method">POST</span>
-          <code>/api/app/session</code>
+          <div class="endpoint">/api/app/session</div>
           <p>Echange challenge + attestation contre une session courte.</p>
         </article>
       </section>
