@@ -30,7 +30,8 @@ const forbiddenWindowLogTimes = new Map();
 async function updateLeaderboardWindow(resolvedLocation, source, options = {}) {
   const startedAt = Date.now();
   const cachedPage = await loadNormalizedData(
-    normalizedTournamentResultsPath(resolvedLocation, 0)
+    normalizedTournamentResultsPath(resolvedLocation, 0),
+    { silentMissing: true }
   );
   const requestDecision = await getRequestDecision(resolvedLocation, options);
   const usedFreshCache = requestDecision.reason === "fresh_cache";

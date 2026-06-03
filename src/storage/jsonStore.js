@@ -3,7 +3,7 @@ const path = require("path");
 
 const { logError } = require("../utils/logger");
 
-async function readData(filePath) {
+async function readData(filePath, options = {}) {
   try {
     const resolvedPath = getDataFilePath(filePath);
 
@@ -19,6 +19,10 @@ async function readData(filePath) {
     };
     return parsed;
   } catch (error) {
+    if (options.silentMissing && isMissingFileError(error)) {
+      return null;
+    }
+
     logError(`Lecture JSON impossible ${filePath}`, "JsonStore", error);
     throw error;
   }
@@ -62,6 +66,10 @@ async function writeData(newData, filePath) {
 
 function getDataFilePath(fileName) {
   return path.join(__dirname, "../../data", fileName);
+}
+
+function isMissingFileError(error) {
+  return error?.code === "ENOENT" || String(error?.message || "").includes("Fichier introuvable:");
 }
 
 async function createDataFileIfNotExists(filePath) {

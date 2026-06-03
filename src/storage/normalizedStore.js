@@ -11,10 +11,14 @@ async function saveNormalizedData(data, filePath) {
   }
 }
 
-async function loadNormalizedData(filePath) {
+async function loadNormalizedData(filePath, options = {}) {
   try {
-    const data = await readData(filePath);
-    logDebug(`Normalized charge ${filePath}`, "NormalizedStore");
+    const data = await readData(filePath, options);
+
+    if (data !== null) {
+      logDebug(`Normalized charge ${filePath}`, "NormalizedStore");
+    }
+
     return data;
   } catch (error) {
     return null;

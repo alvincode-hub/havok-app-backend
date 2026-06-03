@@ -13,8 +13,12 @@ async function saveConfigData(data, filePath) {
 
 async function loadConfigData(filePath) {
   try {
-    const data = await readData(filePath);
-    logDebug(`Config charge ${filePath}`, "ConfigStore");
+    const data = await readData(filePath, { silentMissing: true });
+
+    if (data !== null) {
+      logDebug(`Config charge ${filePath}`, "ConfigStore");
+    }
+
     return data;
   } catch (error) {
     return null;
