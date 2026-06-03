@@ -17,15 +17,6 @@ data/enriched.zip
 !data/
 !data/enriched/
 !data/enriched/*.json
-!data/config/
-!data/config/*.json
-!data/dashboard-assets/
-!data/dashboard-assets/**
-!data/normalized/
-data/normalized/*
-!data/normalized/events/
-data/normalized/events/*
-!data/normalized/events/events.json
 
 # Logs
 data/logs.json

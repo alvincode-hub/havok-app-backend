@@ -3,10 +3,8 @@ const {
   app_attestation_mode,
   app_auth_jwt_secret,
   allowed_origins,
-  dashboard_origin,
   demo_mode,
-  node_env,
-  session_secret
+  node_env
 } = require("./env.js");
 const { SUPPORTED_ATTESTATION_MODES } = require("../services/appAttestation.service.js");
 
@@ -31,13 +29,9 @@ function validateEnv() {
     errors.push("APP_AUTH_JWT_SECRET est requis.");
   }
 
-  if (!session_secret) {
-    errors.push("SESSION_SECRET est requis.");
-  }
-
   if (demo_mode) {
     warnings.push(
-      "DEMO_MODE actif: l API publique et le dashboard sont exposes en lecture seule sans authentification."
+      "DEMO_MODE actif: l API publique est exposee sans dashboard."
     );
     return {
       errors,
@@ -46,13 +40,9 @@ function validateEnv() {
   }
 
   if (isProduction) {
-    if (!dashboard_origin) {
-      errors.push("DASHBOARD_ORIGIN est requis en production.");
-    }
-
     if (allowed_origins.length === 0) {
       warnings.push(
-        "ALLOWED_ORIGINS est vide. Seul DASHBOARD_ORIGIN et localhost seront autorises par CORS."
+        "ALLOWED_ORIGINS est vide. Seuls localhost et les clients explicites seront autorises par CORS."
       );
     }
 
