@@ -40,6 +40,7 @@ async function login() {
   }
 
   logInfo("Demande d'authentification Fortnite", "FnbrClient");
+  logInfo("Allez sur https://www.epicgames.com/id/api/redirect?clientId=3f69e56c7649492c8cc29f1af08a8a12&responseType=code pour avoir le code.","FnbrClient")
 
   loginPromise = (async () => {
     const client = new Client({

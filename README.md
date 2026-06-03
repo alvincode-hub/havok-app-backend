@@ -158,7 +158,23 @@ For local development:
 npm run dev
 ```
 
-For a production web deployment, start from [server/.env.production.example](./.env.production.example) and keep `APP_ATTESTATION_MODE=web`.
+For a production web deployment, start from [server/.env.production.example](./.env.production.example) and keep 
+`APP_ATTESTATION_MODE=web`.
+
+### 4. Connect your fn account
+
+Go on https://www.epicgames.com/id/api/redirect?clientId=3f69e56c7649492c8cc29f1af08a8a12&responseType=code and connect you.
+```json
+{
+  "warning": "Do not share this code with any 3rd party service. It allows full access to your Epic account.",
+  "redirectUrl": "com.epicgames.fortnite://fnauth/?code=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "authorizationCode": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "exchangeCode": null,
+  "sid": null
+}
+```
+Enter **authorizationCode** and wait
+
 
 ## Verification status
 
