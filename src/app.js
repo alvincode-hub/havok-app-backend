@@ -1,6 +1,7 @@
 const express = require("express");
 const helmet = require("helmet");
 const cors = require("cors");
+const path = require("path");
 const rateLimit = require("express-rate-limit");
 const { allowed_origins, demo_mode, trust_proxy } = require("./config/env.js");
 
@@ -13,6 +14,7 @@ const appAuthRoutes = require("./routes/api.auth.routes.js");
 const { logDebug, logInfo, logWarning } = require("./utils/logger.js");
 
 const app = express();
+const publicDir = path.join(__dirname, "public");
 
 if (trust_proxy !== false) {
   app.set("trust proxy", trust_proxy);
@@ -82,6 +84,7 @@ app.use(
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use("/static", express.static(path.join(publicDir, "site")));
 
 app.use((req, res, next) => {
   const startedAt = Date.now();
@@ -103,11 +106,7 @@ app.use((req, res, next) => {
 });
 
 app.get("/", (req, res) => {
-  res.json({
-    success: true,
-    service: "havok-api-demo",
-    health: "/api/health"
-  });
+  res.sendFile(path.join(publicDir, "site/index.html"));
 });
 
 app.get("/api/health", (req, res) => {

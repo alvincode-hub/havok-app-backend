@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Havok API Demo</title>
+    <style>
+      :root {
+        --bg: #0f172a;
+        --panel: #111827;
+        --panel-soft: #1f2937;
+        --text: #e5e7eb;
+        --muted: #94a3b8;
+        --accent: #38bdf8;
+        --border: rgba(148, 163, 184, 0.18);
+        --ok: #22c55e;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at top, rgba(56, 189, 248, 0.18), transparent 35%),
+          linear-gradient(180deg, #020617 0%, var(--bg) 100%);
+      }
+
+      main {
+        width: min(980px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 48px 0 64px;
+      }
+
+      .hero,
+      .card {
+        background: rgba(17, 24, 39, 0.88);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        backdrop-filter: blur(12px);
+      }
+
+      .hero {
+        padding: 28px;
+        margin-bottom: 24px;
+      }
+
+      h1,
+      h2,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        font-size: clamp(2rem, 4vw, 3.4rem);
+        margin-bottom: 10px;
+      }
+
+      .muted {
+        color: var(--muted);
+      }
+
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 14px;
+        color: var(--ok);
+        font-weight: 700;
+      }
+
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+        background: currentColor;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 16px;
+      }
+
+      .card {
+        padding: 20px;
+      }
+
+      .method {
+        display: inline-block;
+        min-width: 52px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        background: rgba(56, 189, 248, 0.14);
+        color: var(--accent);
+      }
+
+      code {
+        display: block;
+        margin: 12px 0 10px;
+        padding: 10px 12px;
+        border-radius: 12px;
+        background: var(--panel-soft);
+        color: #bfdbfe;
+        overflow-wrap: anywhere;
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 18px;
+        color: var(--muted);
+      }
+
+      a {
+        color: var(--accent);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <div class="status"><span class="dot"></span>Havok API Demo</div>
+        <h1>Endpoints disponibles</h1>
+        <p class="muted">
+          Cette instance Render expose uniquement l'API. En mode demo, les routes de lecture sont
+          accessibles directement.
+        </p>
+        <p class="muted">
+          Healthcheck: <a href="/api/health">/api/health</a>
+        </p>
+      </section>
+
+      <section class="grid">
+        <article class="card">
+          <span class="method">GET</span>
+          <code>/api/health</code>
+          <p>Verifie que le serveur repond.</p>
+        </article>
+
+        <article class="card">
+          <span class="method">GET</span>
+          <code>/api/home</code>
+          <p>Retourne le payload principal d'accueil.</p>
+        </article>
+
+        <article class="card">
+          <span class="method">GET</span>
+          <code>/api/tournaments/calendrier</code>
+          <p>Retourne le calendrier des tournois.</p>
+        </article>
+
+        <article class="card">
+          <span class="method">GET</span>
+          <code>/api/tournaments/allWindow?eventId=... ou ?windowId=...</code>
+          <p>Retourne un groupe d'event via <code>eventId</code> ou <code>windowId</code>.</p>
+        </article>
+
+        <article class="card">
+          <span class="method">GET</span>
+          <code>/api/tournaments/window?windowId=...</code>
+          <p>Retourne le detail d'une window.</p>
+        </article>
+
+        <article class="card">
+          <span class="method">GET</span>
+          <code>/api/tournaments/results?windowId=...&amp;page=0&amp;cumulatif=false</code>
+          <p>Retourne les resultats pagines d'une window.</p>
+          <ul>
+            <li><code>windowId</code> requis</li>
+            <li><code>page</code> optionnel</li>
+            <li><code>cumulatif=true</code> pour le classement cumulatif</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <span class="method">GET</span>
+          <code>/api/players</code>
+          <p>Retourne la liste simplifiee des joueurs suivis.</p>
+        </article>
+
+        <article class="card">
+          <span class="method">GET</span>
+          <code>/api/player?playerId=...</code>
+          <p>Retourne le profil complet d'un joueur.</p>
+        </article>
+
+        <article class="card">
+          <span class="method">POST</span>
+          <code>/api/app/challenge</code>
+          <p>Endpoint d'auth mobile conserve pour compatibilite API.</p>
+        </article>
+
+        <article class="card">
+          <span class="method">POST</span>
+          <code>/api/app/session</code>
+          <p>Echange challenge + attestation contre une session courte.</p>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
