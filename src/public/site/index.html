@@ -116,9 +116,43 @@
         transition: background 0.15s ease, transform 0.15s ease;
       }
 
+      .endpoint.output {
+        margin-bottom: 0;
+      }
+
       .endpoint:hover {
         background: #d7f1eb;
         transform: translateY(-1px);
+      }
+
+      .builder {
+        margin: 12px 0 10px;
+      }
+
+      .builder label {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--muted);
+        font-size: 0.88rem;
+        font-weight: 600;
+      }
+
+      .builder input,
+      .builder select {
+        width: 100%;
+        margin-top: 6px;
+        padding: 10px 12px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        background: #fff;
+        color: var(--text);
+        font: inherit;
+      }
+
+      .builder-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
       }
 
       ul {
@@ -174,8 +208,18 @@
 
         <article class="card">
           <span class="method">GET</span>
-          <a class="endpoint" href="/api/tournaments/allWindow?eventId=demo-event-id">
-            /api/tournaments/allWindow?eventId=demo-event-id
+          <div class="builder">
+            <label>
+              eventId
+              <input id="allWindowEventId" type="text" value="epicgames_Bratwurst_Official" />
+            </label>
+          </div>
+          <a
+            class="endpoint output"
+            id="allWindowLink"
+            href="/api/tournaments/allWindow?eventId=epicgames_Bratwurst_Official"
+          >
+            /api/tournaments/allWindow?eventId=epicgames_Bratwurst_Official
           </a>
           <p>
             Retourne un groupe d'event via <span class="inline-code">eventId</span> ou
@@ -185,16 +229,49 @@
 
         <article class="card">
           <span class="method">GET</span>
-          <a class="endpoint" href="/api/tournaments/window?windowId=demo-window-id">
-            /api/tournaments/window?windowId=demo-window-id
+          <div class="builder">
+            <label>
+              windowId
+              <input id="windowDetailId" type="text" value="Bratwurst_UpperBracket_Day1" />
+            </label>
+          </div>
+          <a
+            class="endpoint output"
+            id="windowDetailLink"
+            href="/api/tournaments/window?windowId=Bratwurst_UpperBracket_Day1"
+          >
+            /api/tournaments/window?windowId=Bratwurst_UpperBracket_Day1
           </a>
           <p>Retourne le detail d'une window.</p>
         </article>
 
         <article class="card">
           <span class="method">GET</span>
-          <a class="endpoint" href="/api/tournaments/results?windowId=demo-window-id&amp;page=0&amp;cumulatif=false">
-            /api/tournaments/results?windowId=demo-window-id&amp;page=0&amp;cumulatif=false
+          <div class="builder">
+            <label>
+              windowId
+              <input id="resultsWindowId" type="text" value="Bratwurst_UpperBracket_Day1" />
+            </label>
+            <div class="builder-row">
+              <label>
+                page
+                <input id="resultsPage" type="number" min="0" value="0" />
+              </label>
+              <label>
+                cumulatif
+                <select id="resultsCumulatif">
+                  <option value="false" selected>false</option>
+                  <option value="true">true</option>
+                </select>
+              </label>
+            </div>
+          </div>
+          <a
+            class="endpoint output"
+            id="resultsLink"
+            href="/api/tournaments/results?windowId=Bratwurst_UpperBracket_Day1&amp;page=0&amp;cumulatif=false"
+          >
+            /api/tournaments/results?windowId=Bratwurst_UpperBracket_Day1&amp;page=0&amp;cumulatif=false
           </a>
           <p>Retourne les resultats pagines d'une window.</p>
           <ul>
@@ -212,8 +289,18 @@
 
         <article class="card">
           <span class="method">GET</span>
-          <a class="endpoint" href="/api/player?playerId=demo-player-id">
-            /api/player?playerId=demo-player-id
+          <div class="builder">
+            <label>
+              playerId
+              <input id="playerIdInput" type="text" value="b39cded93b0f4aa59ffdadf0db18e853" />
+            </label>
+          </div>
+          <a
+            class="endpoint output"
+            id="playerLink"
+            href="/api/player?playerId=b39cded93b0f4aa59ffdadf0db18e853"
+          >
+            /api/player?playerId=b39cded93b0f4aa59ffdadf0db18e853
           </a>
           <p>Retourne le profil complet d'un joueur.</p>
         </article>
@@ -231,5 +318,66 @@
         </article>
       </section>
     </main>
+    <script>
+      function bindLink(inputId, linkId, buildHref) {
+        const input = document.getElementById(inputId);
+        const link = document.getElementById(linkId);
+
+        function update() {
+          const href = buildHref();
+          link.href = href;
+          link.textContent = href;
+        }
+
+        input.addEventListener("input", update);
+        update();
+      }
+
+      const allWindowEventId = document.getElementById("allWindowEventId");
+      const allWindowLink = document.getElementById("allWindowLink");
+
+      function updateAllWindowLink() {
+        const eventId = encodeURIComponent(allWindowEventId.value.trim() || "epicgames_Bratwurst_Official");
+        const href = "/api/tournaments/allWindow?eventId=" + eventId;
+        allWindowLink.href = href;
+        allWindowLink.textContent = href;
+      }
+
+      allWindowEventId.addEventListener("input", updateAllWindowLink);
+      updateAllWindowLink();
+
+      bindLink("windowDetailId", "windowDetailLink", function () {
+        const windowId = encodeURIComponent(
+          document.getElementById("windowDetailId").value.trim() || "Bratwurst_UpperBracket_Day1"
+        );
+        return "/api/tournaments/window?windowId=" + windowId;
+      });
+
+      const resultsWindowId = document.getElementById("resultsWindowId");
+      const resultsPage = document.getElementById("resultsPage");
+      const resultsCumulatif = document.getElementById("resultsCumulatif");
+      const resultsLink = document.getElementById("resultsLink");
+
+      function updateResultsLink() {
+        const windowId = encodeURIComponent(resultsWindowId.value.trim() || "Bratwurst_UpperBracket_Day1");
+        const page = encodeURIComponent(resultsPage.value || "0");
+        const cumulatif = encodeURIComponent(resultsCumulatif.value || "false");
+        const href = "/api/tournaments/results?windowId=" + windowId + "&page=" + page + "&cumulatif=" + cumulatif;
+        resultsLink.href = href;
+        resultsLink.textContent = href;
+      }
+
+      resultsWindowId.addEventListener("input", updateResultsLink);
+      resultsPage.addEventListener("input", updateResultsLink);
+      resultsCumulatif.addEventListener("change", updateResultsLink);
+      updateResultsLink();
+
+      bindLink("playerIdInput", "playerLink", function () {
+        const playerId = encodeURIComponent(
+          document.getElementById("playerIdInput").value.trim() || "b39cded93b0f4aa59ffdadf0db18e853"
+        );
+        return "/api/player?playerId=" + playerId;
+      });
+    </script>
   </body>
 </html>
