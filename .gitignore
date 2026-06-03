@@ -13,7 +13,8 @@ data/config/
 data/dashboard-assets/
 
 # Logs
-data/logs.json
+data/logs.json$
+.runtime/
 
 # OS / editor
 .DS_Store
