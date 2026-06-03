@@ -1,155 +1,195 @@
 # HavokAPI-v1
 
-Cette note resume l'etat reel du serveur au 2026-05-20.
+Serveur Express utilisé par `HavokApp` pour exposer les données Fortnite Competitive à partir de snapshots locaux et d’une configuration gérée par l’administrateur.
 
-## Ce que fait le serveur
+## Périmètre actuel
 
-Le projet expose trois surfaces principales :
+Le serveur fournit actuellement :
 
-- une API mobile publique sous `/api`
-- un dashboard HTML sous `/dashboard`
-- une API JSON protegee de dashboard sous `/dashboard/api` avec alias `/api/dashboard`
+* une API mobile publique sous `/api`
+* une coquille d’interface de dashboard sous `/dashboard/`
+* une API JSON protégée pour le dashboard sous `/dashboard/api`
+* des tâches de synchronisation planifiées qui actualisent les données locales `raw`, `normalized` et `enriched`
 
-Les donnees sont lues dans `server/data` a partir des couches :
-
-```txt
-fnbr -> raw -> normalized -> enriched
-```
-
-Les fichiers JSON de stockage sont enregistres avec une enveloppe :
+Les données sont stockées sur le disque dans `server/data`. Les snapshots JSON sont persistés sous cette forme :
 
 ```json
 {
-  "updatedAt": "...",
-  "data": ...
+  "updatedAt": "2026-05-20T20:26:55.385Z",
+  "data": []
 }
 ```
 
-Les routes HTTP renvoient uniquement `data`.
+L’API HTTP renvoie directement le contenu `data`, sans l’enveloppe de stockage.
 
-## Endpoints API mobile
+## API publique
 
-| Methode | Route | Description |
-|---|---|---|
-| GET | `/api/health` | Healthcheck public |
-| POST | `/api/app/challenge` | Cree un challenge de session mobile |
-| POST | `/api/app/session` | Cree une session bearer courte |
-| GET | `/api/home` | Payload de l'accueil |
-| GET | `/api/tournaments/calendrier` | Calendrier des windows |
-| GET | `/api/tournaments/allWindow` | Lookup event par `eventId` ou `windowId` |
-| GET | `/api/tournaments/window` | Details d'une window |
-| GET | `/api/tournaments/results` | Une page de leaderboard |
-| GET | `/api/players` | Liste simplifiee des joueurs suivis |
-| GET | `/api/player` | Profil complet d'un joueur suivi |
+Documentée dans [docs/API.md](./docs/API.md).
 
-Details complets dans [docs/API.md](./API.md).
+### Routes disponibles
 
-## Authentification API mobile
+| Méthode | Route                         | Description                                                  |
+| ------- | ----------------------------- | ------------------------------------------------------------ |
+| GET     | `/api/health`                 | Vérification de l’état du serveur                            |
+| POST    | `/api/app/challenge`          | Crée un challenge de session d’application à usage unique    |
+| POST    | `/api/app/session`            | Échange le challenge + l’attestation contre un JWT court     |
+| GET     | `/api/home`                   | Données de l’écran d’accueil                                 |
+| GET     | `/api/tournaments/calendrier` | Calendrier des tournois                                      |
+| GET     | `/api/tournaments/allWindow`  | Recherche de groupe d’événements par `eventId` ou `windowId` |
+| GET     | `/api/tournaments/window`     | Données détaillées d’une fenêtre                             |
+| GET     | `/api/tournaments/results`    | Données paginées du classement                               |
+| GET     | `/api/players`                | Liste simplifiée des joueurs suivis                          |
+| GET     | `/api/player`                 | Profil complet d’un joueur suivi                             |
 
-- `GET /api/health` est public.
-- `POST /api/app/challenge` et `POST /api/app/session` demandent `x-app-key`.
-- Les routes metier demandent `x-app-key`.
-- En production, elles demandent aussi `Authorization: Bearer <accessToken>`.
-- Hors production, la verification de session mobile est bypass cote serveur.
+### Modèle d’authentification
+
+* `GET /api/health` est public.
+* `POST /api/app/challenge` et `POST /api/app/session` nécessitent `x-app-key`.
+* Les routes de données nécessitent `x-app-key`.
+* En `NODE_ENV=production`, les routes de données nécessitent aussi `Authorization: Bearer <accessToken>`.
+* Hors production, la vérification de session Bearer est contournée côté serveur.
 
 ## Dashboard
 
-### Pages
+Documenté dans [docs/DASHBOARD.md](./docs/DASHBOARD.md).
 
-| Methode | Route | Description |
-|---|---|---|
-| GET | `/` | Redirection vers `/dashboard/login` |
-| GET | `/dashboard/login` | Page de connexion |
-| POST | `/dashboard/login` | Ouvre la session admin |
-| POST | `/dashboard/logout` | Ferme la session admin |
-| GET | `/dashboard` | Redirection vers `/dashboard/` |
-| GET | `/dashboard/` | Shell du dashboard |
-| GET | `/dashboard-assets/*` | Assets images du dashboard |
+### Routes HTML
 
-### API JSON
+| Méthode | Route                 | Description                                            |
+| ------- | --------------------- | ------------------------------------------------------ |
+| GET     | `/`                   | Redirige vers `/dashboard/login`                       |
+| GET     | `/dashboard/login`    | Page de connexion                                      |
+| POST    | `/dashboard/login`    | Crée le cookie de session du dashboard                 |
+| POST    | `/dashboard/logout`   | Détruit la session du dashboard                        |
+| GET     | `/dashboard`          | Redirige vers `/dashboard/`                            |
+| GET     | `/dashboard/`         | Coquille de l’application dashboard                    |
+| GET     | `/dashboard-assets/*` | Assets statiques générés pour les aperçus du dashboard |
 
-Le dashboard expose les endpoints suivants sur `/dashboard/api` et `/api/dashboard` :
+### Routes JSON
 
-| Methode | Route | Description |
-|---|---|---|
-| GET | `/overview` | Resume, cartes, notes, sources |
-| GET | `/events` | Liste d'events |
-| GET | `/events/:eventId` | Detail d'un event |
-| GET | `/content` | Joueurs suivis, resultats, actu, casts |
-| GET | `/config` | Payload combine de configuration |
-| GET | `/status` | Etat des sources locales |
-| GET / PUT | `/config/team` | Configuration des joueurs suivis |
-| GET / PUT | `/config/tournament-filter` | Filtre des eventId retenus |
-| GET / PUT | `/config/actu` | Cartes d'actu |
-| GET / PUT | `/config/cast` | Liens Twitch / YouTube |
-| POST | `/updateCron` | Force refresh en arriere-plan |
+L’API JSON du dashboard est disponible sur deux préfixes équivalents :
 
-Doc detaillee dans [docs/DASHBOARD.md](./DASHBOARD.md).
+* `/dashboard/api/...`
+* `/api/dashboard/...`
 
-Comportement auth :
+Le front-end du dashboard utilise actuellement `/dashboard/api/...`.
 
-- sans session valide, les endpoints JSON renvoient `401`
-- le shell HTML `/dashboard/` reste servi statiquement; la protection est appliquee sur l'API JSON
+### Endpoints du dashboard implémentés
 
-## Cron
+| Méthode   | Route                                     | Description                                     |
+| --------- | ----------------------------------------- | ----------------------------------------------- |
+| GET       | `/dashboard/api`                          | Données agrégées complètes du dashboard         |
+| GET       | `/dashboard/api/overview`                 | En-tête, résumés, cartes des sources, notes     |
+| GET       | `/dashboard/api/events`                   | Collection de cartes d’événements               |
+| GET       | `/dashboard/api/events/:eventId`          | Une carte d’événement                           |
+| GET       | `/dashboard/api/content`                  | Joueurs suivis, résultats récents, actus, casts |
+| GET       | `/dashboard/api/config`                   | Données de configuration modifiables combinées  |
+| GET       | `/dashboard/api/status`                   | Résumé de disponibilité des sources             |
+| GET / PUT | `/dashboard/api/config/team`              | Configuration de l’équipe                       |
+| GET / PUT | `/dashboard/api/config/tournament-filter` | Configuration du filtre de tournois             |
+| GET / PUT | `/dashboard/api/config/actu`              | Configuration des actus                         |
+| GET / PUT | `/dashboard/api/config/cast`              | Configuration des casts                         |
+| POST      | `/dashboard/api/updateCron`               | Lance une actualisation forcée en arrière-plan  |
 
-Le scheduler est active au demarrage dans `src/jobs/cron.js`.
+Les requêtes non authentifiées vers l’API du dashboard renvoient un JSON `401`. La coquille HTML du dashboard elle-même est servie statiquement sur `/dashboard/` ; la protection des données est appliquée par l’API JSON.
 
-| Frequence | Tache |
-|---|---|
-| chaque minute | live results |
-| toutes les 30 min | event results |
-| toutes les 6 h | events |
-| chaque heure | profiles |
-| chaque jour a 00:00 | score rules |
-| chaque jour a 03:00 | cleanup results |
+## Tâches cron
 
-Le dashboard peut aussi lancer un force refresh via `POST /dashboard/api/updateCron`.
+Le planificateur est enregistré au démarrage de l’application dans [src/jobs/cron.js](./src/jobs/cron.js).
 
-## Installation rapide
+| Fréquence              | Tâche                         |
+| ---------------------- | ----------------------------- |
+| Toutes les minutes     | résultats des événements live |
+| Toutes les 30 minutes  | résultats des événements      |
+| Toutes les 6 heures    | catalogue des événements      |
+| Toutes les heures      | profils des joueurs           |
+| Tous les jours à 00:00 | règles de score               |
+| Tous les jours à 03:00 | nettoyage des résultats       |
+
+Une actualisation forcée manuelle est aussi disponible via `POST /dashboard/api/updateCron`.
+
+## Installation
+
+### 1. Installer
 
 ```bash
 npm install
 ```
 
-Puis configurer [server/.env.example](../.env.example) avec au minimum :
+### 2. Configurer `.env`
+
+Partir de [server/.env.example](./.env.example).
+
+Variables importantes :
 
 ```env
 PORT=3000
 NODE_ENV=development
+
 APP_API_KEY=replace-with-your-app-api-key
 APP_AUTH_JWT_SECRET=replace-with-your-jwt-secret
 APP_ATTESTATION_MODE=development
+APP_SESSION_TTL_SECONDS=600
+APP_CHALLENGE_TTL_SECONDS=180
+
 ADMIN_USERNAME=admin
 ADMIN_PASSWORD_HASH=
 SESSION_SECRET=replace-with-your-dashboard-session-secret
+DASHBOARD_ORIGIN=http://localhost:3000
+TRUST_PROXY=1
 ```
 
-Demarrage :
+Les variables d’authentification d’appareil Fortnite restent nécessaires pour les tâches du client FNBR :
+
+```env
+FORTNITE_AUTH_CLIENT=
+FORTNITE_DEVICE_AUTH_FILE=
+```
+
+### 3. Lancer
 
 ```bash
 npm start
 ```
 
-Mode dev :
+Pour le développement local :
 
 ```bash
 npm run dev
 ```
 
-## Verifications faites
+Pour un déploiement web en production, partir de [server/.env.production.example](./.env.production.example) et garder
+`APP_ATTESTATION_MODE=web`.
 
-Verifie localement le 2026-05-20 :
+### 4. Connecter ton compte Fortnite
 
-- `GET /api/health` repond `200`
-- `GET /api/players` repond `401` sans `x-app-key`
-- `GET /api/players` repond `200` avec `x-app-key`
-- `GET /api/tournaments/results?windowId=<knownWindowId>&page=0` repond `200`
-- `npm run lint` passe dans `HavokApp`
-- `npm run typecheck` passe dans `HavokApp`
+Va sur https://www.epicgames.com/id/api/redirect?clientId=3f69e56c7649492c8cc29f1af08a8a12&responseType=code et connecte-toi.
+
+```json
+{
+  "warning": "Do not share this code with any 3rd party service. It allows full access to your Epic account.",
+  "redirectUrl": "com.epicgames.fortnite://fnauth/?code=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "authorizationCode": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "exchangeCode": null,
+  "sid": null
+}
+```
+
+Entre **authorizationCode** et attends.
+
+## État de vérification
+
+Vérifié avec le code source et l’exécution locale le 2026-05-20 :
+
+* `GET /api/health` renvoie `200`
+* `GET /api/players` renvoie `401` sans `x-app-key`
+* `GET /api/players` renvoie `200` avec `x-app-key`
+* `GET /api/tournaments/results` renvoie des données de classement paginées avec `windowId`
 
 ## Limites connues
 
-- L'attestation native de production Apple / Google n'est pas encore implemente dans ce repo.
-- Le bypass de session mobile en environnement non production est volontaire.
-- Le dashboard est pense pour un usage same-origin avec cookie de session.
+* Le déploiement web en production est supporté avec `APP_ATTESTATION_MODE=web`.
+* L’attestation native de production pour les builds App Store / Play Store n’est pas encore implémentée dans ce dépôt.
+* En développement, les vérifications de session Bearer mobile sont volontairement contournées côté serveur.
+* L’authentification du dashboard repose sur un cookie de session et est prévue pour une utilisation sur la même origine.
+  ::: 
