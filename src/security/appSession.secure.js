@@ -2,11 +2,11 @@ const {
   extractBearerToken,
   verifyAppSessionToken
 } = require("../services/appSession.service.js");
-const { node_env } = require("../config/env.js");
+const { demo_mode, node_env } = require("../config/env.js");
 const { logWarning } = require("../utils/logger.js");
 
 function requireAppSession(req, res, next) {
-  const isDevMode = node_env !== "production";
+  const isDevMode = node_env !== "production" || demo_mode;
 
   if (isDevMode) {
     return next();

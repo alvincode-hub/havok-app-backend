@@ -1,0 +1,71 @@
+{
+  "updatedAt": "2026-05-30T16:58:01.353Z",
+  "data": {
+    "actu": [
+      {
+        "id": "actu-1779291450392-894",
+        "name": "App Havok",
+        "image": "/dashboard-assets/actu/actu-1779291450392-894-b28fb0847f.jpg",
+        "date": "2026-05-22",
+        "dateLabel": "22 mai 2026",
+        "description": "Inspiré des éléments qui ont marqué l’histoire de HavoK, ce nouveau maillot fusionne puissance et élégance. Son rouge profond emblématique, ses finitions dorées...",
+        "link": "x.com"
+      }
+    ],
+    "liveTournament": {
+      "tournamentName": "Fortnite Championship Series (Jour 2)",
+      "tournamentId": "epicgames_Bratwurst_Official",
+      "windowId": "Bratwurst_LowerBracket_Day2",
+      "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-41126f7a36d0.jpg",
+      "start": "2026-05-30T04:00:00.000Z",
+      "end": "2026-05-30T21:59:00.000Z",
+      "teamFormat": "Duo",
+      "gameMode": "Battle Royale"
+    },
+    "upcomingTournaments": [
+      {
+        "tournamentName": "Fortnite Championship Series (Finale)",
+        "tournamentId": "epicgames_Bratwurst_Official",
+        "windowId": "Bratwurst_Finals_Day3",
+        "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-41126f7a36d0.jpg",
+        "start": "2026-05-31T04:00:00.000Z",
+        "end": "2026-05-31T21:59:00.000Z",
+        "teamFormat": "Duo",
+        "gameMode": "Battle Royale"
+      },
+      {
+        "tournamentName": "Évaluation des performances de Fortnite (Qualifications)",
+        "tournamentId": "epicgames_S40_PerformanceEvaluation_EU",
+        "windowId": "S40_PerformanceEvaluation_Event11Round1_EU",
+        "image": "https://cdn2.unrealengine.com/fnce-33-30-tileview-performance-cup-01-800x800-800x800-3e3bf91766c6.jpg",
+        "start": "2026-06-04T16:00:00.000Z",
+        "end": "2026-06-04T18:00:00.000Z",
+        "teamFormat": "Duo",
+        "gameMode": "Battle Royale"
+      },
+      {
+        "tournamentName": "Évaluation des performances de Fortnite (Finale)",
+        "tournamentId": "epicgames_S40_PerformanceEvaluation_EU",
+        "windowId": "S40_PerformanceEvaluation_Event11Round2_EU",
+        "image": "https://cdn2.unrealengine.com/fnce-33-30-tileview-performance-cup-01-800x800-800x800-3e3bf91766c6.jpg",
+        "start": "2026-06-04T19:00:00.000Z",
+        "end": "2026-06-04T21:00:00.000Z",
+        "teamFormat": "Duo",
+        "gameMode": "Battle Royale"
+      }
+    ],
+    "lastPlayedWindow": {
+      "tournament": {
+        "tournamentId": "epicgames_Bratwurst_Official",
+        "windowId": "Bratwurst_UpperBracket_Day1",
+        "tournamentName": "Fortnite Championship Series (Jour 1)",
+        "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-41126f7a36d0.jpg",
+        "start": "2026-05-29T04:00:00.000Z",
+        "end": "2026-05-29T21:59:00.000Z",
+        "teamFormat": "Duo",
+        "gameMode": "Battle Royale"
+      },
+      "places": []
+    }
+  }
+}

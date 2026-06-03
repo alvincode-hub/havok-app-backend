@@ -1,0 +1,3603 @@
+{
+  "updatedAt": "2026-05-30T16:58:01.943Z",
+  "data": [
+    {
+      "id": "b39cded93b0f4aa59ffdadf0db18e853",
+      "name": "Pixie",
+      "pseudo": "havok pixie sc",
+      "image": "/dashboard-assets/players/b39cded93b0f4aa59ffdadf0db18e853-5f99856eee.jpg",
+      "countryFlag": "/dashboard-assets/flags/su-de-1998912eba.png",
+      "country": "Suède",
+      "top5": 6,
+      "bestTop": 1,
+      "avgKill": 59.95238095238095,
+      "avgTop": 76.80952380952381,
+      "lastTournaments": [
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 5 - Finale)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week5Final_EU",
+          "start": "2026-05-23T17:00:00.000Z",
+          "end": "2026-05-23T19:40:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 27,
+            "points": 116,
+            "kills": 7,
+            "top15s": 2,
+            "top5s": 0,
+            "wins": 0,
+            "nbGamesPlayed": 6,
+            "teamAccountId": "072e8b9f8188405ab0eb52544e1dc906:b39cded93b0f4aa59ffdadf0db18e853",
+            "accountIds": [
+              "072e8b9f8188405ab0eb52544e1dc906",
+              "b39cded93b0f4aa59ffdadf0db18e853"
+            ],
+            "names": [
+              "havok swizzуǃ",
+              "havok pixie sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_DuosReloadVictoryCup_EU",
+          "tournamentName": "Coupe victoire duos (mode Recharge) (Finale)",
+          "windowId": "S40_DuosReloadVictoryCup_Round2_day2_EU",
+          "start": "2026-05-22T20:00:00.000Z",
+          "end": "2026-05-22T20:45:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fneco-35-00-consolevictorycup-comp-in-game-tab-800x800-rockerpunk-800x800-791783a7a571.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 6,
+            "points": 100,
+            "kills": 37,
+            "top15s": 3,
+            "top5s": 1,
+            "wins": 1,
+            "nbGamesPlayed": 3,
+            "teamAccountId": "072e8b9f8188405ab0eb52544e1dc906:b39cded93b0f4aa59ffdadf0db18e853",
+            "accountIds": [
+              "072e8b9f8188405ab0eb52544e1dc906",
+              "b39cded93b0f4aa59ffdadf0db18e853"
+            ],
+            "names": [
+              "havok swizzуǃ",
+              "havok pixie sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_DuosReloadVictoryCup_EU",
+          "tournamentName": "Coupe victoire duos (mode Recharge) (Qualifications)",
+          "windowId": "S40_DuosReloadVictoryCup_Round1_day2_EU",
+          "start": "2026-05-22T17:00:00.000Z",
+          "end": "2026-05-22T19:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fneco-35-00-consolevictorycup-comp-in-game-tab-800x800-rockerpunk-800x800-791783a7a571.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 51,
+            "points": 414,
+            "kills": 129,
+            "top15s": 7,
+            "top5s": 4,
+            "wins": 4,
+            "nbGamesPlayed": 8,
+            "teamAccountId": "072e8b9f8188405ab0eb52544e1dc906:b39cded93b0f4aa59ffdadf0db18e853",
+            "accountIds": [
+              "072e8b9f8188405ab0eb52544e1dc906",
+              "b39cded93b0f4aa59ffdadf0db18e853"
+            ],
+            "names": [
+              "havok swizzуǃ",
+              "havok pixie sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_PerformanceEvaluation_EU",
+          "tournamentName": "Évaluation des performances de Fortnite (Finale)",
+          "windowId": "S40_PerformanceEvaluation_Event10Round2_EU",
+          "start": "2026-05-21T19:00:00.000Z",
+          "end": "2026-05-21T21:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-33-30-tileview-performance-cup-01-800x800-800x800-3e3bf91766c6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 11,
+            "points": 0,
+            "kills": 13,
+            "top15s": 2,
+            "top5s": 1,
+            "wins": 0,
+            "nbGamesPlayed": 4,
+            "teamAccountId": "072e8b9f8188405ab0eb52544e1dc906:b39cded93b0f4aa59ffdadf0db18e853",
+            "accountIds": [
+              "072e8b9f8188405ab0eb52544e1dc906",
+              "b39cded93b0f4aa59ffdadf0db18e853"
+            ],
+            "names": [
+              "havok swizzуǃ",
+              "havok pixie sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_PerformanceEvaluation_EU",
+          "tournamentName": "Évaluation des performances de Fortnite (Qualifications)",
+          "windowId": "S40_PerformanceEvaluation_Event10Round1_EU",
+          "start": "2026-05-21T16:00:00.000Z",
+          "end": "2026-05-21T18:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-33-30-tileview-performance-cup-01-800x800-800x800-3e3bf91766c6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 24,
+            "points": 277,
+            "kills": 57,
+            "top15s": 4,
+            "top5s": 2,
+            "wins": 2,
+            "nbGamesPlayed": 7,
+            "teamAccountId": "072e8b9f8188405ab0eb52544e1dc906:b39cded93b0f4aa59ffdadf0db18e853",
+            "accountIds": [
+              "072e8b9f8188405ab0eb52544e1dc906",
+              "b39cded93b0f4aa59ffdadf0db18e853"
+            ],
+            "names": [
+              "havok swizzуǃ",
+              "havok pixie sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 5 - Jour 2)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week5Day2_EU",
+          "start": "2026-05-19T17:00:00.000Z",
+          "end": "2026-05-19T20:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 27,
+            "points": 407,
+            "kills": 70,
+            "top15s": 4,
+            "top5s": 1,
+            "wins": 1,
+            "nbGamesPlayed": 11,
+            "teamAccountId": "072e8b9f8188405ab0eb52544e1dc906:b39cded93b0f4aa59ffdadf0db18e853",
+            "accountIds": [
+              "072e8b9f8188405ab0eb52544e1dc906",
+              "b39cded93b0f4aa59ffdadf0db18e853"
+            ],
+            "names": [
+              "havok swizzуǃ",
+              "havok pixie sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 5 - Jour 1)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week5Day1_EU",
+          "start": "2026-05-18T17:00:00.000Z",
+          "end": "2026-05-18T20:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 15,
+            "points": 421,
+            "kills": 75,
+            "top15s": 5,
+            "top5s": 1,
+            "wins": 0,
+            "nbGamesPlayed": 9,
+            "teamAccountId": "072e8b9f8188405ab0eb52544e1dc906:b39cded93b0f4aa59ffdadf0db18e853",
+            "accountIds": [
+              "072e8b9f8188405ab0eb52544e1dc906",
+              "b39cded93b0f4aa59ffdadf0db18e853"
+            ],
+            "names": [
+              "havok swizzуǃ",
+              "havok pixie sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_ReloadEliteSeries3Final_EU",
+          "tournamentName": "Série élite Recharge (Finale)",
+          "windowId": "S40_ReloadEliteSeries3Final_EU",
+          "start": "2026-05-17T15:00:00.000Z",
+          "end": "2026-05-17T18:20:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 3,
+            "points": 313,
+            "kills": 21,
+            "top15s": 8,
+            "top5s": 4,
+            "wins": 0,
+            "nbGamesPlayed": 8,
+            "teamAccountId": "072e8b9f8188405ab0eb52544e1dc906:b39cded93b0f4aa59ffdadf0db18e853",
+            "accountIds": [
+              "072e8b9f8188405ab0eb52544e1dc906",
+              "b39cded93b0f4aa59ffdadf0db18e853"
+            ],
+            "names": [
+              "havok swizzуǃ",
+              "havok pixie sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 4 - Finale)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week4Final_EU",
+          "start": "2026-05-16T17:00:00.000Z",
+          "end": "2026-05-16T19:40:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 33,
+            "points": 74,
+            "kills": 11,
+            "top15s": 1,
+            "top5s": 0,
+            "wins": 0,
+            "nbGamesPlayed": 6,
+            "teamAccountId": "072e8b9f8188405ab0eb52544e1dc906:b39cded93b0f4aa59ffdadf0db18e853",
+            "accountIds": [
+              "072e8b9f8188405ab0eb52544e1dc906",
+              "b39cded93b0f4aa59ffdadf0db18e853"
+            ],
+            "names": [
+              "havok swizzуǃ",
+              "havok pixie sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_ReloadEliteSeries3Heat3_EU",
+          "tournamentName": "Série élite Recharge (Heat 3)",
+          "windowId": "S40_ReloadEliteSeries3Heat3_EU",
+          "start": "2026-05-15T17:12:00.000Z",
+          "end": "2026-05-15T20:12:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 5,
+            "points": 307,
+            "kills": 23,
+            "top15s": 7,
+            "top5s": 3,
+            "wins": 1,
+            "nbGamesPlayed": 7,
+            "teamAccountId": "072e8b9f8188405ab0eb52544e1dc906:b39cded93b0f4aa59ffdadf0db18e853",
+            "accountIds": [
+              "072e8b9f8188405ab0eb52544e1dc906",
+              "b39cded93b0f4aa59ffdadf0db18e853"
+            ],
+            "names": [
+              "havok swizzуǃ",
+              "havok pixie sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_PerformanceEvaluation_EU",
+          "tournamentName": "Évaluation des performances de Fortnite (Finale)",
+          "windowId": "S40_PerformanceEvaluation_Event9Round2_EU",
+          "start": "2026-05-14T19:00:00.000Z",
+          "end": "2026-05-14T21:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-33-30-tileview-performance-cup-01-800x800-800x800-3e3bf91766c6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 19,
+            "points": 0,
+            "kills": 9,
+            "top15s": 1,
+            "top5s": 1,
+            "wins": 0,
+            "nbGamesPlayed": 4,
+            "teamAccountId": "072e8b9f8188405ab0eb52544e1dc906:b39cded93b0f4aa59ffdadf0db18e853",
+            "accountIds": [
+              "072e8b9f8188405ab0eb52544e1dc906",
+              "b39cded93b0f4aa59ffdadf0db18e853"
+            ],
+            "names": [
+              "havok swizzуǃ",
+              "havok pixie sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_PerformanceEvaluation_EU",
+          "tournamentName": "Évaluation des performances de Fortnite (Qualifications)",
+          "windowId": "S40_PerformanceEvaluation_Event9Round1_EU",
+          "start": "2026-05-14T16:00:00.000Z",
+          "end": "2026-05-14T18:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-33-30-tileview-performance-cup-01-800x800-800x800-3e3bf91766c6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 4,
+            "points": 307,
+            "kills": 55,
+            "top15s": 5,
+            "top5s": 3,
+            "wins": 2,
+            "nbGamesPlayed": 6,
+            "teamAccountId": "072e8b9f8188405ab0eb52544e1dc906:b39cded93b0f4aa59ffdadf0db18e853",
+            "accountIds": [
+              "072e8b9f8188405ab0eb52544e1dc906",
+              "b39cded93b0f4aa59ffdadf0db18e853"
+            ],
+            "names": [
+              "havok swizzуǃ",
+              "havok pixie sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 4 - Jour 2)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week4Day2_EU",
+          "start": "2026-05-12T17:00:00.000Z",
+          "end": "2026-05-12T20:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 10,
+            "points": 441,
+            "kills": 88,
+            "top15s": 3,
+            "top5s": 1,
+            "wins": 1,
+            "nbGamesPlayed": 11,
+            "teamAccountId": "072e8b9f8188405ab0eb52544e1dc906:b39cded93b0f4aa59ffdadf0db18e853",
+            "accountIds": [
+              "072e8b9f8188405ab0eb52544e1dc906",
+              "b39cded93b0f4aa59ffdadf0db18e853"
+            ],
+            "names": [
+              "havok swizzуǃ",
+              "havok pixie sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 4 - Jour 1)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week4Day1_EU",
+          "start": "2026-05-11T17:00:00.000Z",
+          "end": "2026-05-11T20:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 1,
+            "points": 544,
+            "kills": 66,
+            "top15s": 7,
+            "top5s": 4,
+            "wins": 2,
+            "nbGamesPlayed": 11,
+            "teamAccountId": "072e8b9f8188405ab0eb52544e1dc906:b39cded93b0f4aa59ffdadf0db18e853",
+            "accountIds": [
+              "072e8b9f8188405ab0eb52544e1dc906",
+              "b39cded93b0f4aa59ffdadf0db18e853"
+            ],
+            "names": [
+              "havok swizzуǃ",
+              "havok pixie sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_ReloadEliteSeries3PlayIn_EU",
+          "tournamentName": "Série élite Recharge (Play-In Jour 2)",
+          "windowId": "S40_ReloadEliteSeries3PlayInDay2_EU",
+          "start": "2026-05-10T17:00:00.000Z",
+          "end": "2026-05-10T19:30:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 864,
+            "points": 320,
+            "kills": 63,
+            "top15s": 4,
+            "top5s": 4,
+            "wins": 4,
+            "nbGamesPlayed": 4,
+            "teamAccountId": "072e8b9f8188405ab0eb52544e1dc906:b39cded93b0f4aa59ffdadf0db18e853",
+            "accountIds": [
+              "072e8b9f8188405ab0eb52544e1dc906",
+              "b39cded93b0f4aa59ffdadf0db18e853"
+            ],
+            "names": [
+              "havok swizzуǃ",
+              "havok pixie sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_ReloadEliteSeries3PlayIn_EU",
+          "tournamentName": "Série élite Recharge (Play-In Jour 1)",
+          "windowId": "S40_ReloadEliteSeries3PlayInDay1_EU",
+          "start": "2026-05-08T17:00:00.000Z",
+          "end": "2026-05-08T19:30:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 1,
+            "points": 505,
+            "kills": 101,
+            "top15s": 9,
+            "top5s": 4,
+            "wins": 4,
+            "nbGamesPlayed": 10,
+            "teamAccountId": "072e8b9f8188405ab0eb52544e1dc906:b39cded93b0f4aa59ffdadf0db18e853",
+            "accountIds": [
+              "072e8b9f8188405ab0eb52544e1dc906",
+              "b39cded93b0f4aa59ffdadf0db18e853"
+            ],
+            "names": [
+              "havok swizzуǃ",
+              "havok pixie sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_PerformanceEvaluation_EU",
+          "tournamentName": "Évaluation des performances de Fortnite (Qualifications)",
+          "windowId": "S40_PerformanceEvaluation_Event8Round1_EU",
+          "start": "2026-05-07T16:00:00.000Z",
+          "end": "2026-05-07T18:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-33-30-tileview-performance-cup-01-800x800-800x800-3e3bf91766c6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 314,
+            "points": 112,
+            "kills": 31,
+            "top15s": 1,
+            "top5s": 1,
+            "wins": 1,
+            "nbGamesPlayed": 8,
+            "teamAccountId": "5b9f90e50d3644319676cfcc51e458bf:b39cded93b0f4aa59ffdadf0db18e853",
+            "accountIds": [
+              "5b9f90e50d3644319676cfcc51e458bf",
+              "b39cded93b0f4aa59ffdadf0db18e853"
+            ],
+            "names": [
+              "xset 35",
+              "havok pixie sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 3 - Jour 2)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week3Day2_EU",
+          "start": "2026-05-05T17:00:00.000Z",
+          "end": "2026-05-05T20:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 68,
+            "points": 313,
+            "kills": 43,
+            "top15s": 4,
+            "top5s": 1,
+            "wins": 0,
+            "nbGamesPlayed": 11,
+            "teamAccountId": "072e8b9f8188405ab0eb52544e1dc906:b39cded93b0f4aa59ffdadf0db18e853",
+            "accountIds": [
+              "072e8b9f8188405ab0eb52544e1dc906",
+              "b39cded93b0f4aa59ffdadf0db18e853"
+            ],
+            "names": [
+              "havok swizzуǃ",
+              "havok pixie sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 3 - Jour 1)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week3Day1_EU",
+          "start": "2026-05-04T17:00:00.000Z",
+          "end": "2026-05-04T20:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 52,
+            "points": 325,
+            "kills": 48,
+            "top15s": 3,
+            "top5s": 2,
+            "wins": 1,
+            "nbGamesPlayed": 11,
+            "teamAccountId": "072e8b9f8188405ab0eb52544e1dc906:b39cded93b0f4aa59ffdadf0db18e853",
+            "accountIds": [
+              "072e8b9f8188405ab0eb52544e1dc906",
+              "b39cded93b0f4aa59ffdadf0db18e853"
+            ],
+            "names": [
+              "havok swizzуǃ",
+              "havok pixie sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_ReloadEliteSeries3Opens_EU",
+          "tournamentName": "Série élite Recharge",
+          "windowId": "S40_ReloadEliteSeries3Open2_EU",
+          "start": "2026-05-03T17:00:00.000Z",
+          "end": "2026-05-03T19:30:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 77,
+            "points": 462,
+            "kills": 154,
+            "top15s": 9,
+            "top5s": 3,
+            "wins": 1,
+            "nbGamesPlayed": 11,
+            "teamAccountId": "072e8b9f8188405ab0eb52544e1dc906:b39cded93b0f4aa59ffdadf0db18e853",
+            "accountIds": [
+              "072e8b9f8188405ab0eb52544e1dc906",
+              "b39cded93b0f4aa59ffdadf0db18e853"
+            ],
+            "names": [
+              "havok swizzуǃ",
+              "havok pixie sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_ReloadEliteSeries3Opens_EU",
+          "tournamentName": "Série élite Recharge",
+          "windowId": "S40_ReloadEliteSeries3Open1_EU",
+          "start": "2026-05-01T17:00:00.000Z",
+          "end": "2026-05-01T19:30:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 1,
+            "points": 588,
+            "kills": 158,
+            "top15s": 10,
+            "top5s": 8,
+            "wins": 3,
+            "nbGamesPlayed": 10,
+            "teamAccountId": "072e8b9f8188405ab0eb52544e1dc906:b39cded93b0f4aa59ffdadf0db18e853",
+            "accountIds": [
+              "072e8b9f8188405ab0eb52544e1dc906",
+              "b39cded93b0f4aa59ffdadf0db18e853"
+            ],
+            "names": [
+              "havok swizzуǃ",
+              "havok pixie sc"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "072e8b9f8188405ab0eb52544e1dc906",
+      "name": "Swizzy",
+      "pseudo": "havok swizzуǃ",
+      "image": "/dashboard-assets/players/072e8b9f8188405ab0eb52544e1dc906-5c5b05cd97.jpg",
+      "countryFlag": "/dashboard-assets/flags/russie-4f47c2c291.png",
+      "country": "Russie",
+      "top5": 6,
+      "bestTop": 1,
+      "avgKill": 61.4,
+      "avgTop": 64.95,
+      "lastTournaments": [
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 5 - Finale)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week5Final_EU",
+          "start": "2026-05-23T17:00:00.000Z",
+          "end": "2026-05-23T19:40:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 27,
+            "points": 116,
+            "kills": 7,
+            "top15s": 2,
+            "top5s": 0,
+            "wins": 0,
+            "nbGamesPlayed": 6,
+            "teamAccountId": "072e8b9f8188405ab0eb52544e1dc906:b39cded93b0f4aa59ffdadf0db18e853",
+            "accountIds": [
+              "072e8b9f8188405ab0eb52544e1dc906",
+              "b39cded93b0f4aa59ffdadf0db18e853"
+            ],
+            "names": [
+              "havok swizzуǃ",
+              "havok pixie sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_DuosReloadVictoryCup_EU",
+          "tournamentName": "Coupe victoire duos (mode Recharge) (Finale)",
+          "windowId": "S40_DuosReloadVictoryCup_Round2_day2_EU",
+          "start": "2026-05-22T20:00:00.000Z",
+          "end": "2026-05-22T20:45:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fneco-35-00-consolevictorycup-comp-in-game-tab-800x800-rockerpunk-800x800-791783a7a571.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 6,
+            "points": 100,
+            "kills": 37,
+            "top15s": 3,
+            "top5s": 1,
+            "wins": 1,
+            "nbGamesPlayed": 3,
+            "teamAccountId": "072e8b9f8188405ab0eb52544e1dc906:b39cded93b0f4aa59ffdadf0db18e853",
+            "accountIds": [
+              "072e8b9f8188405ab0eb52544e1dc906",
+              "b39cded93b0f4aa59ffdadf0db18e853"
+            ],
+            "names": [
+              "havok swizzуǃ",
+              "havok pixie sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_DuosReloadVictoryCup_EU",
+          "tournamentName": "Coupe victoire duos (mode Recharge) (Qualifications)",
+          "windowId": "S40_DuosReloadVictoryCup_Round1_day2_EU",
+          "start": "2026-05-22T17:00:00.000Z",
+          "end": "2026-05-22T19:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fneco-35-00-consolevictorycup-comp-in-game-tab-800x800-rockerpunk-800x800-791783a7a571.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 51,
+            "points": 414,
+            "kills": 129,
+            "top15s": 7,
+            "top5s": 4,
+            "wins": 4,
+            "nbGamesPlayed": 8,
+            "teamAccountId": "072e8b9f8188405ab0eb52544e1dc906:b39cded93b0f4aa59ffdadf0db18e853",
+            "accountIds": [
+              "072e8b9f8188405ab0eb52544e1dc906",
+              "b39cded93b0f4aa59ffdadf0db18e853"
+            ],
+            "names": [
+              "havok swizzуǃ",
+              "havok pixie sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_PerformanceEvaluation_EU",
+          "tournamentName": "Évaluation des performances de Fortnite (Finale)",
+          "windowId": "S40_PerformanceEvaluation_Event10Round2_EU",
+          "start": "2026-05-21T19:00:00.000Z",
+          "end": "2026-05-21T21:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-33-30-tileview-performance-cup-01-800x800-800x800-3e3bf91766c6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 11,
+            "points": 0,
+            "kills": 13,
+            "top15s": 2,
+            "top5s": 1,
+            "wins": 0,
+            "nbGamesPlayed": 4,
+            "teamAccountId": "072e8b9f8188405ab0eb52544e1dc906:b39cded93b0f4aa59ffdadf0db18e853",
+            "accountIds": [
+              "072e8b9f8188405ab0eb52544e1dc906",
+              "b39cded93b0f4aa59ffdadf0db18e853"
+            ],
+            "names": [
+              "havok swizzуǃ",
+              "havok pixie sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_PerformanceEvaluation_EU",
+          "tournamentName": "Évaluation des performances de Fortnite (Qualifications)",
+          "windowId": "S40_PerformanceEvaluation_Event10Round1_EU",
+          "start": "2026-05-21T16:00:00.000Z",
+          "end": "2026-05-21T18:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-33-30-tileview-performance-cup-01-800x800-800x800-3e3bf91766c6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 24,
+            "points": 277,
+            "kills": 57,
+            "top15s": 4,
+            "top5s": 2,
+            "wins": 2,
+            "nbGamesPlayed": 7,
+            "teamAccountId": "072e8b9f8188405ab0eb52544e1dc906:b39cded93b0f4aa59ffdadf0db18e853",
+            "accountIds": [
+              "072e8b9f8188405ab0eb52544e1dc906",
+              "b39cded93b0f4aa59ffdadf0db18e853"
+            ],
+            "names": [
+              "havok swizzуǃ",
+              "havok pixie sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 5 - Jour 2)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week5Day2_EU",
+          "start": "2026-05-19T17:00:00.000Z",
+          "end": "2026-05-19T20:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 27,
+            "points": 407,
+            "kills": 70,
+            "top15s": 4,
+            "top5s": 1,
+            "wins": 1,
+            "nbGamesPlayed": 11,
+            "teamAccountId": "072e8b9f8188405ab0eb52544e1dc906:b39cded93b0f4aa59ffdadf0db18e853",
+            "accountIds": [
+              "072e8b9f8188405ab0eb52544e1dc906",
+              "b39cded93b0f4aa59ffdadf0db18e853"
+            ],
+            "names": [
+              "havok swizzуǃ",
+              "havok pixie sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 5 - Jour 1)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week5Day1_EU",
+          "start": "2026-05-18T17:00:00.000Z",
+          "end": "2026-05-18T20:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 15,
+            "points": 421,
+            "kills": 75,
+            "top15s": 5,
+            "top5s": 1,
+            "wins": 0,
+            "nbGamesPlayed": 9,
+            "teamAccountId": "072e8b9f8188405ab0eb52544e1dc906:b39cded93b0f4aa59ffdadf0db18e853",
+            "accountIds": [
+              "072e8b9f8188405ab0eb52544e1dc906",
+              "b39cded93b0f4aa59ffdadf0db18e853"
+            ],
+            "names": [
+              "havok swizzуǃ",
+              "havok pixie sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_ReloadEliteSeries3Final_EU",
+          "tournamentName": "Série élite Recharge (Finale)",
+          "windowId": "S40_ReloadEliteSeries3Final_EU",
+          "start": "2026-05-17T15:00:00.000Z",
+          "end": "2026-05-17T18:20:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 3,
+            "points": 313,
+            "kills": 21,
+            "top15s": 8,
+            "top5s": 4,
+            "wins": 0,
+            "nbGamesPlayed": 8,
+            "teamAccountId": "072e8b9f8188405ab0eb52544e1dc906:b39cded93b0f4aa59ffdadf0db18e853",
+            "accountIds": [
+              "072e8b9f8188405ab0eb52544e1dc906",
+              "b39cded93b0f4aa59ffdadf0db18e853"
+            ],
+            "names": [
+              "havok swizzуǃ",
+              "havok pixie sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 4 - Finale)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week4Final_EU",
+          "start": "2026-05-16T17:00:00.000Z",
+          "end": "2026-05-16T19:40:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 33,
+            "points": 74,
+            "kills": 11,
+            "top15s": 1,
+            "top5s": 0,
+            "wins": 0,
+            "nbGamesPlayed": 6,
+            "teamAccountId": "072e8b9f8188405ab0eb52544e1dc906:b39cded93b0f4aa59ffdadf0db18e853",
+            "accountIds": [
+              "072e8b9f8188405ab0eb52544e1dc906",
+              "b39cded93b0f4aa59ffdadf0db18e853"
+            ],
+            "names": [
+              "havok swizzуǃ",
+              "havok pixie sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_ReloadEliteSeries3Heat3_EU",
+          "tournamentName": "Série élite Recharge (Heat 3)",
+          "windowId": "S40_ReloadEliteSeries3Heat3_EU",
+          "start": "2026-05-15T17:12:00.000Z",
+          "end": "2026-05-15T20:12:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 5,
+            "points": 307,
+            "kills": 23,
+            "top15s": 7,
+            "top5s": 3,
+            "wins": 1,
+            "nbGamesPlayed": 7,
+            "teamAccountId": "072e8b9f8188405ab0eb52544e1dc906:b39cded93b0f4aa59ffdadf0db18e853",
+            "accountIds": [
+              "072e8b9f8188405ab0eb52544e1dc906",
+              "b39cded93b0f4aa59ffdadf0db18e853"
+            ],
+            "names": [
+              "havok swizzуǃ",
+              "havok pixie sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_PerformanceEvaluation_EU",
+          "tournamentName": "Évaluation des performances de Fortnite (Finale)",
+          "windowId": "S40_PerformanceEvaluation_Event9Round2_EU",
+          "start": "2026-05-14T19:00:00.000Z",
+          "end": "2026-05-14T21:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-33-30-tileview-performance-cup-01-800x800-800x800-3e3bf91766c6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 19,
+            "points": 0,
+            "kills": 9,
+            "top15s": 1,
+            "top5s": 1,
+            "wins": 0,
+            "nbGamesPlayed": 4,
+            "teamAccountId": "072e8b9f8188405ab0eb52544e1dc906:b39cded93b0f4aa59ffdadf0db18e853",
+            "accountIds": [
+              "072e8b9f8188405ab0eb52544e1dc906",
+              "b39cded93b0f4aa59ffdadf0db18e853"
+            ],
+            "names": [
+              "havok swizzуǃ",
+              "havok pixie sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_PerformanceEvaluation_EU",
+          "tournamentName": "Évaluation des performances de Fortnite (Qualifications)",
+          "windowId": "S40_PerformanceEvaluation_Event9Round1_EU",
+          "start": "2026-05-14T16:00:00.000Z",
+          "end": "2026-05-14T18:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-33-30-tileview-performance-cup-01-800x800-800x800-3e3bf91766c6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 4,
+            "points": 307,
+            "kills": 55,
+            "top15s": 5,
+            "top5s": 3,
+            "wins": 2,
+            "nbGamesPlayed": 6,
+            "teamAccountId": "072e8b9f8188405ab0eb52544e1dc906:b39cded93b0f4aa59ffdadf0db18e853",
+            "accountIds": [
+              "072e8b9f8188405ab0eb52544e1dc906",
+              "b39cded93b0f4aa59ffdadf0db18e853"
+            ],
+            "names": [
+              "havok swizzуǃ",
+              "havok pixie sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 4 - Jour 2)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week4Day2_EU",
+          "start": "2026-05-12T17:00:00.000Z",
+          "end": "2026-05-12T20:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 10,
+            "points": 441,
+            "kills": 88,
+            "top15s": 3,
+            "top5s": 1,
+            "wins": 1,
+            "nbGamesPlayed": 11,
+            "teamAccountId": "072e8b9f8188405ab0eb52544e1dc906:b39cded93b0f4aa59ffdadf0db18e853",
+            "accountIds": [
+              "072e8b9f8188405ab0eb52544e1dc906",
+              "b39cded93b0f4aa59ffdadf0db18e853"
+            ],
+            "names": [
+              "havok swizzуǃ",
+              "havok pixie sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 4 - Jour 1)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week4Day1_EU",
+          "start": "2026-05-11T17:00:00.000Z",
+          "end": "2026-05-11T20:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 1,
+            "points": 544,
+            "kills": 66,
+            "top15s": 7,
+            "top5s": 4,
+            "wins": 2,
+            "nbGamesPlayed": 11,
+            "teamAccountId": "072e8b9f8188405ab0eb52544e1dc906:b39cded93b0f4aa59ffdadf0db18e853",
+            "accountIds": [
+              "072e8b9f8188405ab0eb52544e1dc906",
+              "b39cded93b0f4aa59ffdadf0db18e853"
+            ],
+            "names": [
+              "havok swizzуǃ",
+              "havok pixie sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_ReloadEliteSeries3PlayIn_EU",
+          "tournamentName": "Série élite Recharge (Play-In Jour 2)",
+          "windowId": "S40_ReloadEliteSeries3PlayInDay2_EU",
+          "start": "2026-05-10T17:00:00.000Z",
+          "end": "2026-05-10T19:30:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 864,
+            "points": 320,
+            "kills": 63,
+            "top15s": 4,
+            "top5s": 4,
+            "wins": 4,
+            "nbGamesPlayed": 4,
+            "teamAccountId": "072e8b9f8188405ab0eb52544e1dc906:b39cded93b0f4aa59ffdadf0db18e853",
+            "accountIds": [
+              "072e8b9f8188405ab0eb52544e1dc906",
+              "b39cded93b0f4aa59ffdadf0db18e853"
+            ],
+            "names": [
+              "havok swizzуǃ",
+              "havok pixie sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_ReloadEliteSeries3PlayIn_EU",
+          "tournamentName": "Série élite Recharge (Play-In Jour 1)",
+          "windowId": "S40_ReloadEliteSeries3PlayInDay1_EU",
+          "start": "2026-05-08T17:00:00.000Z",
+          "end": "2026-05-08T19:30:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 1,
+            "points": 505,
+            "kills": 101,
+            "top15s": 9,
+            "top5s": 4,
+            "wins": 4,
+            "nbGamesPlayed": 10,
+            "teamAccountId": "072e8b9f8188405ab0eb52544e1dc906:b39cded93b0f4aa59ffdadf0db18e853",
+            "accountIds": [
+              "072e8b9f8188405ab0eb52544e1dc906",
+              "b39cded93b0f4aa59ffdadf0db18e853"
+            ],
+            "names": [
+              "havok swizzуǃ",
+              "havok pixie sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 3 - Jour 2)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week3Day2_EU",
+          "start": "2026-05-05T17:00:00.000Z",
+          "end": "2026-05-05T20:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 68,
+            "points": 313,
+            "kills": 43,
+            "top15s": 4,
+            "top5s": 1,
+            "wins": 0,
+            "nbGamesPlayed": 11,
+            "teamAccountId": "072e8b9f8188405ab0eb52544e1dc906:b39cded93b0f4aa59ffdadf0db18e853",
+            "accountIds": [
+              "072e8b9f8188405ab0eb52544e1dc906",
+              "b39cded93b0f4aa59ffdadf0db18e853"
+            ],
+            "names": [
+              "havok swizzуǃ",
+              "havok pixie sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 3 - Jour 1)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week3Day1_EU",
+          "start": "2026-05-04T17:00:00.000Z",
+          "end": "2026-05-04T20:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 52,
+            "points": 325,
+            "kills": 48,
+            "top15s": 3,
+            "top5s": 2,
+            "wins": 1,
+            "nbGamesPlayed": 11,
+            "teamAccountId": "072e8b9f8188405ab0eb52544e1dc906:b39cded93b0f4aa59ffdadf0db18e853",
+            "accountIds": [
+              "072e8b9f8188405ab0eb52544e1dc906",
+              "b39cded93b0f4aa59ffdadf0db18e853"
+            ],
+            "names": [
+              "havok swizzуǃ",
+              "havok pixie sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_ReloadEliteSeries3Opens_EU",
+          "tournamentName": "Série élite Recharge",
+          "windowId": "S40_ReloadEliteSeries3Open2_EU",
+          "start": "2026-05-03T17:00:00.000Z",
+          "end": "2026-05-03T19:30:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 77,
+            "points": 462,
+            "kills": 154,
+            "top15s": 9,
+            "top5s": 3,
+            "wins": 1,
+            "nbGamesPlayed": 11,
+            "teamAccountId": "072e8b9f8188405ab0eb52544e1dc906:b39cded93b0f4aa59ffdadf0db18e853",
+            "accountIds": [
+              "072e8b9f8188405ab0eb52544e1dc906",
+              "b39cded93b0f4aa59ffdadf0db18e853"
+            ],
+            "names": [
+              "havok swizzуǃ",
+              "havok pixie sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_ReloadEliteSeries3Opens_EU",
+          "tournamentName": "Série élite Recharge",
+          "windowId": "S40_ReloadEliteSeries3Open1_EU",
+          "start": "2026-05-01T17:00:00.000Z",
+          "end": "2026-05-01T19:30:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 1,
+            "points": 588,
+            "kills": 158,
+            "top15s": 10,
+            "top5s": 8,
+            "wins": 3,
+            "nbGamesPlayed": 10,
+            "teamAccountId": "072e8b9f8188405ab0eb52544e1dc906:b39cded93b0f4aa59ffdadf0db18e853",
+            "accountIds": [
+              "072e8b9f8188405ab0eb52544e1dc906",
+              "b39cded93b0f4aa59ffdadf0db18e853"
+            ],
+            "names": [
+              "havok swizzуǃ",
+              "havok pixie sc"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "3acf97a254a0469ca39a30030d6d752d",
+      "name": "Wox",
+      "pseudo": "havok wx sc",
+      "image": "/dashboard-assets/players/3acf97a254a0469ca39a30030d6d752d-b3a99c9ea5.jpg",
+      "countryFlag": "/dashboard-assets/flags/su-de-1998912eba.png",
+      "country": "Suède",
+      "top5": 1,
+      "bestTop": 2,
+      "avgKill": 52.46153846153846,
+      "avgTop": 147.15384615384616,
+      "lastTournaments": [
+        {
+          "tournamentId": "epicgames_S40_ReloadEliteSeries3Final_EU",
+          "tournamentName": "Série élite Recharge (Finale)",
+          "windowId": "S40_ReloadEliteSeries3Final_EU",
+          "start": "2026-05-17T15:00:00.000Z",
+          "end": "2026-05-17T18:20:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 20,
+            "points": 9,
+            "kills": 1,
+            "top15s": 1,
+            "top5s": 0,
+            "wins": 0,
+            "nbGamesPlayed": 3,
+            "teamAccountId": "16ad8e9d8e46438ab091881ea2de972a:3acf97a254a0469ca39a30030d6d752d",
+            "accountIds": [
+              "16ad8e9d8e46438ab091881ea2de972a",
+              "3acf97a254a0469ca39a30030d6d752d"
+            ],
+            "names": [
+              "барабелька ахаха",
+              "havok wx sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_ReloadEliteSeries3Heat4_EU",
+          "tournamentName": "Série élite Recharge (Heat 4)",
+          "windowId": "S40_ReloadEliteSeries3Heat4_EU",
+          "start": "2026-05-15T17:12:01.000Z",
+          "end": "2026-05-15T20:12:01.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 2,
+            "points": 339,
+            "kills": 33,
+            "top15s": 6,
+            "top5s": 5,
+            "wins": 0,
+            "nbGamesPlayed": 8,
+            "teamAccountId": "16ad8e9d8e46438ab091881ea2de972a:3acf97a254a0469ca39a30030d6d752d",
+            "accountIds": [
+              "16ad8e9d8e46438ab091881ea2de972a",
+              "3acf97a254a0469ca39a30030d6d752d"
+            ],
+            "names": [
+              "барабелька ахаха",
+              "havok wx sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_PerformanceEvaluation_EU",
+          "tournamentName": "Évaluation des performances de Fortnite (Qualifications)",
+          "windowId": "S40_PerformanceEvaluation_Event9Round1_EU",
+          "start": "2026-05-14T16:00:00.000Z",
+          "end": "2026-05-14T18:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-33-30-tileview-performance-cup-01-800x800-800x800-3e3bf91766c6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 348,
+            "points": 121,
+            "kills": 27,
+            "top15s": 2,
+            "top5s": 1,
+            "wins": 0,
+            "nbGamesPlayed": 8,
+            "teamAccountId": "16ad8e9d8e46438ab091881ea2de972a:3acf97a254a0469ca39a30030d6d752d",
+            "accountIds": [
+              "16ad8e9d8e46438ab091881ea2de972a",
+              "3acf97a254a0469ca39a30030d6d752d"
+            ],
+            "names": [
+              "барабелька ахаха",
+              "havok wx sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 4 - Jour 2)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week4Day2_EU",
+          "start": "2026-05-12T17:00:00.000Z",
+          "end": "2026-05-12T20:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 79,
+            "points": 315,
+            "kills": 53,
+            "top15s": 3,
+            "top5s": 0,
+            "wins": 0,
+            "nbGamesPlayed": 11,
+            "teamAccountId": "16ad8e9d8e46438ab091881ea2de972a:3acf97a254a0469ca39a30030d6d752d",
+            "accountIds": [
+              "16ad8e9d8e46438ab091881ea2de972a",
+              "3acf97a254a0469ca39a30030d6d752d"
+            ],
+            "names": [
+              "барабелька ахаха",
+              "havok wx sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 4 - Jour 1)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week4Day1_EU",
+          "start": "2026-05-11T17:00:00.000Z",
+          "end": "2026-05-11T20:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 149,
+            "points": 246,
+            "kills": 42,
+            "top15s": 3,
+            "top5s": 0,
+            "wins": 0,
+            "nbGamesPlayed": 11,
+            "teamAccountId": "16ad8e9d8e46438ab091881ea2de972a:3acf97a254a0469ca39a30030d6d752d",
+            "accountIds": [
+              "16ad8e9d8e46438ab091881ea2de972a",
+              "3acf97a254a0469ca39a30030d6d752d"
+            ],
+            "names": [
+              "барабелька ахаха",
+              "havok wx sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_ReloadEliteSeries3PlayIn_EU",
+          "tournamentName": "Série élite Recharge (Play-In Jour 2)",
+          "windowId": "S40_ReloadEliteSeries3PlayInDay2_EU",
+          "start": "2026-05-10T17:00:00.000Z",
+          "end": "2026-05-10T19:30:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 408,
+            "points": 356,
+            "kills": 85,
+            "top15s": 8,
+            "top5s": 2,
+            "wins": 1,
+            "nbGamesPlayed": 12,
+            "teamAccountId": "16ad8e9d8e46438ab091881ea2de972a:3acf97a254a0469ca39a30030d6d752d",
+            "accountIds": [
+              "16ad8e9d8e46438ab091881ea2de972a",
+              "3acf97a254a0469ca39a30030d6d752d"
+            ],
+            "names": [
+              "барабелька ахаха",
+              "havok wx sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_ReloadEliteSeries3PlayIn_EU",
+          "tournamentName": "Série élite Recharge (Play-In Jour 1)",
+          "windowId": "S40_ReloadEliteSeries3PlayInDay1_EU",
+          "start": "2026-05-08T17:00:00.000Z",
+          "end": "2026-05-08T19:30:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 13,
+            "points": 446,
+            "kills": 96,
+            "top15s": 9,
+            "top5s": 4,
+            "wins": 4,
+            "nbGamesPlayed": 10,
+            "teamAccountId": "16ad8e9d8e46438ab091881ea2de972a:3acf97a254a0469ca39a30030d6d752d",
+            "accountIds": [
+              "16ad8e9d8e46438ab091881ea2de972a",
+              "3acf97a254a0469ca39a30030d6d752d"
+            ],
+            "names": [
+              "барабелька ахаха",
+              "havok wx sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_PerformanceEvaluation_EU",
+          "tournamentName": "Évaluation des performances de Fortnite (Finale)",
+          "windowId": "S40_PerformanceEvaluation_Event8Round2_EU",
+          "start": "2026-05-07T19:00:00.000Z",
+          "end": "2026-05-07T21:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-33-30-tileview-performance-cup-01-800x800-800x800-3e3bf91766c6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 29,
+            "points": 0,
+            "kills": 6,
+            "top15s": 2,
+            "top5s": 0,
+            "wins": 0,
+            "nbGamesPlayed": 4,
+            "teamAccountId": "16ad8e9d8e46438ab091881ea2de972a:3acf97a254a0469ca39a30030d6d752d",
+            "accountIds": [
+              "16ad8e9d8e46438ab091881ea2de972a",
+              "3acf97a254a0469ca39a30030d6d752d"
+            ],
+            "names": [
+              "барабелька ахаха",
+              "havok wx sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_PerformanceEvaluation_EU",
+          "tournamentName": "Évaluation des performances de Fortnite (Qualifications)",
+          "windowId": "S40_PerformanceEvaluation_Event8Round1_EU",
+          "start": "2026-05-07T16:00:00.000Z",
+          "end": "2026-05-07T18:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-33-30-tileview-performance-cup-01-800x800-800x800-3e3bf91766c6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 34,
+            "points": 244,
+            "kills": 53,
+            "top15s": 4,
+            "top5s": 2,
+            "wins": 1,
+            "nbGamesPlayed": 8,
+            "teamAccountId": "16ad8e9d8e46438ab091881ea2de972a:3acf97a254a0469ca39a30030d6d752d",
+            "accountIds": [
+              "16ad8e9d8e46438ab091881ea2de972a",
+              "3acf97a254a0469ca39a30030d6d752d"
+            ],
+            "names": [
+              "барабелька ахаха",
+              "havok wx sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 3 - Jour 2)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week3Day2_EU",
+          "start": "2026-05-05T17:00:00.000Z",
+          "end": "2026-05-05T20:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 50,
+            "points": 330,
+            "kills": 64,
+            "top15s": 2,
+            "top5s": 1,
+            "wins": 0,
+            "nbGamesPlayed": 11,
+            "teamAccountId": "16ad8e9d8e46438ab091881ea2de972a:3acf97a254a0469ca39a30030d6d752d",
+            "accountIds": [
+              "16ad8e9d8e46438ab091881ea2de972a",
+              "3acf97a254a0469ca39a30030d6d752d"
+            ],
+            "names": [
+              "барабелька ахаха",
+              "havok wx sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 3 - Jour 1)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week3Day1_EU",
+          "start": "2026-05-04T17:00:00.000Z",
+          "end": "2026-05-04T20:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 154,
+            "points": 213,
+            "kills": 37,
+            "top15s": 2,
+            "top5s": 0,
+            "wins": 0,
+            "nbGamesPlayed": 11,
+            "teamAccountId": "16ad8e9d8e46438ab091881ea2de972a:3acf97a254a0469ca39a30030d6d752d",
+            "accountIds": [
+              "16ad8e9d8e46438ab091881ea2de972a",
+              "3acf97a254a0469ca39a30030d6d752d"
+            ],
+            "names": [
+              "барабелька ахаха",
+              "havok wx sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_ReloadEliteSeries3Opens_EU",
+          "tournamentName": "Série élite Recharge",
+          "windowId": "S40_ReloadEliteSeries3Open2_EU",
+          "start": "2026-05-03T17:00:00.000Z",
+          "end": "2026-05-03T19:30:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 305,
+            "points": 432,
+            "kills": 122,
+            "top15s": 9,
+            "top5s": 3,
+            "wins": 1,
+            "nbGamesPlayed": 10,
+            "teamAccountId": "16ad8e9d8e46438ab091881ea2de972a:3acf97a254a0469ca39a30030d6d752d",
+            "accountIds": [
+              "16ad8e9d8e46438ab091881ea2de972a",
+              "3acf97a254a0469ca39a30030d6d752d"
+            ],
+            "names": [
+              "барабелька ахаха",
+              "havok wx sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_ReloadEliteSeries3Opens_EU",
+          "tournamentName": "Série élite Recharge",
+          "windowId": "S40_ReloadEliteSeries3Open1_EU",
+          "start": "2026-05-01T17:00:00.000Z",
+          "end": "2026-05-01T19:30:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 322,
+            "points": 422,
+            "kills": 63,
+            "top15s": 8,
+            "top5s": 6,
+            "wins": 2,
+            "nbGamesPlayed": 10,
+            "teamAccountId": "16ad8e9d8e46438ab091881ea2de972a:3acf97a254a0469ca39a30030d6d752d",
+            "accountIds": [
+              "16ad8e9d8e46438ab091881ea2de972a",
+              "3acf97a254a0469ca39a30030d6d752d"
+            ],
+            "names": [
+              "барабелька ахаха",
+              "havok wx sc"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "9cd77d61613244699e3dfb7815f59cf9",
+      "name": "PabloWingu",
+      "pseudo": "havok pablo sc",
+      "image": "/dashboard-assets/players/9cd77d61613244699e3dfb7815f59cf9-67877b3c15.jpg",
+      "countryFlag": "/dashboard-assets/flags/danemark-284f0c543a.png",
+      "country": "Danemark",
+      "top5": 4,
+      "bestTop": 1,
+      "avgKill": 62.578947368421055,
+      "avgTop": 309.57894736842104,
+      "lastTournaments": [
+        {
+          "tournamentId": "epicgames_S40_DuosReloadVictoryCup_EU",
+          "tournamentName": "Coupe victoire duos (mode Recharge) (Finale)",
+          "windowId": "S40_DuosReloadVictoryCup_Round2_day2_EU",
+          "start": "2026-05-22T20:00:00.000Z",
+          "end": "2026-05-22T20:45:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fneco-35-00-consolevictorycup-comp-in-game-tab-800x800-rockerpunk-800x800-791783a7a571.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 107,
+            "points": 0,
+            "kills": 11,
+            "top15s": 1,
+            "top5s": 0,
+            "wins": 0,
+            "nbGamesPlayed": 3,
+            "teamAccountId": "137b42eb15ad4c0eaed668678ef884a6:9cd77d61613244699e3dfb7815f59cf9",
+            "accountIds": [
+              "137b42eb15ad4c0eaed668678ef884a6",
+              "9cd77d61613244699e3dfb7815f59cf9"
+            ],
+            "names": [
+              "HavоK Tjino",
+              "havok pablo sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_DuosReloadVictoryCup_EU",
+          "tournamentName": "Coupe victoire duos (mode Recharge) (Qualifications)",
+          "windowId": "S40_DuosReloadVictoryCup_Round1_day2_EU",
+          "start": "2026-05-22T17:00:00.000Z",
+          "end": "2026-05-22T19:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fneco-35-00-consolevictorycup-comp-in-game-tab-800x800-rockerpunk-800x800-791783a7a571.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 196,
+            "points": 394,
+            "kills": 116,
+            "top15s": 7,
+            "top5s": 4,
+            "wins": 3,
+            "nbGamesPlayed": 10,
+            "teamAccountId": "137b42eb15ad4c0eaed668678ef884a6:9cd77d61613244699e3dfb7815f59cf9",
+            "accountIds": [
+              "137b42eb15ad4c0eaed668678ef884a6",
+              "9cd77d61613244699e3dfb7815f59cf9"
+            ],
+            "names": [
+              "HavоK Tjino",
+              "havok pablo sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_PerformanceEvaluation_EU",
+          "tournamentName": "Évaluation des performances de Fortnite (Qualifications)",
+          "windowId": "S40_PerformanceEvaluation_Event10Round1_EU",
+          "start": "2026-05-21T16:00:00.000Z",
+          "end": "2026-05-21T18:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-33-30-tileview-performance-cup-01-800x800-800x800-3e3bf91766c6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 78,
+            "points": 234,
+            "kills": 48,
+            "top15s": 5,
+            "top5s": 1,
+            "wins": 0,
+            "nbGamesPlayed": 8,
+            "teamAccountId": "137b42eb15ad4c0eaed668678ef884a6:9cd77d61613244699e3dfb7815f59cf9",
+            "accountIds": [
+              "137b42eb15ad4c0eaed668678ef884a6",
+              "9cd77d61613244699e3dfb7815f59cf9"
+            ],
+            "names": [
+              "HavоK Tjino",
+              "havok pablo sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 5 - Jour 2)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week5Day2_EU",
+          "start": "2026-05-19T17:00:00.000Z",
+          "end": "2026-05-19T20:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 111,
+            "points": 295,
+            "kills": 40,
+            "top15s": 4,
+            "top5s": 1,
+            "wins": 1,
+            "nbGamesPlayed": 11,
+            "teamAccountId": "137b42eb15ad4c0eaed668678ef884a6:9cd77d61613244699e3dfb7815f59cf9",
+            "accountIds": [
+              "137b42eb15ad4c0eaed668678ef884a6",
+              "9cd77d61613244699e3dfb7815f59cf9"
+            ],
+            "names": [
+              "HavоK Tjino",
+              "havok pablo sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 5 - Jour 1)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week5Day1_EU",
+          "start": "2026-05-18T17:00:00.000Z",
+          "end": "2026-05-18T20:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 22,
+            "points": 407,
+            "kills": 64,
+            "top15s": 5,
+            "top5s": 2,
+            "wins": 1,
+            "nbGamesPlayed": 11,
+            "teamAccountId": "137b42eb15ad4c0eaed668678ef884a6:9cd77d61613244699e3dfb7815f59cf9",
+            "accountIds": [
+              "137b42eb15ad4c0eaed668678ef884a6",
+              "9cd77d61613244699e3dfb7815f59cf9"
+            ],
+            "names": [
+              "HavоK Tjino",
+              "havok pablo sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_ReloadEliteSeries3Final_EU",
+          "tournamentName": "Série élite Recharge (Finale)",
+          "windowId": "S40_ReloadEliteSeries3Final_EU",
+          "start": "2026-05-17T15:00:00.000Z",
+          "end": "2026-05-17T18:20:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 4,
+            "points": 309,
+            "kills": 27,
+            "top15s": 8,
+            "top5s": 3,
+            "wins": 1,
+            "nbGamesPlayed": 8,
+            "teamAccountId": "137b42eb15ad4c0eaed668678ef884a6:9cd77d61613244699e3dfb7815f59cf9",
+            "accountIds": [
+              "137b42eb15ad4c0eaed668678ef884a6",
+              "9cd77d61613244699e3dfb7815f59cf9"
+            ],
+            "names": [
+              "HavоK Tjino",
+              "havok pablo sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 4 - Finale)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week4Final_EU",
+          "start": "2026-05-16T17:00:00.000Z",
+          "end": "2026-05-16T19:40:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 19,
+            "points": 158,
+            "kills": 19,
+            "top15s": 2,
+            "top5s": 0,
+            "wins": 0,
+            "nbGamesPlayed": 6,
+            "teamAccountId": "137b42eb15ad4c0eaed668678ef884a6:9cd77d61613244699e3dfb7815f59cf9",
+            "accountIds": [
+              "137b42eb15ad4c0eaed668678ef884a6",
+              "9cd77d61613244699e3dfb7815f59cf9"
+            ],
+            "names": [
+              "HavоK Tjino",
+              "havok pablo sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_ReloadEliteSeries3Heat2_EU",
+          "tournamentName": "Série élite Recharge (Heat 2)",
+          "windowId": "S40_ReloadEliteSeries3Heat2_EU",
+          "start": "2026-05-15T17:00:01.000Z",
+          "end": "2026-05-15T20:00:01.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 4,
+            "points": 325,
+            "kills": 43,
+            "top15s": 7,
+            "top5s": 3,
+            "wins": 0,
+            "nbGamesPlayed": 8,
+            "teamAccountId": "137b42eb15ad4c0eaed668678ef884a6:9cd77d61613244699e3dfb7815f59cf9",
+            "accountIds": [
+              "137b42eb15ad4c0eaed668678ef884a6",
+              "9cd77d61613244699e3dfb7815f59cf9"
+            ],
+            "names": [
+              "HavоK Tjino",
+              "havok pablo sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_PerformanceEvaluation_EU",
+          "tournamentName": "Évaluation des performances de Fortnite (Qualifications)",
+          "windowId": "S40_PerformanceEvaluation_Event9Round1_EU",
+          "start": "2026-05-14T16:00:00.000Z",
+          "end": "2026-05-14T18:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-33-30-tileview-performance-cup-01-800x800-800x800-3e3bf91766c6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 410,
+            "points": 105,
+            "kills": 35,
+            "top15s": 1,
+            "top5s": 0,
+            "wins": 0,
+            "nbGamesPlayed": 8,
+            "teamAccountId": "137b42eb15ad4c0eaed668678ef884a6:9cd77d61613244699e3dfb7815f59cf9",
+            "accountIds": [
+              "137b42eb15ad4c0eaed668678ef884a6",
+              "9cd77d61613244699e3dfb7815f59cf9"
+            ],
+            "names": [
+              "HavоK Tjino",
+              "havok pablo sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 4 - Jour 2)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week4Day2_EU",
+          "start": "2026-05-12T17:00:00.000Z",
+          "end": "2026-05-12T20:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 62,
+            "points": 334,
+            "kills": 50,
+            "top15s": 4,
+            "top5s": 0,
+            "wins": 0,
+            "nbGamesPlayed": 11,
+            "teamAccountId": "137b42eb15ad4c0eaed668678ef884a6:9cd77d61613244699e3dfb7815f59cf9",
+            "accountIds": [
+              "137b42eb15ad4c0eaed668678ef884a6",
+              "9cd77d61613244699e3dfb7815f59cf9"
+            ],
+            "names": [
+              "HavоK Tjino",
+              "havok pablo sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 4 - Jour 1)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week4Day1_EU",
+          "start": "2026-05-11T17:00:00.000Z",
+          "end": "2026-05-11T20:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 40,
+            "points": 350,
+            "kills": 58,
+            "top15s": 4,
+            "top5s": 2,
+            "wins": 0,
+            "nbGamesPlayed": 11,
+            "teamAccountId": "137b42eb15ad4c0eaed668678ef884a6:9cd77d61613244699e3dfb7815f59cf9",
+            "accountIds": [
+              "137b42eb15ad4c0eaed668678ef884a6",
+              "9cd77d61613244699e3dfb7815f59cf9"
+            ],
+            "names": [
+              "HavоK Tjino",
+              "havok pablo sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_ReloadEliteSeries3PlayIn_EU",
+          "tournamentName": "Série élite Recharge (Play-In Jour 2)",
+          "windowId": "S40_ReloadEliteSeries3PlayInDay2_EU",
+          "start": "2026-05-10T17:00:00.000Z",
+          "end": "2026-05-10T19:30:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 41,
+            "points": 420,
+            "kills": 91,
+            "top15s": 8,
+            "top5s": 4,
+            "wins": 3,
+            "nbGamesPlayed": 10,
+            "teamAccountId": "137b42eb15ad4c0eaed668678ef884a6:9cd77d61613244699e3dfb7815f59cf9",
+            "accountIds": [
+              "137b42eb15ad4c0eaed668678ef884a6",
+              "9cd77d61613244699e3dfb7815f59cf9"
+            ],
+            "names": [
+              "HavоK Tjino",
+              "havok pablo sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 3 - Finale)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week3Final_EU",
+          "start": "2026-05-09T17:00:00.000Z",
+          "end": "2026-05-09T19:40:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 24,
+            "points": 132,
+            "kills": 10,
+            "top15s": 2,
+            "top5s": 1,
+            "wins": 0,
+            "nbGamesPlayed": 6,
+            "teamAccountId": "137b42eb15ad4c0eaed668678ef884a6:9cd77d61613244699e3dfb7815f59cf9",
+            "accountIds": [
+              "137b42eb15ad4c0eaed668678ef884a6",
+              "9cd77d61613244699e3dfb7815f59cf9"
+            ],
+            "names": [
+              "HavоK Tjino",
+              "havok pablo sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_ReloadEliteSeries3PlayIn_EU",
+          "tournamentName": "Série élite Recharge (Play-In Jour 1)",
+          "windowId": "S40_ReloadEliteSeries3PlayInDay1_EU",
+          "start": "2026-05-08T17:00:00.000Z",
+          "end": "2026-05-08T19:30:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 92,
+            "points": 394,
+            "kills": 92,
+            "top15s": 8,
+            "top5s": 3,
+            "wins": 1,
+            "nbGamesPlayed": 11,
+            "teamAccountId": "137b42eb15ad4c0eaed668678ef884a6:9cd77d61613244699e3dfb7815f59cf9",
+            "accountIds": [
+              "137b42eb15ad4c0eaed668678ef884a6",
+              "9cd77d61613244699e3dfb7815f59cf9"
+            ],
+            "names": [
+              "HavоK Tjino",
+              "havok pablo sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_PerformanceEvaluation_EU",
+          "tournamentName": "Évaluation des performances de Fortnite (Qualifications)",
+          "windowId": "S40_PerformanceEvaluation_Event8Round1_EU",
+          "start": "2026-05-07T16:00:00.000Z",
+          "end": "2026-05-07T18:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-33-30-tileview-performance-cup-01-800x800-800x800-3e3bf91766c6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 348,
+            "points": 101,
+            "kills": 35,
+            "top15s": 2,
+            "top5s": 0,
+            "wins": 0,
+            "nbGamesPlayed": 8,
+            "teamAccountId": "137b42eb15ad4c0eaed668678ef884a6:9cd77d61613244699e3dfb7815f59cf9",
+            "accountIds": [
+              "137b42eb15ad4c0eaed668678ef884a6",
+              "9cd77d61613244699e3dfb7815f59cf9"
+            ],
+            "names": [
+              "HavоK Tjino",
+              "havok pablo sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 3 - Jour 2)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week3Day2_EU",
+          "start": "2026-05-05T17:00:00.000Z",
+          "end": "2026-05-05T20:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 1,
+            "points": 607,
+            "kills": 102,
+            "top15s": 6,
+            "top5s": 4,
+            "wins": 1,
+            "nbGamesPlayed": 11,
+            "teamAccountId": "137b42eb15ad4c0eaed668678ef884a6:9cd77d61613244699e3dfb7815f59cf9",
+            "accountIds": [
+              "137b42eb15ad4c0eaed668678ef884a6",
+              "9cd77d61613244699e3dfb7815f59cf9"
+            ],
+            "names": [
+              "HavоK Tjino",
+              "havok pablo sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 3 - Jour 1)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week3Day1_EU",
+          "start": "2026-05-04T17:00:00.000Z",
+          "end": "2026-05-04T20:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 31,
+            "points": 365,
+            "kills": 71,
+            "top15s": 3,
+            "top5s": 1,
+            "wins": 0,
+            "nbGamesPlayed": 11,
+            "teamAccountId": "137b42eb15ad4c0eaed668678ef884a6:9cd77d61613244699e3dfb7815f59cf9",
+            "accountIds": [
+              "137b42eb15ad4c0eaed668678ef884a6",
+              "9cd77d61613244699e3dfb7815f59cf9"
+            ],
+            "names": [
+              "HavоK Tjino",
+              "havok pablo sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_ReloadEliteSeries3Opens_EU",
+          "tournamentName": "Série élite Recharge",
+          "windowId": "S40_ReloadEliteSeries3Open2_EU",
+          "start": "2026-05-03T17:00:00.000Z",
+          "end": "2026-05-03T19:30:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 4290,
+            "points": 354,
+            "kills": 125,
+            "top15s": 6,
+            "top5s": 3,
+            "wins": 2,
+            "nbGamesPlayed": 12,
+            "teamAccountId": "137b42eb15ad4c0eaed668678ef884a6:9cd77d61613244699e3dfb7815f59cf9",
+            "accountIds": [
+              "137b42eb15ad4c0eaed668678ef884a6",
+              "9cd77d61613244699e3dfb7815f59cf9"
+            ],
+            "names": [
+              "HavоK Tjino",
+              "havok pablo sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_ReloadEliteSeries3Opens_EU",
+          "tournamentName": "Série élite Recharge",
+          "windowId": "S40_ReloadEliteSeries3Open1_EU",
+          "start": "2026-05-01T17:00:00.000Z",
+          "end": "2026-05-01T19:30:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 2,
+            "points": 519,
+            "kills": 152,
+            "top15s": 8,
+            "top5s": 6,
+            "wins": 3,
+            "nbGamesPlayed": 10,
+            "teamAccountId": "137b42eb15ad4c0eaed668678ef884a6:9cd77d61613244699e3dfb7815f59cf9",
+            "accountIds": [
+              "137b42eb15ad4c0eaed668678ef884a6",
+              "9cd77d61613244699e3dfb7815f59cf9"
+            ],
+            "names": [
+              "HavоK Tjino",
+              "havok pablo sc"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "137b42eb15ad4c0eaed668678ef884a6",
+      "name": "Tjino",
+      "pseudo": "HavоK Tjino",
+      "image": "/dashboard-assets/players/137b42eb15ad4c0eaed668678ef884a6-df15bc5b2e.jpg",
+      "countryFlag": "/dashboard-assets/flags/danemark-284f0c543a.png",
+      "country": "Danemark",
+      "top5": 4,
+      "bestTop": 1,
+      "avgKill": 62.578947368421055,
+      "avgTop": 309.57894736842104,
+      "lastTournaments": [
+        {
+          "tournamentId": "epicgames_S40_DuosReloadVictoryCup_EU",
+          "tournamentName": "Coupe victoire duos (mode Recharge) (Finale)",
+          "windowId": "S40_DuosReloadVictoryCup_Round2_day2_EU",
+          "start": "2026-05-22T20:00:00.000Z",
+          "end": "2026-05-22T20:45:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fneco-35-00-consolevictorycup-comp-in-game-tab-800x800-rockerpunk-800x800-791783a7a571.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 107,
+            "points": 0,
+            "kills": 11,
+            "top15s": 1,
+            "top5s": 0,
+            "wins": 0,
+            "nbGamesPlayed": 3,
+            "teamAccountId": "137b42eb15ad4c0eaed668678ef884a6:9cd77d61613244699e3dfb7815f59cf9",
+            "accountIds": [
+              "137b42eb15ad4c0eaed668678ef884a6",
+              "9cd77d61613244699e3dfb7815f59cf9"
+            ],
+            "names": [
+              "HavоK Tjino",
+              "havok pablo sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_DuosReloadVictoryCup_EU",
+          "tournamentName": "Coupe victoire duos (mode Recharge) (Qualifications)",
+          "windowId": "S40_DuosReloadVictoryCup_Round1_day2_EU",
+          "start": "2026-05-22T17:00:00.000Z",
+          "end": "2026-05-22T19:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fneco-35-00-consolevictorycup-comp-in-game-tab-800x800-rockerpunk-800x800-791783a7a571.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 196,
+            "points": 394,
+            "kills": 116,
+            "top15s": 7,
+            "top5s": 4,
+            "wins": 3,
+            "nbGamesPlayed": 10,
+            "teamAccountId": "137b42eb15ad4c0eaed668678ef884a6:9cd77d61613244699e3dfb7815f59cf9",
+            "accountIds": [
+              "137b42eb15ad4c0eaed668678ef884a6",
+              "9cd77d61613244699e3dfb7815f59cf9"
+            ],
+            "names": [
+              "HavоK Tjino",
+              "havok pablo sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_PerformanceEvaluation_EU",
+          "tournamentName": "Évaluation des performances de Fortnite (Qualifications)",
+          "windowId": "S40_PerformanceEvaluation_Event10Round1_EU",
+          "start": "2026-05-21T16:00:00.000Z",
+          "end": "2026-05-21T18:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-33-30-tileview-performance-cup-01-800x800-800x800-3e3bf91766c6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 78,
+            "points": 234,
+            "kills": 48,
+            "top15s": 5,
+            "top5s": 1,
+            "wins": 0,
+            "nbGamesPlayed": 8,
+            "teamAccountId": "137b42eb15ad4c0eaed668678ef884a6:9cd77d61613244699e3dfb7815f59cf9",
+            "accountIds": [
+              "137b42eb15ad4c0eaed668678ef884a6",
+              "9cd77d61613244699e3dfb7815f59cf9"
+            ],
+            "names": [
+              "HavоK Tjino",
+              "havok pablo sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 5 - Jour 2)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week5Day2_EU",
+          "start": "2026-05-19T17:00:00.000Z",
+          "end": "2026-05-19T20:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 111,
+            "points": 295,
+            "kills": 40,
+            "top15s": 4,
+            "top5s": 1,
+            "wins": 1,
+            "nbGamesPlayed": 11,
+            "teamAccountId": "137b42eb15ad4c0eaed668678ef884a6:9cd77d61613244699e3dfb7815f59cf9",
+            "accountIds": [
+              "137b42eb15ad4c0eaed668678ef884a6",
+              "9cd77d61613244699e3dfb7815f59cf9"
+            ],
+            "names": [
+              "HavоK Tjino",
+              "havok pablo sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 5 - Jour 1)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week5Day1_EU",
+          "start": "2026-05-18T17:00:00.000Z",
+          "end": "2026-05-18T20:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 22,
+            "points": 407,
+            "kills": 64,
+            "top15s": 5,
+            "top5s": 2,
+            "wins": 1,
+            "nbGamesPlayed": 11,
+            "teamAccountId": "137b42eb15ad4c0eaed668678ef884a6:9cd77d61613244699e3dfb7815f59cf9",
+            "accountIds": [
+              "137b42eb15ad4c0eaed668678ef884a6",
+              "9cd77d61613244699e3dfb7815f59cf9"
+            ],
+            "names": [
+              "HavоK Tjino",
+              "havok pablo sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_ReloadEliteSeries3Final_EU",
+          "tournamentName": "Série élite Recharge (Finale)",
+          "windowId": "S40_ReloadEliteSeries3Final_EU",
+          "start": "2026-05-17T15:00:00.000Z",
+          "end": "2026-05-17T18:20:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 4,
+            "points": 309,
+            "kills": 27,
+            "top15s": 8,
+            "top5s": 3,
+            "wins": 1,
+            "nbGamesPlayed": 8,
+            "teamAccountId": "137b42eb15ad4c0eaed668678ef884a6:9cd77d61613244699e3dfb7815f59cf9",
+            "accountIds": [
+              "137b42eb15ad4c0eaed668678ef884a6",
+              "9cd77d61613244699e3dfb7815f59cf9"
+            ],
+            "names": [
+              "HavоK Tjino",
+              "havok pablo sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 4 - Finale)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week4Final_EU",
+          "start": "2026-05-16T17:00:00.000Z",
+          "end": "2026-05-16T19:40:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 19,
+            "points": 158,
+            "kills": 19,
+            "top15s": 2,
+            "top5s": 0,
+            "wins": 0,
+            "nbGamesPlayed": 6,
+            "teamAccountId": "137b42eb15ad4c0eaed668678ef884a6:9cd77d61613244699e3dfb7815f59cf9",
+            "accountIds": [
+              "137b42eb15ad4c0eaed668678ef884a6",
+              "9cd77d61613244699e3dfb7815f59cf9"
+            ],
+            "names": [
+              "HavоK Tjino",
+              "havok pablo sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_ReloadEliteSeries3Heat2_EU",
+          "tournamentName": "Série élite Recharge (Heat 2)",
+          "windowId": "S40_ReloadEliteSeries3Heat2_EU",
+          "start": "2026-05-15T17:00:01.000Z",
+          "end": "2026-05-15T20:00:01.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 4,
+            "points": 325,
+            "kills": 43,
+            "top15s": 7,
+            "top5s": 3,
+            "wins": 0,
+            "nbGamesPlayed": 8,
+            "teamAccountId": "137b42eb15ad4c0eaed668678ef884a6:9cd77d61613244699e3dfb7815f59cf9",
+            "accountIds": [
+              "137b42eb15ad4c0eaed668678ef884a6",
+              "9cd77d61613244699e3dfb7815f59cf9"
+            ],
+            "names": [
+              "HavоK Tjino",
+              "havok pablo sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_PerformanceEvaluation_EU",
+          "tournamentName": "Évaluation des performances de Fortnite (Qualifications)",
+          "windowId": "S40_PerformanceEvaluation_Event9Round1_EU",
+          "start": "2026-05-14T16:00:00.000Z",
+          "end": "2026-05-14T18:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-33-30-tileview-performance-cup-01-800x800-800x800-3e3bf91766c6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 410,
+            "points": 105,
+            "kills": 35,
+            "top15s": 1,
+            "top5s": 0,
+            "wins": 0,
+            "nbGamesPlayed": 8,
+            "teamAccountId": "137b42eb15ad4c0eaed668678ef884a6:9cd77d61613244699e3dfb7815f59cf9",
+            "accountIds": [
+              "137b42eb15ad4c0eaed668678ef884a6",
+              "9cd77d61613244699e3dfb7815f59cf9"
+            ],
+            "names": [
+              "HavоK Tjino",
+              "havok pablo sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 4 - Jour 2)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week4Day2_EU",
+          "start": "2026-05-12T17:00:00.000Z",
+          "end": "2026-05-12T20:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 62,
+            "points": 334,
+            "kills": 50,
+            "top15s": 4,
+            "top5s": 0,
+            "wins": 0,
+            "nbGamesPlayed": 11,
+            "teamAccountId": "137b42eb15ad4c0eaed668678ef884a6:9cd77d61613244699e3dfb7815f59cf9",
+            "accountIds": [
+              "137b42eb15ad4c0eaed668678ef884a6",
+              "9cd77d61613244699e3dfb7815f59cf9"
+            ],
+            "names": [
+              "HavоK Tjino",
+              "havok pablo sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 4 - Jour 1)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week4Day1_EU",
+          "start": "2026-05-11T17:00:00.000Z",
+          "end": "2026-05-11T20:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 40,
+            "points": 350,
+            "kills": 58,
+            "top15s": 4,
+            "top5s": 2,
+            "wins": 0,
+            "nbGamesPlayed": 11,
+            "teamAccountId": "137b42eb15ad4c0eaed668678ef884a6:9cd77d61613244699e3dfb7815f59cf9",
+            "accountIds": [
+              "137b42eb15ad4c0eaed668678ef884a6",
+              "9cd77d61613244699e3dfb7815f59cf9"
+            ],
+            "names": [
+              "HavоK Tjino",
+              "havok pablo sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_ReloadEliteSeries3PlayIn_EU",
+          "tournamentName": "Série élite Recharge (Play-In Jour 2)",
+          "windowId": "S40_ReloadEliteSeries3PlayInDay2_EU",
+          "start": "2026-05-10T17:00:00.000Z",
+          "end": "2026-05-10T19:30:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 41,
+            "points": 420,
+            "kills": 91,
+            "top15s": 8,
+            "top5s": 4,
+            "wins": 3,
+            "nbGamesPlayed": 10,
+            "teamAccountId": "137b42eb15ad4c0eaed668678ef884a6:9cd77d61613244699e3dfb7815f59cf9",
+            "accountIds": [
+              "137b42eb15ad4c0eaed668678ef884a6",
+              "9cd77d61613244699e3dfb7815f59cf9"
+            ],
+            "names": [
+              "HavоK Tjino",
+              "havok pablo sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 3 - Finale)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week3Final_EU",
+          "start": "2026-05-09T17:00:00.000Z",
+          "end": "2026-05-09T19:40:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 24,
+            "points": 132,
+            "kills": 10,
+            "top15s": 2,
+            "top5s": 1,
+            "wins": 0,
+            "nbGamesPlayed": 6,
+            "teamAccountId": "137b42eb15ad4c0eaed668678ef884a6:9cd77d61613244699e3dfb7815f59cf9",
+            "accountIds": [
+              "137b42eb15ad4c0eaed668678ef884a6",
+              "9cd77d61613244699e3dfb7815f59cf9"
+            ],
+            "names": [
+              "HavоK Tjino",
+              "havok pablo sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_ReloadEliteSeries3PlayIn_EU",
+          "tournamentName": "Série élite Recharge (Play-In Jour 1)",
+          "windowId": "S40_ReloadEliteSeries3PlayInDay1_EU",
+          "start": "2026-05-08T17:00:00.000Z",
+          "end": "2026-05-08T19:30:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 92,
+            "points": 394,
+            "kills": 92,
+            "top15s": 8,
+            "top5s": 3,
+            "wins": 1,
+            "nbGamesPlayed": 11,
+            "teamAccountId": "137b42eb15ad4c0eaed668678ef884a6:9cd77d61613244699e3dfb7815f59cf9",
+            "accountIds": [
+              "137b42eb15ad4c0eaed668678ef884a6",
+              "9cd77d61613244699e3dfb7815f59cf9"
+            ],
+            "names": [
+              "HavоK Tjino",
+              "havok pablo sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_PerformanceEvaluation_EU",
+          "tournamentName": "Évaluation des performances de Fortnite (Qualifications)",
+          "windowId": "S40_PerformanceEvaluation_Event8Round1_EU",
+          "start": "2026-05-07T16:00:00.000Z",
+          "end": "2026-05-07T18:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-33-30-tileview-performance-cup-01-800x800-800x800-3e3bf91766c6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 348,
+            "points": 101,
+            "kills": 35,
+            "top15s": 2,
+            "top5s": 0,
+            "wins": 0,
+            "nbGamesPlayed": 8,
+            "teamAccountId": "137b42eb15ad4c0eaed668678ef884a6:9cd77d61613244699e3dfb7815f59cf9",
+            "accountIds": [
+              "137b42eb15ad4c0eaed668678ef884a6",
+              "9cd77d61613244699e3dfb7815f59cf9"
+            ],
+            "names": [
+              "HavоK Tjino",
+              "havok pablo sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 3 - Jour 2)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week3Day2_EU",
+          "start": "2026-05-05T17:00:00.000Z",
+          "end": "2026-05-05T20:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 1,
+            "points": 607,
+            "kills": 102,
+            "top15s": 6,
+            "top5s": 4,
+            "wins": 1,
+            "nbGamesPlayed": 11,
+            "teamAccountId": "137b42eb15ad4c0eaed668678ef884a6:9cd77d61613244699e3dfb7815f59cf9",
+            "accountIds": [
+              "137b42eb15ad4c0eaed668678ef884a6",
+              "9cd77d61613244699e3dfb7815f59cf9"
+            ],
+            "names": [
+              "HavоK Tjino",
+              "havok pablo sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 3 - Jour 1)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week3Day1_EU",
+          "start": "2026-05-04T17:00:00.000Z",
+          "end": "2026-05-04T20:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 31,
+            "points": 365,
+            "kills": 71,
+            "top15s": 3,
+            "top5s": 1,
+            "wins": 0,
+            "nbGamesPlayed": 11,
+            "teamAccountId": "137b42eb15ad4c0eaed668678ef884a6:9cd77d61613244699e3dfb7815f59cf9",
+            "accountIds": [
+              "137b42eb15ad4c0eaed668678ef884a6",
+              "9cd77d61613244699e3dfb7815f59cf9"
+            ],
+            "names": [
+              "HavоK Tjino",
+              "havok pablo sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_ReloadEliteSeries3Opens_EU",
+          "tournamentName": "Série élite Recharge",
+          "windowId": "S40_ReloadEliteSeries3Open2_EU",
+          "start": "2026-05-03T17:00:00.000Z",
+          "end": "2026-05-03T19:30:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 4290,
+            "points": 354,
+            "kills": 125,
+            "top15s": 6,
+            "top5s": 3,
+            "wins": 2,
+            "nbGamesPlayed": 12,
+            "teamAccountId": "137b42eb15ad4c0eaed668678ef884a6:9cd77d61613244699e3dfb7815f59cf9",
+            "accountIds": [
+              "137b42eb15ad4c0eaed668678ef884a6",
+              "9cd77d61613244699e3dfb7815f59cf9"
+            ],
+            "names": [
+              "HavоK Tjino",
+              "havok pablo sc"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_ReloadEliteSeries3Opens_EU",
+          "tournamentName": "Série élite Recharge",
+          "windowId": "S40_ReloadEliteSeries3Open1_EU",
+          "start": "2026-05-01T17:00:00.000Z",
+          "end": "2026-05-01T19:30:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 2,
+            "points": 519,
+            "kills": 152,
+            "top15s": 8,
+            "top5s": 6,
+            "wins": 3,
+            "nbGamesPlayed": 10,
+            "teamAccountId": "137b42eb15ad4c0eaed668678ef884a6:9cd77d61613244699e3dfb7815f59cf9",
+            "accountIds": [
+              "137b42eb15ad4c0eaed668678ef884a6",
+              "9cd77d61613244699e3dfb7815f59cf9"
+            ],
+            "names": [
+              "HavоK Tjino",
+              "havok pablo sc"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "4eef01c0cbc74341bf879fab965daa98",
+      "name": "Pixx",
+      "pseudo": "havok pixx 7ǃ",
+      "image": "/dashboard-assets/players/4eef01c0cbc74341bf879fab965daa98-84f232845e.jpg",
+      "countryFlag": "/dashboard-assets/flags/pologne-cae7f0d1a3.png",
+      "country": "Pologne",
+      "top5": 2,
+      "bestTop": 4,
+      "avgKill": 54.76470588235294,
+      "avgTop": 666.5882352941177,
+      "lastTournaments": [
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 5 - Finale)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week5Final_EU",
+          "start": "2026-05-23T17:00:00.000Z",
+          "end": "2026-05-23T19:40:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 21,
+            "points": 130,
+            "kills": 12,
+            "top15s": 2,
+            "top5s": 0,
+            "wins": 0,
+            "nbGamesPlayed": 6,
+            "teamAccountId": "4eef01c0cbc74341bf879fab965daa98:58f95defeaaa4a448d7b291c66c95f43",
+            "accountIds": [
+              "4eef01c0cbc74341bf879fab965daa98",
+              "58f95defeaaa4a448d7b291c66c95f43"
+            ],
+            "names": [
+              "havok pixx 7ǃ",
+              "ghosticular"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_DuosReloadVictoryCup_EU",
+          "tournamentName": "Coupe victoire duos (mode Recharge) (Qualifications)",
+          "windowId": "S40_DuosReloadVictoryCup_Round1_day2_EU",
+          "start": "2026-05-22T17:00:00.000Z",
+          "end": "2026-05-22T19:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fneco-35-00-consolevictorycup-comp-in-game-tab-800x800-rockerpunk-800x800-791783a7a571.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 9338,
+            "points": 288,
+            "kills": 120,
+            "top15s": 5,
+            "top5s": 2,
+            "wins": 2,
+            "nbGamesPlayed": 10,
+            "teamAccountId": "4eef01c0cbc74341bf879fab965daa98:c6cfb645e83d48f880db4bb7e47133a2",
+            "accountIds": [
+              "4eef01c0cbc74341bf879fab965daa98",
+              "c6cfb645e83d48f880db4bb7e47133a2"
+            ],
+            "names": [
+              "havok pixx 7ǃ",
+              "franek 7ǃ"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_PerformanceEvaluation_EU",
+          "tournamentName": "Évaluation des performances de Fortnite (Qualifications)",
+          "windowId": "S40_PerformanceEvaluation_Event10Round1_EU",
+          "start": "2026-05-21T16:00:00.000Z",
+          "end": "2026-05-21T18:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-33-30-tileview-performance-cup-01-800x800-800x800-3e3bf91766c6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 592,
+            "points": 70,
+            "kills": 32,
+            "top15s": 1,
+            "top5s": 0,
+            "wins": 0,
+            "nbGamesPlayed": 8,
+            "teamAccountId": "4eef01c0cbc74341bf879fab965daa98:58f95defeaaa4a448d7b291c66c95f43",
+            "accountIds": [
+              "4eef01c0cbc74341bf879fab965daa98",
+              "58f95defeaaa4a448d7b291c66c95f43"
+            ],
+            "names": [
+              "havok pixx 7ǃ",
+              "ghosticular"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 5 - Jour 2)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week5Day2_EU",
+          "start": "2026-05-19T17:00:00.000Z",
+          "end": "2026-05-19T20:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 29,
+            "points": 404,
+            "kills": 44,
+            "top15s": 6,
+            "top5s": 3,
+            "wins": 2,
+            "nbGamesPlayed": 11,
+            "teamAccountId": "4eef01c0cbc74341bf879fab965daa98:58f95defeaaa4a448d7b291c66c95f43",
+            "accountIds": [
+              "4eef01c0cbc74341bf879fab965daa98",
+              "58f95defeaaa4a448d7b291c66c95f43"
+            ],
+            "names": [
+              "havok pixx 7ǃ",
+              "ghosticular"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 5 - Jour 1)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week5Day1_EU",
+          "start": "2026-05-18T17:00:00.000Z",
+          "end": "2026-05-18T20:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 26,
+            "points": 405,
+            "kills": 48,
+            "top15s": 5,
+            "top5s": 5,
+            "wins": 1,
+            "nbGamesPlayed": 11,
+            "teamAccountId": "4eef01c0cbc74341bf879fab965daa98:58f95defeaaa4a448d7b291c66c95f43",
+            "accountIds": [
+              "4eef01c0cbc74341bf879fab965daa98",
+              "58f95defeaaa4a448d7b291c66c95f43"
+            ],
+            "names": [
+              "havok pixx 7ǃ",
+              "ghosticular"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 4 - Finale)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week4Final_EU",
+          "start": "2026-05-16T17:00:00.000Z",
+          "end": "2026-05-16T19:40:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 18,
+            "points": 164,
+            "kills": 12,
+            "top15s": 2,
+            "top5s": 1,
+            "wins": 0,
+            "nbGamesPlayed": 6,
+            "teamAccountId": "4eef01c0cbc74341bf879fab965daa98:58f95defeaaa4a448d7b291c66c95f43",
+            "accountIds": [
+              "4eef01c0cbc74341bf879fab965daa98",
+              "58f95defeaaa4a448d7b291c66c95f43"
+            ],
+            "names": [
+              "havok pixx 7ǃ",
+              "ghosticular"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_PerformanceEvaluation_EU",
+          "tournamentName": "Évaluation des performances de Fortnite (Qualifications)",
+          "windowId": "S40_PerformanceEvaluation_Event9Round1_EU",
+          "start": "2026-05-14T16:00:00.000Z",
+          "end": "2026-05-14T18:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-33-30-tileview-performance-cup-01-800x800-800x800-3e3bf91766c6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 151,
+            "points": 183,
+            "kills": 58,
+            "top15s": 2,
+            "top5s": 2,
+            "wins": 1,
+            "nbGamesPlayed": 8,
+            "teamAccountId": "4eef01c0cbc74341bf879fab965daa98:58f95defeaaa4a448d7b291c66c95f43",
+            "accountIds": [
+              "4eef01c0cbc74341bf879fab965daa98",
+              "58f95defeaaa4a448d7b291c66c95f43"
+            ],
+            "names": [
+              "havok pixx 7ǃ",
+              "ghosticular"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 4 - Jour 2)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week4Day2_EU",
+          "start": "2026-05-12T17:00:00.000Z",
+          "end": "2026-05-12T20:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 5,
+            "points": 460,
+            "kills": 49,
+            "top15s": 5,
+            "top5s": 4,
+            "wins": 1,
+            "nbGamesPlayed": 11,
+            "teamAccountId": "4eef01c0cbc74341bf879fab965daa98:58f95defeaaa4a448d7b291c66c95f43",
+            "accountIds": [
+              "4eef01c0cbc74341bf879fab965daa98",
+              "58f95defeaaa4a448d7b291c66c95f43"
+            ],
+            "names": [
+              "havok pixx 7ǃ",
+              "ghosticular"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 4 - Jour 1)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week4Day1_EU",
+          "start": "2026-05-11T17:00:00.000Z",
+          "end": "2026-05-11T20:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 61,
+            "points": 321,
+            "kills": 38,
+            "top15s": 5,
+            "top5s": 1,
+            "wins": 1,
+            "nbGamesPlayed": 11,
+            "teamAccountId": "4eef01c0cbc74341bf879fab965daa98:58f95defeaaa4a448d7b291c66c95f43",
+            "accountIds": [
+              "4eef01c0cbc74341bf879fab965daa98",
+              "58f95defeaaa4a448d7b291c66c95f43"
+            ],
+            "names": [
+              "havok pixx 7ǃ",
+              "ghosticular"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_ReloadEliteSeries3PlayIn_EU",
+          "tournamentName": "Série élite Recharge (Play-In Jour 2)",
+          "windowId": "S40_ReloadEliteSeries3PlayInDay2_EU",
+          "start": "2026-05-10T17:00:00.000Z",
+          "end": "2026-05-10T19:30:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 70,
+            "points": 409,
+            "kills": 88,
+            "top15s": 8,
+            "top5s": 4,
+            "wins": 0,
+            "nbGamesPlayed": 11,
+            "teamAccountId": "4eef01c0cbc74341bf879fab965daa98:58f95defeaaa4a448d7b291c66c95f43",
+            "accountIds": [
+              "4eef01c0cbc74341bf879fab965daa98",
+              "58f95defeaaa4a448d7b291c66c95f43"
+            ],
+            "names": [
+              "havok pixx 7ǃ",
+              "ghosticular"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 3 - Finale)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week3Final_EU",
+          "start": "2026-05-09T17:00:00.000Z",
+          "end": "2026-05-09T19:40:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 4,
+            "points": 273,
+            "kills": 16,
+            "top15s": 5,
+            "top5s": 2,
+            "wins": 1,
+            "nbGamesPlayed": 6,
+            "teamAccountId": "4eef01c0cbc74341bf879fab965daa98:58f95defeaaa4a448d7b291c66c95f43",
+            "accountIds": [
+              "4eef01c0cbc74341bf879fab965daa98",
+              "58f95defeaaa4a448d7b291c66c95f43"
+            ],
+            "names": [
+              "havok pixx 7ǃ",
+              "ghosticular"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_ReloadEliteSeries3PlayIn_EU",
+          "tournamentName": "Série élite Recharge (Play-In Jour 1)",
+          "windowId": "S40_ReloadEliteSeries3PlayInDay1_EU",
+          "start": "2026-05-08T17:00:00.000Z",
+          "end": "2026-05-08T19:30:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 238,
+            "points": 365,
+            "kills": 62,
+            "top15s": 9,
+            "top5s": 3,
+            "wins": 1,
+            "nbGamesPlayed": 10,
+            "teamAccountId": "4eef01c0cbc74341bf879fab965daa98:58f95defeaaa4a448d7b291c66c95f43",
+            "accountIds": [
+              "4eef01c0cbc74341bf879fab965daa98",
+              "58f95defeaaa4a448d7b291c66c95f43"
+            ],
+            "names": [
+              "havok pixx 7ǃ",
+              "ghosticular"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_PerformanceEvaluation_EU",
+          "tournamentName": "Évaluation des performances de Fortnite (Qualifications)",
+          "windowId": "S40_PerformanceEvaluation_Event8Round1_EU",
+          "start": "2026-05-07T16:00:00.000Z",
+          "end": "2026-05-07T18:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-33-30-tileview-performance-cup-01-800x800-800x800-3e3bf91766c6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 52,
+            "points": 229,
+            "kills": 53,
+            "top15s": 3,
+            "top5s": 2,
+            "wins": 0,
+            "nbGamesPlayed": 8,
+            "teamAccountId": "4eef01c0cbc74341bf879fab965daa98:58f95defeaaa4a448d7b291c66c95f43",
+            "accountIds": [
+              "4eef01c0cbc74341bf879fab965daa98",
+              "58f95defeaaa4a448d7b291c66c95f43"
+            ],
+            "names": [
+              "havok pixx 7ǃ",
+              "ghosticular"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 3 - Jour 2)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week3Day2_EU",
+          "start": "2026-05-05T17:00:00.000Z",
+          "end": "2026-05-05T20:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 33,
+            "points": 365,
+            "kills": 41,
+            "top15s": 5,
+            "top5s": 3,
+            "wins": 0,
+            "nbGamesPlayed": 10,
+            "teamAccountId": "4eef01c0cbc74341bf879fab965daa98:58f95defeaaa4a448d7b291c66c95f43",
+            "accountIds": [
+              "4eef01c0cbc74341bf879fab965daa98",
+              "58f95defeaaa4a448d7b291c66c95f43"
+            ],
+            "names": [
+              "havok pixx 7ǃ",
+              "ghosticular"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 3 - Jour 1)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week3Day1_EU",
+          "start": "2026-05-04T17:00:00.000Z",
+          "end": "2026-05-04T20:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 30,
+            "points": 366,
+            "kills": 36,
+            "top15s": 5,
+            "top5s": 4,
+            "wins": 0,
+            "nbGamesPlayed": 11,
+            "teamAccountId": "4eef01c0cbc74341bf879fab965daa98:58f95defeaaa4a448d7b291c66c95f43",
+            "accountIds": [
+              "4eef01c0cbc74341bf879fab965daa98",
+              "58f95defeaaa4a448d7b291c66c95f43"
+            ],
+            "names": [
+              "havok pixx 7ǃ",
+              "ghosticular"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_ReloadEliteSeries3Opens_EU",
+          "tournamentName": "Série élite Recharge",
+          "windowId": "S40_ReloadEliteSeries3Open2_EU",
+          "start": "2026-05-03T17:00:00.000Z",
+          "end": "2026-05-03T19:30:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 26,
+            "points": 487,
+            "kills": 113,
+            "top15s": 9,
+            "top5s": 5,
+            "wins": 2,
+            "nbGamesPlayed": 9,
+            "teamAccountId": "4eef01c0cbc74341bf879fab965daa98:58f95defeaaa4a448d7b291c66c95f43",
+            "accountIds": [
+              "4eef01c0cbc74341bf879fab965daa98",
+              "58f95defeaaa4a448d7b291c66c95f43"
+            ],
+            "names": [
+              "havok pixx 7ǃ",
+              "ghosticular"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_ReloadEliteSeries3Opens_EU",
+          "tournamentName": "Série élite Recharge",
+          "windowId": "S40_ReloadEliteSeries3Open1_EU",
+          "start": "2026-05-01T17:00:00.000Z",
+          "end": "2026-05-01T19:30:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 638,
+            "points": 405,
+            "kills": 109,
+            "top15s": 9,
+            "top5s": 4,
+            "wins": 2,
+            "nbGamesPlayed": 12,
+            "teamAccountId": "4eef01c0cbc74341bf879fab965daa98:58f95defeaaa4a448d7b291c66c95f43",
+            "accountIds": [
+              "4eef01c0cbc74341bf879fab965daa98",
+              "58f95defeaaa4a448d7b291c66c95f43"
+            ],
+            "names": [
+              "havok pixx 7ǃ",
+              "ghosticular"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "2b3da27c62d14887bd6daa865df33487",
+      "name": "Idrop",
+      "pseudo": "Havok IDropfvǃ",
+      "image": "/dashboard-assets/players/2b3da27c62d14887bd6daa865df33487-6ec0049a84.jpg",
+      "countryFlag": "/dashboard-assets/flags/norv-ge-5fd03ac0d7.png",
+      "country": "Norvège",
+      "top5": 2,
+      "bestTop": 5,
+      "avgKill": 59.625,
+      "avgTop": 115.4375,
+      "lastTournaments": [
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 5 - Finale)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week5Final_EU",
+          "start": "2026-05-23T17:00:00.000Z",
+          "end": "2026-05-23T19:40:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 5,
+            "points": 262,
+            "kills": 20,
+            "top15s": 4,
+            "top5s": 1,
+            "wins": 0,
+            "nbGamesPlayed": 6,
+            "teamAccountId": "2b3da27c62d14887bd6daa865df33487:f0d8961f20d04631a6b2abda24a17070",
+            "accountIds": [
+              "2b3da27c62d14887bd6daa865df33487",
+              "f0d8961f20d04631a6b2abda24a17070"
+            ],
+            "names": [
+              "Havok IDropfvǃ",
+              "M8 MariusCOW"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_PerformanceEvaluation_EU",
+          "tournamentName": "Évaluation des performances de Fortnite (Qualifications)",
+          "windowId": "S40_PerformanceEvaluation_Event10Round1_EU",
+          "start": "2026-05-21T16:00:00.000Z",
+          "end": "2026-05-21T18:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-33-30-tileview-performance-cup-01-800x800-800x800-3e3bf91766c6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 109,
+            "points": 217,
+            "kills": 45,
+            "top15s": 5,
+            "top5s": 1,
+            "wins": 0,
+            "nbGamesPlayed": 8,
+            "teamAccountId": "2b3da27c62d14887bd6daa865df33487:f0d8961f20d04631a6b2abda24a17070",
+            "accountIds": [
+              "2b3da27c62d14887bd6daa865df33487",
+              "f0d8961f20d04631a6b2abda24a17070"
+            ],
+            "names": [
+              "Havok IDropfvǃ",
+              "M8 MariusCOW"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 5 - Jour 2)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week5Day2_EU",
+          "start": "2026-05-19T17:00:00.000Z",
+          "end": "2026-05-19T20:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 23,
+            "points": 416,
+            "kills": 59,
+            "top15s": 5,
+            "top5s": 2,
+            "wins": 1,
+            "nbGamesPlayed": 11,
+            "teamAccountId": "2b3da27c62d14887bd6daa865df33487:f0d8961f20d04631a6b2abda24a17070",
+            "accountIds": [
+              "2b3da27c62d14887bd6daa865df33487",
+              "f0d8961f20d04631a6b2abda24a17070"
+            ],
+            "names": [
+              "Havok IDropfvǃ",
+              "M8 MariusCOW"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 5 - Jour 1)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week5Day1_EU",
+          "start": "2026-05-18T17:00:00.000Z",
+          "end": "2026-05-18T20:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 80,
+            "points": 325,
+            "kills": 51,
+            "top15s": 4,
+            "top5s": 2,
+            "wins": 0,
+            "nbGamesPlayed": 11,
+            "teamAccountId": "2b3da27c62d14887bd6daa865df33487:f0d8961f20d04631a6b2abda24a17070",
+            "accountIds": [
+              "2b3da27c62d14887bd6daa865df33487",
+              "f0d8961f20d04631a6b2abda24a17070"
+            ],
+            "names": [
+              "Havok IDropfvǃ",
+              "M8 MariusCOW"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 4 - Finale)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week4Final_EU",
+          "start": "2026-05-16T17:00:00.000Z",
+          "end": "2026-05-16T19:40:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 50,
+            "points": 0,
+            "kills": 0,
+            "top15s": 0,
+            "top5s": 0,
+            "wins": 0,
+            "nbGamesPlayed": 6,
+            "teamAccountId": "2b3da27c62d14887bd6daa865df33487:f0d8961f20d04631a6b2abda24a17070",
+            "accountIds": [
+              "2b3da27c62d14887bd6daa865df33487",
+              "f0d8961f20d04631a6b2abda24a17070"
+            ],
+            "names": [
+              "Havok IDropfvǃ",
+              "M8 MariusCOW"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_PerformanceEvaluation_EU",
+          "tournamentName": "Évaluation des performances de Fortnite (Qualifications)",
+          "windowId": "S40_PerformanceEvaluation_Event9Round1_EU",
+          "start": "2026-05-14T16:00:00.000Z",
+          "end": "2026-05-14T18:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-33-30-tileview-performance-cup-01-800x800-800x800-3e3bf91766c6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 354,
+            "points": 119,
+            "kills": 49,
+            "top15s": 1,
+            "top5s": 0,
+            "wins": 0,
+            "nbGamesPlayed": 8,
+            "teamAccountId": "2b3da27c62d14887bd6daa865df33487:f0d8961f20d04631a6b2abda24a17070",
+            "accountIds": [
+              "2b3da27c62d14887bd6daa865df33487",
+              "f0d8961f20d04631a6b2abda24a17070"
+            ],
+            "names": [
+              "Havok IDropfvǃ",
+              "M8 MariusCOW"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 4 - Jour 2)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week4Day2_EU",
+          "start": "2026-05-12T17:00:00.000Z",
+          "end": "2026-05-12T20:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 55,
+            "points": 344,
+            "kills": 32,
+            "top15s": 7,
+            "top5s": 1,
+            "wins": 0,
+            "nbGamesPlayed": 11,
+            "teamAccountId": "2b3da27c62d14887bd6daa865df33487:f0d8961f20d04631a6b2abda24a17070",
+            "accountIds": [
+              "2b3da27c62d14887bd6daa865df33487",
+              "f0d8961f20d04631a6b2abda24a17070"
+            ],
+            "names": [
+              "Havok IDropfvǃ",
+              "M8 MariusCOW"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 4 - Jour 1)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week4Day1_EU",
+          "start": "2026-05-11T17:00:00.000Z",
+          "end": "2026-05-11T20:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 48,
+            "points": 335,
+            "kills": 51,
+            "top15s": 5,
+            "top5s": 1,
+            "wins": 0,
+            "nbGamesPlayed": 11,
+            "teamAccountId": "2b3da27c62d14887bd6daa865df33487:f0d8961f20d04631a6b2abda24a17070",
+            "accountIds": [
+              "2b3da27c62d14887bd6daa865df33487",
+              "f0d8961f20d04631a6b2abda24a17070"
+            ],
+            "names": [
+              "Havok IDropfvǃ",
+              "M8 MariusCOW"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_ReloadEliteSeries3PlayIn_EU",
+          "tournamentName": "Série élite Recharge (Play-In Jour 2)",
+          "windowId": "S40_ReloadEliteSeries3PlayInDay2_EU",
+          "start": "2026-05-10T17:00:00.000Z",
+          "end": "2026-05-10T19:30:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 16,
+            "points": 444,
+            "kills": 72,
+            "top15s": 9,
+            "top5s": 4,
+            "wins": 2,
+            "nbGamesPlayed": 10,
+            "teamAccountId": "2b3da27c62d14887bd6daa865df33487:f0d8961f20d04631a6b2abda24a17070",
+            "accountIds": [
+              "2b3da27c62d14887bd6daa865df33487",
+              "f0d8961f20d04631a6b2abda24a17070"
+            ],
+            "names": [
+              "Havok IDropfvǃ",
+              "M8 MariusCOW"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 3 - Finale)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week3Final_EU",
+          "start": "2026-05-09T17:00:00.000Z",
+          "end": "2026-05-09T19:40:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 25,
+            "points": 124,
+            "kills": 17,
+            "top15s": 2,
+            "top5s": 0,
+            "wins": 0,
+            "nbGamesPlayed": 6,
+            "teamAccountId": "2b3da27c62d14887bd6daa865df33487:f0d8961f20d04631a6b2abda24a17070",
+            "accountIds": [
+              "2b3da27c62d14887bd6daa865df33487",
+              "f0d8961f20d04631a6b2abda24a17070"
+            ],
+            "names": [
+              "Havok IDropfvǃ",
+              "M8 MariusCOW"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_ReloadEliteSeries3PlayIn_EU",
+          "tournamentName": "Série élite Recharge (Play-In Jour 1)",
+          "windowId": "S40_ReloadEliteSeries3PlayInDay1_EU",
+          "start": "2026-05-08T17:00:00.000Z",
+          "end": "2026-05-08T19:30:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 531,
+            "points": 335,
+            "kills": 109,
+            "top15s": 8,
+            "top5s": 2,
+            "wins": 2,
+            "nbGamesPlayed": 12,
+            "teamAccountId": "2b3da27c62d14887bd6daa865df33487:f0d8961f20d04631a6b2abda24a17070",
+            "accountIds": [
+              "2b3da27c62d14887bd6daa865df33487",
+              "f0d8961f20d04631a6b2abda24a17070"
+            ],
+            "names": [
+              "Havok IDropfvǃ",
+              "M8 MariusCOW"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_PerformanceEvaluation_EU",
+          "tournamentName": "Évaluation des performances de Fortnite (Qualifications)",
+          "windowId": "S40_PerformanceEvaluation_Event8Round1_EU",
+          "start": "2026-05-07T16:00:00.000Z",
+          "end": "2026-05-07T18:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-33-30-tileview-performance-cup-01-800x800-800x800-3e3bf91766c6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 106,
+            "points": 198,
+            "kills": 40,
+            "top15s": 4,
+            "top5s": 1,
+            "wins": 0,
+            "nbGamesPlayed": 8,
+            "teamAccountId": "2b3da27c62d14887bd6daa865df33487:f0d8961f20d04631a6b2abda24a17070",
+            "accountIds": [
+              "2b3da27c62d14887bd6daa865df33487",
+              "f0d8961f20d04631a6b2abda24a17070"
+            ],
+            "names": [
+              "Havok IDropfvǃ",
+              "M8 MariusCOW"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 3 - Jour 2)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week3Day2_EU",
+          "start": "2026-05-05T17:00:00.000Z",
+          "end": "2026-05-05T20:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 5,
+            "points": 464,
+            "kills": 59,
+            "top15s": 6,
+            "top5s": 3,
+            "wins": 1,
+            "nbGamesPlayed": 10,
+            "teamAccountId": "2b3da27c62d14887bd6daa865df33487:f0d8961f20d04631a6b2abda24a17070",
+            "accountIds": [
+              "2b3da27c62d14887bd6daa865df33487",
+              "f0d8961f20d04631a6b2abda24a17070"
+            ],
+            "names": [
+              "Havok IDropfvǃ",
+              "M8 MariusCOW"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+          "tournamentName": "Division 1 FNCS (Semaine 3 - Jour 1)",
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week3Day1_EU",
+          "start": "2026-05-04T17:00:00.000Z",
+          "end": "2026-05-04T20:00:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Battle Royale",
+          "result": {
+            "rank": 109,
+            "points": 256,
+            "kills": 45,
+            "top15s": 2,
+            "top5s": 1,
+            "wins": 1,
+            "nbGamesPlayed": 11,
+            "teamAccountId": "2b3da27c62d14887bd6daa865df33487:f0d8961f20d04631a6b2abda24a17070",
+            "accountIds": [
+              "2b3da27c62d14887bd6daa865df33487",
+              "f0d8961f20d04631a6b2abda24a17070"
+            ],
+            "names": [
+              "Havok IDropfvǃ",
+              "M8 MariusCOW"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_ReloadEliteSeries3Opens_EU",
+          "tournamentName": "Série élite Recharge",
+          "windowId": "S40_ReloadEliteSeries3Open2_EU",
+          "start": "2026-05-03T17:00:00.000Z",
+          "end": "2026-05-03T19:30:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 314,
+            "points": 431,
+            "kills": 160,
+            "top15s": 8,
+            "top5s": 4,
+            "wins": 2,
+            "nbGamesPlayed": 12,
+            "teamAccountId": "2b3da27c62d14887bd6daa865df33487:f0d8961f20d04631a6b2abda24a17070",
+            "accountIds": [
+              "2b3da27c62d14887bd6daa865df33487",
+              "f0d8961f20d04631a6b2abda24a17070"
+            ],
+            "names": [
+              "Havok IDropfvǃ",
+              "M8 MariusCOW"
+            ]
+          }
+        },
+        {
+          "tournamentId": "epicgames_S40_ReloadEliteSeries3Opens_EU",
+          "tournamentName": "Série élite Recharge",
+          "windowId": "S40_ReloadEliteSeries3Open1_EU",
+          "start": "2026-05-01T17:00:00.000Z",
+          "end": "2026-05-01T19:30:00.000Z",
+          "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+          "teamFormat": "Duo",
+          "gameMode": "Reload",
+          "result": {
+            "rank": 17,
+            "points": 483,
+            "kills": 145,
+            "top15s": 9,
+            "top5s": 4,
+            "wins": 3,
+            "nbGamesPlayed": 12,
+            "teamAccountId": "2b3da27c62d14887bd6daa865df33487:f0d8961f20d04631a6b2abda24a17070",
+            "accountIds": [
+              "2b3da27c62d14887bd6daa865df33487",
+              "f0d8961f20d04631a6b2abda24a17070"
+            ],
+            "names": [
+              "Havok IDropfvǃ",
+              "M8 MariusCOW"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

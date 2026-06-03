@@ -4,6 +4,7 @@ const {
   app_auth_jwt_secret,
   allowed_origins,
   dashboard_origin,
+  demo_mode,
   node_env,
   session_secret
 } = require("./env.js");
@@ -32,6 +33,16 @@ function validateEnv() {
 
   if (!session_secret) {
     errors.push("SESSION_SECRET est requis.");
+  }
+
+  if (demo_mode) {
+    warnings.push(
+      "DEMO_MODE actif: l API publique et le dashboard sont exposes en lecture seule sans authentification."
+    );
+    return {
+      errors,
+      warnings
+    };
   }
 
   if (isProduction) {

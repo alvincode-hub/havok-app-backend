@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const { demo_mode } = require("../config/env.js");
 
 const { loadEnrichedData } = require("../storage/enrichedStore.js");
 const { loadConfigData, saveConfigData } = require("../storage/configStore.js");
@@ -311,7 +312,7 @@ async function loadDashboardBase() {
       loadConfigData(TOURNAMENT_FILTER_PATH),
       loadOptionalNormalizedData(ACTU_PATH),
       loadConfigData(CAST_PATH),
-      loadNormalizedData(NORMALIZED_EVENTS_PATH)
+      demo_mode ? loadOptionalNormalizedData(NORMALIZED_EVENTS_PATH) : loadNormalizedData(NORMALIZED_EVENTS_PATH)
     ]);
 
   return {

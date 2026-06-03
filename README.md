@@ -160,6 +160,29 @@ npm run dev
 
 For a production web deployment, start from [server/.env.production.example](./.env.production.example) and keep `APP_ATTESTATION_MODE=web`.
 
+## Render demo branch
+
+The `demo` branch can run on Render with bundled snapshot data and without Fortnite credentials.
+
+Use these settings:
+
+```env
+NODE_ENV=production
+DEMO_MODE=true
+TRUST_PROXY=1
+```
+
+Behavior in demo mode:
+
+- public API data routes are readable without `x-app-key`
+- mobile bearer-session checks are bypassed
+- dashboard pages and read-only JSON endpoints are accessible without login
+- dashboard write actions and manual refresh endpoints return `403`
+- cron jobs and Fortnite login are disabled
+- the branch is expected to ship bundled snapshots from `data/enriched`, `data/config`, and `data/normalized/events/events.json`
+
+You can deploy it directly with [render.yaml](./render.yaml).
+
 ## Verification status
 
 Checked against source and local runtime on 2026-05-20:

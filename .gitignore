@@ -11,6 +11,19 @@ data/normalized/
 data/enriched/
 data/config/
 data/dashboard-assets/
+data/enriched.zip
+
+# Snapshots minimaux conserves pour la branche demo
+!data/
+!data/enriched/
+!data/enriched/*.json
+!data/config/
+!data/config/*.json
+!data/normalized/
+data/normalized/*
+!data/normalized/events/
+data/normalized/events/*
+!data/normalized/events/events.json
 
 # Logs
 data/logs.json

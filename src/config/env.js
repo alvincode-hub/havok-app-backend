@@ -2,17 +2,18 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 
+const demo_mode = parseBoolean(process.env.DEMO_MODE);
 const port = Number(process.env.PORT) || 3000;
 const node_env = process.env.NODE_ENV || "development";
 
 const fortnite_auth_client = process.env.FORTNITE_AUTH_CLIENT || "";
 const fortnite_device_auth_file = process.env.FORTNITE_DEVICE_AUTH_FILE || "";
 
-const app_api_key = process.env.APP_API_KEY || "";
+const app_api_key = process.env.APP_API_KEY || (demo_mode ? "demo-app-key" : "");
 
 const admin_username = process.env.ADMIN_USERNAME || "";
 const admin_password = process.env.ADMIN_PASSWORD_HASH || "";
-const session_secret = process.env.SESSION_SECRET || "";
+const session_secret = process.env.SESSION_SECRET || (demo_mode ? "demo-session-secret" : "");
 
 const dashboard_origin = process.env.DASHBOARD_ORIGIN || "";
 const allowed_origins = parseList(process.env.ALLOWED_ORIGINS);
@@ -23,13 +24,15 @@ const app_auth_jwt_issuer = process.env.APP_AUTH_JWT_ISSUER || "havok-api";
 const app_auth_jwt_audience =
   process.env.APP_AUTH_JWT_AUDIENCE || "havok-mobile-app";
 const app_attestation_mode =
-  process.env.APP_ATTESTATION_MODE || (node_env === "production" ? "production" : "development");
+  process.env.APP_ATTESTATION_MODE ||
+  (demo_mode ? "development" : node_env === "production" ? "production" : "development");
 const app_session_ttl_seconds =
   Number(process.env.APP_SESSION_TTL_SECONDS) || 10 * 60;
 const app_challenge_ttl_seconds =
   Number(process.env.APP_CHALLENGE_TTL_SECONDS) || 3 * 60;
 
 module.exports = {
+  demo_mode,
   port,
   node_env,
   fortnite_auth_client,
@@ -48,6 +51,14 @@ module.exports = {
   app_session_ttl_seconds,
   app_challenge_ttl_seconds
 };
+
+function parseBoolean(value) {
+  if (value === undefined || value === null || value === "") {
+    return false;
+  }
+
+  return String(value).trim().toLowerCase() === "true";
+}
 
 function parseTrustProxy(value, fallback) {
   if (value === undefined || value === null || value === "") {

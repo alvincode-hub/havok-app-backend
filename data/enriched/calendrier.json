@@ -1,0 +1,315 @@
+{
+  "updatedAt": "2026-05-30T16:53:58.019Z",
+  "data": [
+    {
+      "tournamentId": "epicgames_S40_ReloadEliteSeries3Opens_EU",
+      "windowId": "S40_ReloadEliteSeries3Open1_EU",
+      "name": "Série élite Recharge",
+      "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+      "start": "2026-05-01T17:00:00.000Z",
+      "end": "2026-05-01T19:30:00.000Z",
+      "teamFormat": "Duo",
+      "mode": "Reload"
+    },
+    {
+      "tournamentId": "epicgames_S40_ReloadEliteSeries3Opens_EU",
+      "windowId": "S40_ReloadEliteSeries3Open2_EU",
+      "name": "Série élite Recharge",
+      "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+      "start": "2026-05-03T17:00:00.000Z",
+      "end": "2026-05-03T19:30:00.000Z",
+      "teamFormat": "Duo",
+      "mode": "Reload"
+    },
+    {
+      "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+      "windowId": "S40_FNCSDivisionalCup_Division1_Week3Day1_EU",
+      "name": "Division 1 FNCS (Semaine 3 - Jour 1)",
+      "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+      "start": "2026-05-04T17:00:00.000Z",
+      "end": "2026-05-04T20:00:00.000Z",
+      "teamFormat": "Duo",
+      "mode": "Battle Royale"
+    },
+    {
+      "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+      "windowId": "S40_FNCSDivisionalCup_Division1_Week3Day2_EU",
+      "name": "Division 1 FNCS (Semaine 3 - Jour 2)",
+      "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+      "start": "2026-05-05T17:00:00.000Z",
+      "end": "2026-05-05T20:00:00.000Z",
+      "teamFormat": "Duo",
+      "mode": "Battle Royale"
+    },
+    {
+      "tournamentId": "epicgames_S40_PerformanceEvaluation_EU",
+      "windowId": "S40_PerformanceEvaluation_Event8Round1_EU",
+      "name": "Évaluation des performances de Fortnite (Qualifications)",
+      "image": "https://cdn2.unrealengine.com/fnce-33-30-tileview-performance-cup-01-800x800-800x800-3e3bf91766c6.jpg",
+      "start": "2026-05-07T16:00:00.000Z",
+      "end": "2026-05-07T18:00:00.000Z",
+      "teamFormat": "Duo",
+      "mode": "Battle Royale"
+    },
+    {
+      "tournamentId": "epicgames_S40_PerformanceEvaluation_EU",
+      "windowId": "S40_PerformanceEvaluation_Event8Round2_EU",
+      "name": "Évaluation des performances de Fortnite (Finale)",
+      "image": "https://cdn2.unrealengine.com/fnce-33-30-tileview-performance-cup-01-800x800-800x800-3e3bf91766c6.jpg",
+      "start": "2026-05-07T19:00:00.000Z",
+      "end": "2026-05-07T21:00:00.000Z",
+      "teamFormat": "Duo",
+      "mode": "Battle Royale"
+    },
+    {
+      "tournamentId": "epicgames_S40_ReloadEliteSeries3PlayIn_EU",
+      "windowId": "S40_ReloadEliteSeries3PlayInDay1_EU",
+      "name": "Série élite Recharge (Play-In Jour 1)",
+      "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+      "start": "2026-05-08T17:00:00.000Z",
+      "end": "2026-05-08T19:30:00.000Z",
+      "teamFormat": "Duo",
+      "mode": "Reload"
+    },
+    {
+      "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+      "windowId": "S40_FNCSDivisionalCup_Division1_Week3Final_EU",
+      "name": "Division 1 FNCS (Semaine 3 - Finale)",
+      "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+      "start": "2026-05-09T17:00:00.000Z",
+      "end": "2026-05-09T19:40:00.000Z",
+      "teamFormat": "Duo",
+      "mode": "Battle Royale"
+    },
+    {
+      "tournamentId": "epicgames_S40_ReloadEliteSeries3PlayIn_EU",
+      "windowId": "S40_ReloadEliteSeries3PlayInDay2_EU",
+      "name": "Série élite Recharge (Play-In Jour 2)",
+      "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+      "start": "2026-05-10T17:00:00.000Z",
+      "end": "2026-05-10T19:30:00.000Z",
+      "teamFormat": "Duo",
+      "mode": "Reload"
+    },
+    {
+      "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+      "windowId": "S40_FNCSDivisionalCup_Division1_Week4Day1_EU",
+      "name": "Division 1 FNCS (Semaine 4 - Jour 1)",
+      "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+      "start": "2026-05-11T17:00:00.000Z",
+      "end": "2026-05-11T20:00:00.000Z",
+      "teamFormat": "Duo",
+      "mode": "Battle Royale"
+    },
+    {
+      "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+      "windowId": "S40_FNCSDivisionalCup_Division1_Week4Day2_EU",
+      "name": "Division 1 FNCS (Semaine 4 - Jour 2)",
+      "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+      "start": "2026-05-12T17:00:00.000Z",
+      "end": "2026-05-12T20:00:00.000Z",
+      "teamFormat": "Duo",
+      "mode": "Battle Royale"
+    },
+    {
+      "tournamentId": "epicgames_S40_PerformanceEvaluation_EU",
+      "windowId": "S40_PerformanceEvaluation_Event9Round1_EU",
+      "name": "Évaluation des performances de Fortnite (Qualifications)",
+      "image": "https://cdn2.unrealengine.com/fnce-33-30-tileview-performance-cup-01-800x800-800x800-3e3bf91766c6.jpg",
+      "start": "2026-05-14T16:00:00.000Z",
+      "end": "2026-05-14T18:00:00.000Z",
+      "teamFormat": "Duo",
+      "mode": "Battle Royale"
+    },
+    {
+      "tournamentId": "epicgames_S40_PerformanceEvaluation_EU",
+      "windowId": "S40_PerformanceEvaluation_Event9Round2_EU",
+      "name": "Évaluation des performances de Fortnite (Finale)",
+      "image": "https://cdn2.unrealengine.com/fnce-33-30-tileview-performance-cup-01-800x800-800x800-3e3bf91766c6.jpg",
+      "start": "2026-05-14T19:00:00.000Z",
+      "end": "2026-05-14T21:00:00.000Z",
+      "teamFormat": "Duo",
+      "mode": "Battle Royale"
+    },
+    {
+      "tournamentId": "epicgames_S40_ReloadEliteSeries3Heat1_EU",
+      "windowId": "S40_ReloadEliteSeries3Heat1_EU",
+      "name": "Série élite Recharge (Heat 1)",
+      "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+      "start": "2026-05-15T17:00:00.000Z",
+      "end": "2026-05-15T20:00:00.000Z",
+      "teamFormat": "Duo",
+      "mode": "Reload"
+    },
+    {
+      "tournamentId": "epicgames_S40_ReloadEliteSeries3Heat2_EU",
+      "windowId": "S40_ReloadEliteSeries3Heat2_EU",
+      "name": "Série élite Recharge (Heat 2)",
+      "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+      "start": "2026-05-15T17:00:01.000Z",
+      "end": "2026-05-15T20:00:01.000Z",
+      "teamFormat": "Duo",
+      "mode": "Reload"
+    },
+    {
+      "tournamentId": "epicgames_S40_ReloadEliteSeries3Heat3_EU",
+      "windowId": "S40_ReloadEliteSeries3Heat3_EU",
+      "name": "Série élite Recharge (Heat 3)",
+      "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+      "start": "2026-05-15T17:12:00.000Z",
+      "end": "2026-05-15T20:12:00.000Z",
+      "teamFormat": "Duo",
+      "mode": "Reload"
+    },
+    {
+      "tournamentId": "epicgames_S40_ReloadEliteSeries3Heat4_EU",
+      "windowId": "S40_ReloadEliteSeries3Heat4_EU",
+      "name": "Série élite Recharge (Heat 4)",
+      "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+      "start": "2026-05-15T17:12:01.000Z",
+      "end": "2026-05-15T20:12:01.000Z",
+      "teamFormat": "Duo",
+      "mode": "Reload"
+    },
+    {
+      "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+      "windowId": "S40_FNCSDivisionalCup_Division1_Week4Final_EU",
+      "name": "Division 1 FNCS (Semaine 4 - Finale)",
+      "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+      "start": "2026-05-16T17:00:00.000Z",
+      "end": "2026-05-16T19:40:00.000Z",
+      "teamFormat": "Duo",
+      "mode": "Battle Royale"
+    },
+    {
+      "tournamentId": "epicgames_S40_ReloadEliteSeries3Final_EU",
+      "windowId": "S40_ReloadEliteSeries3Final_EU",
+      "name": "Série élite Recharge (Finale)",
+      "image": "https://cdn2.unrealengine.com/fnce-39-20-reload-elite-series-ingame-compete-tab-800x800-800x800-b60f7a22d570.jpg",
+      "start": "2026-05-17T15:00:00.000Z",
+      "end": "2026-05-17T18:20:00.000Z",
+      "teamFormat": "Duo",
+      "mode": "Reload"
+    },
+    {
+      "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+      "windowId": "S40_FNCSDivisionalCup_Division1_Week5Day1_EU",
+      "name": "Division 1 FNCS (Semaine 5 - Jour 1)",
+      "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+      "start": "2026-05-18T17:00:00.000Z",
+      "end": "2026-05-18T20:00:00.000Z",
+      "teamFormat": "Duo",
+      "mode": "Battle Royale"
+    },
+    {
+      "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+      "windowId": "S40_FNCSDivisionalCup_Division1_Week5Day2_EU",
+      "name": "Division 1 FNCS (Semaine 5 - Jour 2)",
+      "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+      "start": "2026-05-19T17:00:00.000Z",
+      "end": "2026-05-19T20:00:00.000Z",
+      "teamFormat": "Duo",
+      "mode": "Battle Royale"
+    },
+    {
+      "tournamentId": "epicgames_S40_PerformanceEvaluation_EU",
+      "windowId": "S40_PerformanceEvaluation_Event10Round1_EU",
+      "name": "Évaluation des performances de Fortnite (Qualifications)",
+      "image": "https://cdn2.unrealengine.com/fnce-33-30-tileview-performance-cup-01-800x800-800x800-3e3bf91766c6.jpg",
+      "start": "2026-05-21T16:00:00.000Z",
+      "end": "2026-05-21T18:00:00.000Z",
+      "teamFormat": "Duo",
+      "mode": "Battle Royale"
+    },
+    {
+      "tournamentId": "epicgames_S40_PerformanceEvaluation_EU",
+      "windowId": "S40_PerformanceEvaluation_Event10Round2_EU",
+      "name": "Évaluation des performances de Fortnite (Finale)",
+      "image": "https://cdn2.unrealengine.com/fnce-33-30-tileview-performance-cup-01-800x800-800x800-3e3bf91766c6.jpg",
+      "start": "2026-05-21T19:00:00.000Z",
+      "end": "2026-05-21T21:00:00.000Z",
+      "teamFormat": "Duo",
+      "mode": "Battle Royale"
+    },
+    {
+      "tournamentId": "epicgames_S40_DuosReloadVictoryCup_EU",
+      "windowId": "S40_DuosReloadVictoryCup_Round1_day2_EU",
+      "name": "Coupe victoire duos (mode Recharge) (Qualifications)",
+      "image": "https://cdn2.unrealengine.com/fneco-35-00-consolevictorycup-comp-in-game-tab-800x800-rockerpunk-800x800-791783a7a571.jpg",
+      "start": "2026-05-22T17:00:00.000Z",
+      "end": "2026-05-22T19:00:00.000Z",
+      "teamFormat": "Duo",
+      "mode": "Reload"
+    },
+    {
+      "tournamentId": "epicgames_S40_DuosReloadVictoryCup_EU",
+      "windowId": "S40_DuosReloadVictoryCup_Round2_day2_EU",
+      "name": "Coupe victoire duos (mode Recharge) (Finale)",
+      "image": "https://cdn2.unrealengine.com/fneco-35-00-consolevictorycup-comp-in-game-tab-800x800-rockerpunk-800x800-791783a7a571.jpg",
+      "start": "2026-05-22T20:00:00.000Z",
+      "end": "2026-05-22T20:45:00.000Z",
+      "teamFormat": "Duo",
+      "mode": "Reload"
+    },
+    {
+      "tournamentId": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+      "windowId": "S40_FNCSDivisionalCup_Division1_Week5Final_EU",
+      "name": "Division 1 FNCS (Semaine 5 - Finale)",
+      "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-5294f60924d6.jpg",
+      "start": "2026-05-23T17:00:00.000Z",
+      "end": "2026-05-23T19:40:00.000Z",
+      "teamFormat": "Duo",
+      "mode": "Battle Royale"
+    },
+    {
+      "tournamentId": "epicgames_Bratwurst_Official",
+      "windowId": "Bratwurst_UpperBracket_Day1",
+      "name": "Fortnite Championship Series (Jour 1)",
+      "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-41126f7a36d0.jpg",
+      "start": "2026-05-29T04:00:00.000Z",
+      "end": "2026-05-29T21:59:00.000Z",
+      "teamFormat": "Duo",
+      "mode": "Battle Royale"
+    },
+    {
+      "tournamentId": "epicgames_Bratwurst_Official",
+      "windowId": "Bratwurst_LowerBracket_Day2",
+      "name": "Fortnite Championship Series (Jour 2)",
+      "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-41126f7a36d0.jpg",
+      "start": "2026-05-30T04:00:00.000Z",
+      "end": "2026-05-30T21:59:00.000Z",
+      "teamFormat": "Duo",
+      "mode": "Battle Royale"
+    },
+    {
+      "tournamentId": "epicgames_Bratwurst_Official",
+      "windowId": "Bratwurst_Finals_Day3",
+      "name": "Fortnite Championship Series (Finale)",
+      "image": "https://cdn2.unrealengine.com/fnce-39-00-comp-fncs2026update-in-game-tab-800x800-800x800-41126f7a36d0.jpg",
+      "start": "2026-05-31T04:00:00.000Z",
+      "end": "2026-05-31T21:59:00.000Z",
+      "teamFormat": "Duo",
+      "mode": "Battle Royale"
+    },
+    {
+      "tournamentId": "epicgames_S40_PerformanceEvaluation_EU",
+      "windowId": "S40_PerformanceEvaluation_Event11Round1_EU",
+      "name": "Évaluation des performances de Fortnite (Qualifications)",
+      "image": "https://cdn2.unrealengine.com/fnce-33-30-tileview-performance-cup-01-800x800-800x800-3e3bf91766c6.jpg",
+      "start": "2026-06-04T16:00:00.000Z",
+      "end": "2026-06-04T18:00:00.000Z",
+      "teamFormat": "Duo",
+      "mode": "Battle Royale"
+    },
+    {
+      "tournamentId": "epicgames_S40_PerformanceEvaluation_EU",
+      "windowId": "S40_PerformanceEvaluation_Event11Round2_EU",
+      "name": "Évaluation des performances de Fortnite (Finale)",
+      "image": "https://cdn2.unrealengine.com/fnce-33-30-tileview-performance-cup-01-800x800-800x800-3e3bf91766c6.jpg",
+      "start": "2026-06-04T19:00:00.000Z",
+      "end": "2026-06-04T21:00:00.000Z",
+      "teamFormat": "Duo",
+      "mode": "Battle Royale"
+    }
+  ]
+}

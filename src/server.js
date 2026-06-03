@@ -2,7 +2,7 @@ const app = require("./app");
 const os = require("os");
 const { login } = require("./fnbr/client");
 const { logError, logInfo } = require("./utils/logger");
-const { port } = require("./config/env.js");
+const { demo_mode, port } = require("./config/env.js");
 const { validateEnv } = require("./config/validateEnv.js");
 
 const PORT = port;
@@ -32,6 +32,11 @@ server.on("listening", () => {
   getLanUrls(PORT).forEach((url) => {
     logInfo(`Serveur joignable sur ${url}`, "Server");
   });
+
+  if (demo_mode) {
+    logInfo("Mode demo actif: cron et connexion Fortnite desactives", "Server");
+    return;
+  }
 
   login()
     .then(() => {

@@ -1,0 +1,266 @@
+{
+  "updatedAt": "2026-05-30T16:53:59.000Z",
+  "data": [
+    {
+      "id": "epicgames_Bratwurst_Official",
+      "windows": [
+        {
+          "windowId": "Bratwurst_UpperBracket_Day1",
+          "start": "2026-05-29T04:00:00.000Z",
+          "end": "2026-05-29T21:59:00.000Z",
+          "name": "Fortnite Championship Series (Jour 1)"
+        },
+        {
+          "windowId": "Bratwurst_LowerBracket_Day2",
+          "start": "2026-05-30T04:00:00.000Z",
+          "end": "2026-05-30T21:59:00.000Z",
+          "name": "Fortnite Championship Series (Jour 2)"
+        },
+        {
+          "windowId": "Bratwurst_Finals_Day3",
+          "start": "2026-05-31T04:00:00.000Z",
+          "end": "2026-05-31T21:59:00.000Z",
+          "name": "Fortnite Championship Series (Finale)"
+        }
+      ]
+    },
+    {
+      "id": "epicgames_S40_PerformanceEvaluation_EU",
+      "windows": [
+        {
+          "windowId": "S40_PerformanceEvaluation_Event8Round1_EU",
+          "start": "2026-05-07T16:00:00.000Z",
+          "end": "2026-05-07T18:00:00.000Z",
+          "name": "Évaluation des performances de Fortnite (Qualifications)"
+        },
+        {
+          "windowId": "S40_PerformanceEvaluation_Event8Round2_EU",
+          "start": "2026-05-07T19:00:00.000Z",
+          "end": "2026-05-07T21:00:00.000Z",
+          "name": "Évaluation des performances de Fortnite (Finale)"
+        },
+        {
+          "windowId": "S40_PerformanceEvaluation_Event9Round1_EU",
+          "start": "2026-05-14T16:00:00.000Z",
+          "end": "2026-05-14T18:00:00.000Z",
+          "name": "Évaluation des performances de Fortnite (Qualifications)"
+        },
+        {
+          "windowId": "S40_PerformanceEvaluation_Event9Round2_EU",
+          "start": "2026-05-14T19:00:00.000Z",
+          "end": "2026-05-14T21:00:00.000Z",
+          "name": "Évaluation des performances de Fortnite (Finale)"
+        },
+        {
+          "windowId": "S40_PerformanceEvaluation_Event10Round1_EU",
+          "start": "2026-05-21T16:00:00.000Z",
+          "end": "2026-05-21T18:00:00.000Z",
+          "name": "Évaluation des performances de Fortnite (Qualifications)"
+        },
+        {
+          "windowId": "S40_PerformanceEvaluation_Event10Round2_EU",
+          "start": "2026-05-21T19:00:00.000Z",
+          "end": "2026-05-21T21:00:00.000Z",
+          "name": "Évaluation des performances de Fortnite (Finale)"
+        },
+        {
+          "windowId": "S40_PerformanceEvaluation_Event11Round1_EU",
+          "start": "2026-06-04T16:00:00.000Z",
+          "end": "2026-06-04T18:00:00.000Z",
+          "name": "Évaluation des performances de Fortnite (Qualifications)"
+        },
+        {
+          "windowId": "S40_PerformanceEvaluation_Event11Round2_EU",
+          "start": "2026-06-04T19:00:00.000Z",
+          "end": "2026-06-04T21:00:00.000Z",
+          "name": "Évaluation des performances de Fortnite (Finale)"
+        }
+      ]
+    },
+    {
+      "id": "epicgames_S40_DuosReloadVictoryCup_EU",
+      "windows": [
+        {
+          "windowId": "S40_DuosReloadVictoryCup_Round1_day2_EU",
+          "start": "2026-05-22T17:00:00.000Z",
+          "end": "2026-05-22T19:00:00.000Z",
+          "name": "Coupe victoire duos (mode Recharge) (Qualifications)"
+        },
+        {
+          "windowId": "S40_DuosReloadVictoryCup_Round2_day2_EU",
+          "start": "2026-05-22T20:00:00.000Z",
+          "end": "2026-05-22T20:45:00.000Z",
+          "name": "Coupe victoire duos (mode Recharge) (Finale)"
+        }
+      ]
+    },
+    {
+      "id": "epicgames_S40_FNCSDivisionalCup_Division1_EU",
+      "windows": [
+        {
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week3Day1_EU",
+          "start": "2026-05-04T17:00:00.000Z",
+          "end": "2026-05-04T20:00:00.000Z",
+          "name": "Division 1 FNCS (Semaine 3 - Jour 1)"
+        },
+        {
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week3Day2_EU",
+          "start": "2026-05-05T17:00:00.000Z",
+          "end": "2026-05-05T20:00:00.000Z",
+          "name": "Division 1 FNCS (Semaine 3 - Jour 2)"
+        },
+        {
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week3Final_EU",
+          "start": "2026-05-09T17:00:00.000Z",
+          "end": "2026-05-09T19:40:00.000Z",
+          "name": "Division 1 FNCS (Semaine 3 - Finale)"
+        },
+        {
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week4Day1_EU",
+          "start": "2026-05-11T17:00:00.000Z",
+          "end": "2026-05-11T20:00:00.000Z",
+          "name": "Division 1 FNCS (Semaine 4 - Jour 1)"
+        },
+        {
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week4Day2_EU",
+          "start": "2026-05-12T17:00:00.000Z",
+          "end": "2026-05-12T20:00:00.000Z",
+          "name": "Division 1 FNCS (Semaine 4 - Jour 2)"
+        },
+        {
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week4Final_EU",
+          "start": "2026-05-16T17:00:00.000Z",
+          "end": "2026-05-16T19:40:00.000Z",
+          "name": "Division 1 FNCS (Semaine 4 - Finale)"
+        },
+        {
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week5Day1_EU",
+          "start": "2026-05-18T17:00:00.000Z",
+          "end": "2026-05-18T20:00:00.000Z",
+          "name": "Division 1 FNCS (Semaine 5 - Jour 1)"
+        },
+        {
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week5Day2_EU",
+          "start": "2026-05-19T17:00:00.000Z",
+          "end": "2026-05-19T20:00:00.000Z",
+          "name": "Division 1 FNCS (Semaine 5 - Jour 2)"
+        },
+        {
+          "windowId": "S40_FNCSDivisionalCup_Division1_Week5Final_EU",
+          "start": "2026-05-23T17:00:00.000Z",
+          "end": "2026-05-23T19:40:00.000Z",
+          "name": "Division 1 FNCS (Semaine 5 - Finale)"
+        }
+      ]
+    },
+    {
+      "id": "epicgames_S40_FNCSMajor1_Final_EU",
+      "windows": []
+    },
+    {
+      "id": "epicgames_S40_FNCSMajor1_HeatsStage_EU",
+      "windows": []
+    },
+    {
+      "id": "epicgames_S40_FNCSMajor1_LastChanceQualifier_EU",
+      "windows": []
+    },
+    {
+      "id": "epicgames_S40_FNCSMajor1_PlayInStage_EU",
+      "windows": []
+    },
+    {
+      "id": "epicgames_S40_FNCSMajor1_SecondChance_EU",
+      "windows": []
+    },
+    {
+      "id": "epicgames_S40_ReloadEliteSeries3Heat3_EU",
+      "windows": [
+        {
+          "windowId": "S40_ReloadEliteSeries3Heat3_EU",
+          "start": "2026-05-15T17:12:00.000Z",
+          "end": "2026-05-15T20:12:00.000Z",
+          "name": "Série élite Recharge (Heat 3)"
+        }
+      ]
+    },
+    {
+      "id": "epicgames_S40_ReloadEliteSeries3Heat4_EU",
+      "windows": [
+        {
+          "windowId": "S40_ReloadEliteSeries3Heat4_EU",
+          "start": "2026-05-15T17:12:01.000Z",
+          "end": "2026-05-15T20:12:01.000Z",
+          "name": "Série élite Recharge (Heat 4)"
+        }
+      ]
+    },
+    {
+      "id": "epicgames_S40_ReloadEliteSeries3Heat1_EU",
+      "windows": [
+        {
+          "windowId": "S40_ReloadEliteSeries3Heat1_EU",
+          "start": "2026-05-15T17:00:00.000Z",
+          "end": "2026-05-15T20:00:00.000Z",
+          "name": "Série élite Recharge (Heat 1)"
+        }
+      ]
+    },
+    {
+      "id": "epicgames_S40_ReloadEliteSeries3Heat2_EU",
+      "windows": [
+        {
+          "windowId": "S40_ReloadEliteSeries3Heat2_EU",
+          "start": "2026-05-15T17:00:01.000Z",
+          "end": "2026-05-15T20:00:01.000Z",
+          "name": "Série élite Recharge (Heat 2)"
+        }
+      ]
+    },
+    {
+      "id": "epicgames_S40_ReloadEliteSeries3Final_EU",
+      "windows": [
+        {
+          "windowId": "S40_ReloadEliteSeries3Final_EU",
+          "start": "2026-05-17T15:00:00.000Z",
+          "end": "2026-05-17T18:20:00.000Z",
+          "name": "Série élite Recharge (Finale)"
+        }
+      ]
+    },
+    {
+      "id": "epicgames_S40_ReloadEliteSeries3Opens_EU",
+      "windows": [
+        {
+          "windowId": "S40_ReloadEliteSeries3Open1_EU",
+          "start": "2026-05-01T17:00:00.000Z",
+          "end": "2026-05-01T19:30:00.000Z",
+          "name": "Série élite Recharge"
+        },
+        {
+          "windowId": "S40_ReloadEliteSeries3Open2_EU",
+          "start": "2026-05-03T17:00:00.000Z",
+          "end": "2026-05-03T19:30:00.000Z",
+          "name": "Série élite Recharge"
+        }
+      ]
+    },
+    {
+      "id": "epicgames_S40_ReloadEliteSeries3PlayIn_EU",
+      "windows": [
+        {
+          "windowId": "S40_ReloadEliteSeries3PlayInDay1_EU",
+          "start": "2026-05-08T17:00:00.000Z",
+          "end": "2026-05-08T19:30:00.000Z",
+          "name": "Série élite Recharge (Play-In Jour 1)"
+        },
+        {
+          "windowId": "S40_ReloadEliteSeries3PlayInDay2_EU",
+          "start": "2026-05-10T17:00:00.000Z",
+          "end": "2026-05-10T19:30:00.000Z",
+          "name": "Série élite Recharge (Play-In Jour 2)"
+        }
+      ]
+    }
+  ]
+}

@@ -11,12 +11,15 @@ const {
   admin_username,
   allowed_origins,
   dashboard_origin,
+  demo_mode,
   node_env,
   session_secret,
   trust_proxy
 } = require("./config/env.js");
 
-require("./jobs/cron");
+if (!demo_mode) {
+  require("./jobs/cron");
+}
 
 const apiRoutesTournaments = require("./routes/api.tournaments.routes.js");
 const appAuthRoutes = require("./routes/api.auth.routes.js");
@@ -151,12 +154,16 @@ app.use((req, res, next) => {
 /* Root */
 
 app.get("/", (req, res) => {
-  res.redirect("/dashboard/login");
+  res.redirect(demo_mode ? "/dashboard/" : "/dashboard/login");
 });
 
 /* Dashboard login page + login assets */
 
 app.get("/dashboard/login", (req, res) => {
+  if (demo_mode) {
+    return res.redirect("/dashboard/");
+  }
+
   res.set("Cache-Control", "no-store");
   res.sendFile(path.join(publicDir, "login/login.html"));
 });
@@ -174,6 +181,14 @@ app.use(
 
 app.post("/dashboard/login", loginLimiter, async (req, res) => {
   try {
+    if (demo_mode) {
+      req.session.admin = true;
+      return res.json({
+        success: true,
+        demo: true
+      });
+    }
+
     const { username, password } = req.body;
 
     if (!username || !password) {
