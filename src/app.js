@@ -175,6 +175,8 @@ app.use(
 app.post("/dashboard/login", loginLimiter, async (req, res) => {
   try {
     const { username, password } = req.body;
+    const normalizedUsername =
+      typeof username === "string" ? username.trim() : username;
 
     if (!username || !password) {
       return res.status(400).json({
@@ -183,7 +185,7 @@ app.post("/dashboard/login", loginLimiter, async (req, res) => {
       });
     }
 
-    if (username !== admin_username) {
+    if (normalizedUsername !== admin_username) {
       return res.status(401).json({
         success: false,
         error: "Identifiants invalides"
