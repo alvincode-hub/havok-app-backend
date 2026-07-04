@@ -2,12 +2,21 @@ const app = require("./app");
 const os = require("os");
 const { login } = require("./fnbr/client");
 const { logError, logInfo } = require("./utils/logger");
-const { port } = require("./config/env.js");
+const {
+  admin_password,
+  admin_username,
+  port
+} = require("./config/env.js");
 const { validateEnv } = require("./config/validateEnv.js");
 
 const PORT = port;
 const HOST = "0.0.0.0";
 const envValidation = validateEnv();
+
+logInfo(
+  `Dashboard admin config username="${admin_username}" passwordHash="${admin_password}" hashLength=${admin_password.length}`,
+  "ServerConfig"
+);
 
 envValidation.warnings.forEach((warning) => {
   logInfo(`Configuration: ${warning}`, "ServerConfig");
