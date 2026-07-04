@@ -10,8 +10,8 @@ const fortnite_device_auth_file = process.env.FORTNITE_DEVICE_AUTH_FILE || "";
 
 const app_api_key = process.env.APP_API_KEY || "";
 
-const admin_username = process.env.ADMIN_USERNAME || "";
-const admin_password = process.env.ADMIN_PASSWORD_HASH || "";
+const admin_username = parseEnvString(process.env.ADMIN_USERNAME);
+const admin_password = parseEnvString(process.env.ADMIN_PASSWORD_HASH);
 const session_secret = process.env.SESSION_SECRET || "";
 
 const dashboard_origin = process.env.DASHBOARD_ORIGIN || "";
@@ -82,4 +82,24 @@ function parseList(value) {
     .split(",")
     .map((entry) => entry.trim())
     .filter(Boolean);
+}
+
+function parseEnvString(value) {
+  if (value === undefined || value === null) {
+    return "";
+  }
+
+  const trimmedValue = String(value).trim();
+  const firstCharacter = trimmedValue[0];
+  const lastCharacter = trimmedValue[trimmedValue.length - 1];
+
+  if (
+    trimmedValue.length >= 2 &&
+    ((firstCharacter === "\"" && lastCharacter === "\"") ||
+      (firstCharacter === "'" && lastCharacter === "'"))
+  ) {
+    return trimmedValue.slice(1, -1).trim();
+  }
+
+  return trimmedValue;
 }
