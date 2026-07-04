@@ -9,6 +9,15 @@ let cachedClient = null;
 let loginPromise = null;
 
 function loadDeviceAuth() {
+  if (process.env.DEVICE_AUTH_JSON) {
+    try {
+      return JSON.parse(process.env.DEVICE_AUTH_JSON);
+    } catch (error) {
+      logError("DEVICE_AUTH_JSON invalide", "FnbrClient", error);
+      return undefined;
+    }
+  }
+
   if (!fs.existsSync(deviceAuthPath)) {
     return undefined;
   }
@@ -22,6 +31,11 @@ function loadDeviceAuth() {
 }
 
 function saveDeviceAuth(deviceAuth) {
+  if (process.env.NODE_ENV === "production") {
+    logInfo("deviceAuth creee/renouvelee en production: mettre a jour DEVICE_AUTH_JSON dans Render si necessaire", "FnbrClient");
+    return;
+  }
+
   try {
     fs.writeFileSync(deviceAuthPath, JSON.stringify(deviceAuth, null, 2));
     logInfo("deviceAuth.json mis a jour", "FnbrClient");
@@ -40,7 +54,6 @@ async function login() {
   }
 
   logInfo("Demande d'authentification Fortnite", "FnbrClient");
-  logInfo("Allez sur https://www.epicgames.com/id/api/redirect?clientId=3f69e56c7649492c8cc29f1af08a8a12&responseType=code pour avoir le code.","FnbrClient")
 
   loginPromise = (async () => {
     const client = new Client({
