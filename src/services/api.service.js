@@ -131,7 +131,8 @@ async function getAllPlayers() {
       image: el.image,
       pseudo: el.pseudo || null,
       country: el.country || null,
-      countryFlag: el.countryFlag || null
+      countryFlag: el.countryFlag || null,
+      academic: el.academi,
     };
   });
 

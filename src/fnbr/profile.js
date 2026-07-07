@@ -1,4 +1,4 @@
-const { login } = require("./client");
+const { login, resetClientAfterAuthError } = require("./client");
 const {
   loadNormalizedData,
   saveNormalizedData
@@ -32,6 +32,7 @@ async function getPlayerTournament(user) {
     );
     return profile;
   } catch (error) {
+    resetClientAfterAuthError(error);
     logWarning(
       formatRequestLog({
         service: "Epic",
@@ -72,6 +73,7 @@ async function getPlayerNameOrId(user) {
     );
     return player;
   } catch (error) {
+    resetClientAfterAuthError(error);
     logWarning(
       formatRequestLog({
         service: "Epic",
@@ -212,6 +214,7 @@ async function getAllPlayersName(userArr) {
         }
       }
     } catch (error) {
+      resetClientAfterAuthError(error);
       failedChunks += 1;
       logWarning(
         formatRequestLog({

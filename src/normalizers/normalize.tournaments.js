@@ -85,6 +85,8 @@ async function normalizeTournaments(tournaments) {
             windowArr.push(windowObj);
         }
 
+        shareSecondCumulativeWindowPrizes(windowArr);
+
         const tournamentObj = {
             id: tournament.id,
 
@@ -219,6 +221,79 @@ function getMainResolvedLocation(resolvedLocations = [], mainLeaderboardIndex = 
     }
 
     return resolvedLocations[0] || null;
+}
+
+function shareSecondCumulativeWindowPrizes(windows = []) {
+    const cumulativeWindowGroups = new Map();
+
+    for (const window of windows) {
+        const cumulativeLocation = getCumulativeResolvedLocation(window.resolvedLocations);
+
+        if (!cumulativeLocation) {
+            continue;
+        }
+
+        const group = cumulativeWindowGroups.get(cumulativeLocation) || [];
+        group.push(window);
+        cumulativeWindowGroups.set(cumulativeLocation, group);
+    }
+
+    for (const group of cumulativeWindowGroups.values()) {
+        if (group.length !== 2) {
+            continue;
+        }
+
+        const [, secondWindow] = group.slice().sort(compareWindowStart);
+        const sharedPrizes = secondWindow?.prizes || [];
+
+        if (sharedPrizes.length === 0) {
+            continue;
+        }
+
+        for (const window of group) {
+            window.prizes = mergePrizes(window.prizes, sharedPrizes);
+        }
+    }
+}
+
+function getCumulativeResolvedLocation(resolvedLocations = []) {
+    return (resolvedLocations || []).find((location) => {
+        return String(location || "").includes("Fortnite:cumulative:");
+    }) || null;
+}
+
+function compareWindowStart(left, right) {
+    const leftTime = new Date(left?.start || 0).getTime();
+    const rightTime = new Date(right?.start || 0).getTime();
+
+    return leftTime - rightTime;
+}
+
+function mergePrizes(currentPrizes = [], sharedPrizes = []) {
+    const mergedPrizes = Array.isArray(currentPrizes) ? [...currentPrizes] : [];
+    const existingPrizeKeys = new Set(mergedPrizes.map(getPrizeKey));
+
+    for (const prize of sharedPrizes) {
+        const prizeKey = getPrizeKey(prize);
+
+        if (!existingPrizeKeys.has(prizeKey)) {
+            mergedPrizes.push({ ...prize });
+            existingPrizeKeys.add(prizeKey);
+        }
+    }
+
+    return mergedPrizes;
+}
+
+function getPrizeKey(prize = {}) {
+    return [
+        prize.scoringType,
+        prize.threshold,
+        prize.rewardType,
+        prize.rewardMode,
+        prize.value,
+        prize.quantity
+    ].map((value) => value ?? "").join("|");
 }
 
 module.exports = {

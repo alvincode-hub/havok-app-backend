@@ -16,6 +16,7 @@ const { logDebug } = require("../utils/logger.js");
 
 const TEAM_CONFIG_PATH = "config/team.json";
 const MAX_PAGES_LOADED = 10
+const TRACKED_PLAYER_INDEX_VERSION = 2;
 
 async function findPlayerResultInLocation(resolvedLocation, playerId) {
   if (!playerId) {
@@ -71,7 +72,7 @@ async function loadTrackedPlayerResultsInLocation(resolvedLocation) {
 
   const cachedIndex = await loadNormalizedData(indexPath);
 
-  if (!isObject(cachedIndex?.players)) {
+  if (!isTrackedPlayerIndexCurrent(cachedIndex)) {
     const rebuiltIndex = await rebuildTrackedPlayerIndexFromCachedResults(resolvedLocation);
 
     if (!isObject(rebuiltIndex?.players)) {
@@ -161,17 +162,18 @@ async function buildTrackedLeaderboardPlayerIndex(resolvedLocation, providedPage
         continue;
       }
 
-      const summary = summarizeTrackedPlayerEntry(entry);
+      const trackedEntry = buildTrackedPlayerEntry(entry);
 
       for (const accountId of matchingAccountIds) {
         if (!players[accountId]) {
-          players[accountId] = summary;
+          players[accountId] = trackedEntry;
         }
       }
     }
   }
 
   const payload = {
+    version: TRACKED_PLAYER_INDEX_VERSION,
     resolvedLocation,
     pagesLoaded,
     trackedPlayersCount: trackedPlayerIds.length,
@@ -238,19 +240,21 @@ async function resolveLeaderboardPageNumbers(resolvedLocation) {
   return [...pageNumbers].sort((left, right) => left - right);
 }
 
-function summarizeTrackedPlayerEntry(entry) {
+function buildTrackedPlayerEntry(entry) {
   return {
-    rank: entry?.rank ?? null,
-    points: entry?.points ?? 0,
-    kills: entry?.kills ?? 0,
-    top15s: entry?.top15s ?? 0,
-    top5s: entry?.top5s ?? 0,
-    wins: entry?.wins ?? 0,
-    nbGamesPlayed: entry?.nbGamesPlayed ?? 0,
-    teamAccountId: entry?.teamAccountId || null,
+    ...entry,
     accountIds: Array.isArray(entry?.accountIds) ? entry.accountIds : [],
-    names: Array.isArray(entry?.names) ? entry.names : []
+    names: Array.isArray(entry?.names) ? entry.names : [],
+    sessionHistory: Array.isArray(entry?.sessionHistory) ? entry.sessionHistory : []
   };
+}
+
+function isTrackedPlayerIndexCurrent(index) {
+  return (
+    isObject(index) &&
+    index.version === TRACKED_PLAYER_INDEX_VERSION &&
+    isObject(index.players)
+  );
 }
 
 function normalizePageNumbers(pageNumbers) {

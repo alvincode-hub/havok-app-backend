@@ -391,7 +391,7 @@ Verified locally on 2026-05-20:
 
 - `GET /api/tournaments/results?windowId=<knownWindowId>&page=0` returned `200`
 - the response included `leaderboard.totalPages`
-- leaderboard entry keys included `rank`, `names`, `points`, `nbGamesPlayed`, `kills`, `wins`, `labels`, `rankLabel`, and `pointsLabel`
+- leaderboard entry keys included `rank`, `names`, `points`, `nbGamesPlayed`, `kills`, `wins`, `avrgPoints`, `labels`, `rankLabel`, and `pointsLabel`
 
 ## GET /api/players
 

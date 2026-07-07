@@ -1,4 +1,4 @@
-const { login } = require("./client");
+const { login, resetClientAfterAuthError } = require("./client");
 const { formatRequestLog } = require("../utils/requestLog.js");
 const { logDebug, logInfo, logWarning } = require("../utils/logger");
 
@@ -24,6 +24,7 @@ async function getRawEvents() {
     );
     return events;
   } catch (error) {
+    resetClientAfterAuthError(error);
     logWarning(
       formatRequestLog({
         service: "Epic",
@@ -69,6 +70,7 @@ async function getLeaderboard(resolvedLocation, page = 0) {
     );
     return leaderboard;
   } catch (error) {
+    resetClientAfterAuthError(error);
     logWarning(
       formatRequestLog({
         service: "Epic",
@@ -116,6 +118,7 @@ async function getPlayerTop(resolvedLocation, page = 0) {
     );
     return leaderboard;
   } catch (error) {
+    resetClientAfterAuthError(error);
     logWarning(
       formatRequestLog({
         service: "Epic",
@@ -160,6 +163,7 @@ async function getRawScoreRules() {
     );
     return scoreRules;
   } catch (error) {
+    resetClientAfterAuthError(error);
     logWarning(
       formatRequestLog({
         service: "Epic",

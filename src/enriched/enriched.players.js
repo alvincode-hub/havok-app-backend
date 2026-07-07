@@ -4,6 +4,7 @@ const { loadNormalizedData } = require("../storage/normalizedStore.js");
 const { normalizedPlayerPath, normalizedTournamentsPath } = require("../storage/paths.js");
 const { loadAcceptedEventIds, isEventAccepted } = require("../services/filterEvents.js");
 const { getWindowSuffix } = require("../utils/windowSuffix.js");
+const { enrichResult } = require("../utils/resultLabels.js");
 const fs = require("fs");
 const path = require("path");
 
@@ -45,7 +46,7 @@ async function enrichedPlayers() {
             image: tournament.images?.square || null,
             teamFormat: tournamentWindow.teamFormat || null,
             gameMode: tournamentWindow.mode || null,
-            result
+            result: enrichResult(result, tournamentWindow)
           });
         }
       }
@@ -60,6 +61,7 @@ async function enrichedPlayers() {
       image,
       countryFlag: player.countryFlag,
       country: player.country,
+      academi: player.academi === true,
       top5: getTop5(tournamentParticipated),
       bestTop:getBestTop(tournamentParticipated),
       avgKill: avgKill(tournamentParticipated),

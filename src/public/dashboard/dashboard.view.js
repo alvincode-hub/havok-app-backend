@@ -430,6 +430,7 @@ function renderTeamPlayersMarkup() {
         ${renderTextField("Image", "player", index, "image", player.image)}
         ${renderTextField("Pays", "player", index, "country", player.country)}
         ${renderTextField("Drapeau", "player", index, "countryFlag", player.countryFlag, "field-span-full")}
+        ${renderCheckboxField("Academi", "player", index, "academi", player.academi)}
       </div>
     </article>
   `).join("");
@@ -510,6 +511,15 @@ function renderTextField(label, prefix, index, field, value = "", extraClass = "
     <label class="stacked-field ${extraClass}">
       <span class="field-label">${escapeHtml(label)}</span>
       <input type="${type}" data-${prefix}-index="${index}" data-${prefix}-field="${field}" value="${escapeHtml(value || "")}" />
+    </label>
+  `;
+}
+
+function renderCheckboxField(label, prefix, index, field, checked = false, extraClass = "") {
+  return `
+    <label class="stacked-field ${extraClass}">
+      <span class="field-label">${escapeHtml(label)}</span>
+      <input type="checkbox" data-${prefix}-index="${index}" data-${prefix}-field="${field}" ${checked ? "checked" : ""} />
     </label>
   `;
 }

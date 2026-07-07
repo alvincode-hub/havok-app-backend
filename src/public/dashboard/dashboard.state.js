@@ -279,7 +279,8 @@ export function createEmptyTeamPlayer() {
     name: "",
     image: "",
     country: "",
-    countryFlag: ""
+    countryFlag: "",
+    academi: false
   };
 }
 

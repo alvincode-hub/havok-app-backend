@@ -154,7 +154,7 @@ function bindListInput(containerId, indexKey, fieldKey, getList, section) {
       return;
     }
 
-    item[field] = event.target.value;
+    item[field] = event.target.type === "checkbox" ? event.target.checked : event.target.value;
     markSettingsDirty(state, section);
     renderDashboard(state);
   });

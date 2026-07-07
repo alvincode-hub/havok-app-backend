@@ -2,6 +2,8 @@ const {
   app_api_key,
   app_attestation_mode,
   app_auth_jwt_secret,
+  admin_password,
+  admin_username,
   allowed_origins,
   dashboard_origin,
   node_env,
@@ -34,6 +36,20 @@ function validateEnv() {
     errors.push("SESSION_SECRET est requis.");
   }
 
+  if (!admin_username) {
+    errors.push("ADMIN_USERNAME est requis.");
+  }
+
+  if (!admin_password) {
+    errors.push("ADMIN_PASSWORD_HASH est requis.");
+  }
+
+  if (admin_password && !isBcryptHash(admin_password)) {
+    warnings.push(
+      "ADMIN_PASSWORD_HASH ne ressemble pas a un hash bcrypt. Le login dashboard risque de retourner 401."
+    );
+  }
+
   if (isProduction) {
     if (!dashboard_origin) {
       errors.push("DASHBOARD_ORIGIN est requis en production.");
@@ -61,3 +77,7 @@ function validateEnv() {
 module.exports = {
   validateEnv
 };
+
+function isBcryptHash(value) {
+  return /^\$2[aby]\$\d{2}\$[./A-Za-z0-9]{53}$/.test(value);
+}

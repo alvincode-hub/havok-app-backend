@@ -8,7 +8,54 @@ const deviceAuthPath = path.join(__dirname, "../../deviceAuth.json");
 let cachedClient = null;
 let loginPromise = null;
 
+function isTokenNotFoundError(error) {
+  if (!error) {
+    return false;
+  }
+
+  const errorText = [
+    error.code,
+    error.message,
+    error.name,
+    error.errorCode,
+    error.response?.data?.errorCode,
+    error.response?.data?.errorMessage
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  return errorText.toUpperCase().includes("TOKEN_NOT_FOUND");
+}
+
+function resetClientAfterAuthError(error) {
+  if (!isTokenNotFoundError(error)) {
+    return false;
+  }
+
+  if (cachedClient) {
+    try {
+      cachedClient.destroy();
+    } catch (destroyError) {
+      logError("Nettoyage du client Fortnite impossible", "FnbrClient", destroyError);
+    }
+  }
+
+  cachedClient = null;
+  loginPromise = null;
+  logError("Token Fortnite introuvable, client FNBR remis a zero", "FnbrClient", error);
+  return true;
+}
+
 function loadDeviceAuth() {
+  if (process.env.DEVICE_AUTH_JSON) {
+    try {
+      return JSON.parse(process.env.DEVICE_AUTH_JSON);
+    } catch (error) {
+      logError("DEVICE_AUTH_JSON invalide", "FnbrClient", error);
+      return undefined;
+    }
+  }
+
   if (!fs.existsSync(deviceAuthPath)) {
     return undefined;
   }
@@ -22,6 +69,11 @@ function loadDeviceAuth() {
 }
 
 function saveDeviceAuth(deviceAuth) {
+  if (process.env.NODE_ENV === "production") {
+    logInfo("deviceAuth creee/renouvelee en production: mettre a jour DEVICE_AUTH_JSON dans Render si necessaire", "FnbrClient");
+    return;
+  }
+
   try {
     fs.writeFileSync(deviceAuthPath, JSON.stringify(deviceAuth, null, 2));
     logInfo("deviceAuth.json mis a jour", "FnbrClient");
@@ -65,6 +117,7 @@ async function login() {
   try {
     return await loginPromise;
   } catch (error) {
+    resetClientAfterAuthError(error);
     logError("Connexion Fortnite echouee", "FnbrClient", error);
     throw error;
   } finally {
@@ -82,4 +135,9 @@ function getClientStatus() {
   };
 }
 
-module.exports = { login, getClientStatus };
+module.exports = {
+  login,
+  getClientStatus,
+  isTokenNotFoundError,
+  resetClientAfterAuthError
+};

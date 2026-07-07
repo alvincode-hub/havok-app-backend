@@ -353,6 +353,7 @@ async function buildPlayerDirectory(playersData, teamConfig, acceptedEventIds) {
       image: normalizeSimpleString(configPlayer.image),
       country: repairText(configPlayer.country),
       countryFlag: normalizeSimpleString(configPlayer.countryFlag),
+      academi: configPlayer.academi === true,
       lastTournaments: []
     });
   }
@@ -382,6 +383,7 @@ async function buildPlayerDirectory(playersData, teamConfig, acceptedEventIds) {
       image: normalizeSimpleString(player.image) || current.image,
       country: repairText(player.country) || current.country,
       countryFlag: normalizeSimpleString(player.countryFlag) || current.countryFlag,
+      academi: typeof player.academi === "boolean" ? player.academi : current.academi === true,
       lastTournaments: filterTournamentHistory(
         Array.isArray(player.lastTournaments) ? player.lastTournaments : current.lastTournaments,
         acceptedEventIds
@@ -1193,7 +1195,8 @@ function normalizeTeamConfig(value) {
         imageSource: normalizeRemoteAssetSource(player.imageSource),
         country: repairText(player.country),
         countryFlag: normalizeSimpleString(player.countryFlag),
-        countryFlagSource: normalizeRemoteAssetSource(player.countryFlagSource)
+        countryFlagSource: normalizeRemoteAssetSource(player.countryFlagSource),
+        academi: player.academi === true
       }))
       .filter((player) => player.accountId)
   };
