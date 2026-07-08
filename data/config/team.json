@@ -11,7 +11,7 @@
         "country": "Suède",
         "countryFlag": "/dashboard-assets/flags/su-de-1998912eba.png",
         "countryFlagSource": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/langfr-500px-Flag_of_Sweden.svg.png",
-        "academi": true
+        "academi": false
       },
       {
         "accountId": "072e8b9f8188405ab0eb52544e1dc906",
