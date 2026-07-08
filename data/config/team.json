@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-07T20:02:15.474Z",
+  "updatedAt": "2026-07-08T11:39:26.780Z",
   "data": {
     "description": "Liste des joueurs suivis par Havok.",
     "players": [
@@ -11,7 +11,7 @@
         "country": "Suède",
         "countryFlag": "/dashboard-assets/flags/su-de-1998912eba.png",
         "countryFlagSource": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/langfr-500px-Flag_of_Sweden.svg.png",
-        "academi": true
+        "academi": false
       },
       {
         "accountId": "072e8b9f8188405ab0eb52544e1dc906",
@@ -72,6 +72,16 @@
         "countryFlag": "/dashboard-assets/flags/norv-ge-5fd03ac0d7.png",
         "countryFlagSource": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Norway.svg/langfr-500px-Flag_of_Norway.svg.png",
         "academi": false
+      },
+      {
+        "accountId": "42d6024372e8473595b944ad2f7aba74",
+        "name": "Seek",
+        "image": "/dashboard-assets/players/42d6024372e8473595b944ad2f7aba74-4b5fc26cf6.jpg",
+        "imageSource": "https://st3.depositphotos.com/3581215/18899/v/450/depositphotos_188994514-stock-illustration-vector-illustration-male-silhouette-profile.jpg",
+        "country": "France",
+        "countryFlag": "/dashboard-assets/flags/france-6b07f1bf9d.png",
+        "countryFlagSource": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/langfr-500px-Flag_of_France.svg.png",
+        "academi": true
       }
     ]
   }

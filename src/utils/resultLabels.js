@@ -26,31 +26,51 @@ function getResultLabels(result, window) {
   const prizes = window?.prizes || [];
   const points = typeof result?.points === "number" ? result.points : null;
   const rank = typeof result?.rank === "number" ? result.rank : null;
-  const labels = new Set();
+  const rewardStatuses = new Map();
 
   for (const prize of prizes) {
-    let key = "";
-
     if (isAutomaticQualificationPrize(prize)) {
       continue;
     }
 
-    if (prize.scoringType === "rank" && rank !== null) {
-      key = `${prize.rewardType}_${rank <= prize.threshold}`;
-    } else if (prize.scoringType === "value" && points !== null) {
-      key = `${prize.rewardType}_${points >= prize.threshold}`;
-    } else if (prize.scoringType === "percentile") {
+    const qualifies = isPrizeQualified(prize, { points, rank });
+
+    if (qualifies === null) {
       continue;
     }
 
-    const label = LABEL[key] || null;
+    if (!LABEL[`${prize.rewardType}_true`] || !LABEL[`${prize.rewardType}_false`]) {
+      continue;
+    }
+
+    const currentStatus = rewardStatuses.get(prize.rewardType);
+
+    rewardStatuses.set(prize.rewardType, Boolean(currentStatus || qualifies));
+  }
+
+  const labels = [];
+
+  for (const [rewardType, qualifies] of rewardStatuses) {
+    const label = LABEL[`${rewardType}_${qualifies}`] || null;
 
     if (label) {
-      labels.add(label);
+      labels.push(label);
     }
   }
 
-  return [...labels];
+  return labels;
+}
+
+function isPrizeQualified(prize, result) {
+  if (prize?.scoringType === "rank" && result.rank !== null) {
+    return result.rank <= prize.threshold;
+  }
+
+  if (prize?.scoringType === "value" && result.points !== null) {
+    return result.points >= prize.threshold;
+  }
+
+  return null;
 }
 
 function isAutomaticQualificationPrize(prize) {
