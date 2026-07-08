@@ -4,7 +4,6 @@ const { loadNormalizedData } = require("../storage/normalizedStore.js");
 const { normalizedPlayerPath, normalizedTournamentsPath } = require("../storage/paths.js");
 const { loadAcceptedEventIds, isEventAccepted } = require("../services/filterEvents.js");
 const { getWindowSuffix } = require("../utils/windowSuffix.js");
-const { enrichResult } = require("../utils/resultLabels.js");
 const fs = require("fs");
 const path = require("path");
 
@@ -46,7 +45,7 @@ async function enrichedPlayers() {
             image: tournament.images?.square || null,
             teamFormat: tournamentWindow.teamFormat || null,
             gameMode: tournamentWindow.mode || null,
-            result: enrichResult(result, tournamentWindow)
+            result: summarizePlayerResult(result)
           });
         }
       }
@@ -82,6 +81,21 @@ async function loadNormalizedPlayerIfExists(accountId) {
   }
 
   return loadNormalizedData(relativePath);
+}
+
+function summarizePlayerResult(result) {
+  return {
+    rank: result?.rank ?? null,
+    points: result?.points ?? 0,
+    kills: result?.kills ?? 0,
+    top15s: result?.top15s ?? 0,
+    top5s: result?.top5s ?? 0,
+    wins: result?.wins ?? 0,
+    nbGamesPlayed: result?.nbGamesPlayed ?? 0,
+    teamAccountId: result?.teamAccountId || null,
+    accountIds: Array.isArray(result?.accountIds) ? result.accountIds : [],
+    names: Array.isArray(result?.names) ? result.names : []
+  };
 }
 
 function getTop5(tournamentParticipated){

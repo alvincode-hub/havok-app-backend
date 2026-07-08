@@ -1,6 +1,8 @@
 const LABEL = {
   ecomm_true: "Cash",
+  ecomm_false: "Pas Cash",
   token_true: "Qual",
+  token_false: "Pas Qual"
 };
 
 function enrichResult(result, window) {
@@ -24,20 +26,12 @@ function getResultLabels(result, window) {
   const prizes = window?.prizes || [];
   const points = typeof result?.points === "number" ? result.points : null;
   const rank = typeof result?.rank === "number" ? result.rank : null;
-  const hasCompetitiveResult =
-    (typeof points === "number" && points > 0) ||
-    (typeof rank === "number" && rank > 0);
   const labels = new Set();
 
   for (const prize of prizes) {
     let key = "";
 
-    if (
-      prize.rewardType === "token" &&
-      prize.scoringType === "value" &&
-      Number(prize.threshold) === 0 &&
-      !hasCompetitiveResult
-    ) {
+    if (isAutomaticQualificationPrize(prize)) {
       continue;
     }
 
@@ -57,6 +51,14 @@ function getResultLabels(result, window) {
   }
 
   return [...labels];
+}
+
+function isAutomaticQualificationPrize(prize) {
+  return (
+    prize?.rewardType === "token" &&
+    prize?.scoringType === "value" &&
+    Number(prize?.threshold) === 0
+  );
 }
 
 function getRankLabel(rank) {

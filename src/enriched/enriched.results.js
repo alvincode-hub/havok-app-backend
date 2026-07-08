@@ -5,7 +5,7 @@ const { findPlayersResultInLocation } = require("../services/leaderboardIndex.se
 const { loadAcceptedEventIds, isEventAccepted } = require("../services/filterEvents.js");
 const { isOlderThan15Days } = require("../utils/dates.js");
 const { getWindowSuffix } = require("../utils/windowSuffix.js");
-const { enrichResult, getResultLabels } = require("../utils/resultLabels.js");
+const { enrichResult } = require("../utils/resultLabels.js");
 const fs = require("fs");
 const path = require("path");
 
@@ -161,13 +161,16 @@ async function buildLeaderboardQualStatus(resolvedLocation, players, window) {
       return null;
     }
 
+    const enrichedPlayerResult = enrichResult(playerResult, window);
+
     return {
       accountId: player.accountId,
       name: player.name || null,
       image: player.image || null,
-      labels: getResultLabels(playerResult, window),
+      labels: enrichedPlayerResult?.labels || [],
       rank: playerResult?.rank ?? null,
-      points: playerResult?.points ?? null
+      points: playerResult?.points ?? null,
+      result: enrichedPlayerResult
     };
   }).filter(Boolean);
 }

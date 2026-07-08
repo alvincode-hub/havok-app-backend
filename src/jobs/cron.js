@@ -15,9 +15,6 @@ const {
 logInfo("Cron initialise", "Cron");
 
 async function runCronTask(owner, job, errorMessage) {
-  if(1===1){
-    return;
-  }
   try {
     const result = await runWithOrchestrationLock(owner, job);
 
@@ -41,7 +38,7 @@ cron.schedule("*/15 * * * *", async () => {
   await runCronTask("cron:results", runEventsResultJob, "Execution du cron results impossible");
 });
 
-cron.schedule("* */15 * * *", async () => {
+cron.schedule("0 */6 * * *", async () => {
   await runCronTask("cron:events", runEventsJob, "Execution du cron events impossible");
 });
 
@@ -57,7 +54,7 @@ cron.schedule("0 * * * *", async () => {
   );
 });
 
-cron.schedule("* */6 * * *", async () => {
+cron.schedule("0 */6 * * *", async () => {
   await runCronTask(
     "cron:cleanup-results",
     runCleanupResultsJob,
